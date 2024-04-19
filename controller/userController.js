@@ -106,7 +106,6 @@ module.exports.login = expressAsyncHandler(async (req, res) => {
 module.exports.getCurrentUser = expressAsyncHandler(async (req, res) => {
   console.log("getting current user");
   try {
-    console.log(req);
     res.json(req.headers.authData);
   } catch (err) {
     res.status(500).json({
@@ -114,3 +113,26 @@ module.exports.getCurrentUser = expressAsyncHandler(async (req, res) => {
     });
   }
 });
+
+module.exports.addVisitor = async (req, res) => {
+  console.log("adding visitor");
+
+  try {
+    res.json(req.body);
+  } catch (err) {
+    res.json(err);
+  }
+};
+
+module.exports.getUsers = async (req, res) => {
+  console.log("getting all users");
+  try {
+    const allUsers = await users.find({});
+    res.json({
+      allusers: [...allUsers],
+    });
+  } catch (err) {
+    console.log("error");
+    res.json(err);
+  }
+};

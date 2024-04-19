@@ -7,7 +7,8 @@ module.exports.isAuthenticated = (req, res, next) => {
     const token = bearerToken.split(" ")[1];
     jwt.verify(token, process.env.SECRET, (err, authData) => {
       if (err) {
-        res.status(403).json({
+        res.json({
+          success: false,
           message: "access denied",
         });
       } else {
@@ -20,7 +21,7 @@ module.exports.isAuthenticated = (req, res, next) => {
   } else {
     console.log("smthng went wrong validating token");
     res.sendStatus(403).json({
-      message: "invalid token",
+      message: "something went wrong",
     });
   }
 };
