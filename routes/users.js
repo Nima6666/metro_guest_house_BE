@@ -8,7 +8,7 @@ const { isAuthenticated } = require("../middleware/userAuth");
 
 const storage = multer.diskStorage({
   destination: function (req, image, cb) {
-    cb(null, "uploads/");
+    cb(null, "uploads/profile/");
   },
   filename: function (req, file, cb) {
     cb(
@@ -18,15 +18,41 @@ const storage = multer.diskStorage({
   },
 });
 
-const upload = multer({
+const uploadProfile = multer({
   storage: storage,
+});
+
+const storageDocument = multer.diskStorage({
+  destination: function (req, image, cb) {
+    cb(null, "uploads/document/");
+  },
+  filename: function (req, file, cb) {
+    cb(
+      null,
+      file.originalname + "-" + Date.now() + path.extname(file.originalname)
+    );
+  },
+});
+
+const uploadDocument = multer({
+  storage: storageDocument,
 });
 
 router.get("/", isAuthenticated, userController.getUsers);
 
-router.post("/register", upload.single("image"), userController.register);
+router.post(
+  "/register",
+  uploadProfile.single("image"),
+  userController.register
+);
 router.post("/login", userController.login);
 
 router.get("/getCurrentUser", isAuthenticated, userController.getCurrentUser);
+
+router.post(
+  "/visitor",
+  uploadDocument.single("image"),
+  userController.addVisitor
+);
 
 module.exports = router;

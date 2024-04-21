@@ -2,17 +2,18 @@ const expressAsyncHandler = require("express-async-handler");
 const User = require("../model/users");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const users = require("../model/users");
+const visitor = require("../model/visitor");
 
 module.exports.register = expressAsyncHandler(async (req, res) => {
   console.log("registering");
   try {
-    const { firstname, lastname, email, password, phone, role } = req.body;
+    const { firstname, lastname, email, password, phone } = req.body;
 
-    const alreadyReistered = await users.findOne({ email: email });
+    const alreadyReistered = await User.findOne({ email: email });
 
     if (alreadyReistered) {
       console.log("already registered");
+      delete req.file;
       return res.json({
         message: "email already registered",
       });
@@ -28,10 +29,10 @@ module.exports.register = expressAsyncHandler(async (req, res) => {
         email,
         password: hashedPassword,
         phone,
-        image: req.file.path,
+        imageURL: req.file.path,
       });
 
-      const existingUsers = await users.find({});
+      const existingUsers = await User.find({});
       if (existingUsers.length === 0) {
         user.role = "admin";
       }
@@ -51,11 +52,63 @@ module.exports.register = expressAsyncHandler(async (req, res) => {
   }
 });
 
+// module.exports.login = expressAsyncHandler(async (req, res) => {
+//   const { email, password } = req.body;
+
+//   try {
+//     const userFound = await users.findOne({ email: email });
+
+//     if (userFound) {
+//       const isValidPassword = await bcrypt.compare(
+//         password,
+//         userFound.password
+//       );
+
+//       if (!isValidPassword) {
+//         return res.json({
+//           message: "incorrect password",
+//         });
+//       }
+//       const infoObject = {
+//         id: userFound._id,
+//         name: userFound.firstname,
+//         image: userFound.image,
+//       };
+//       const expiryInfo = {
+//         expiresIn: "1h",
+//       };
+
+//       const token = jwt.sign(infoObject, process.env.SECRET, expiryInfo);
+
+//       return res.json({
+//         success: true,
+//         message: "loggedIn successfully",
+//         token,
+//         user: userFound,
+//       });
+//     } else {
+//       return res.json({
+//         message: "incorrect username or password",
+//       });
+//     }
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json({
+//       message: "Something went wrong",
+//       err: err,
+//     });
+//   }
+
+//   const userFound = await users.findOne({ email: email });
+
+//   // res.status(201).json({ message: "User login successfully", user });
+// });
+
 module.exports.login = expressAsyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const userFound = await users.findOne({ email: email });
+    const userFound = await User.findOne({ email: email });
 
     if (userFound) {
       const isValidPassword = await bcrypt.compare(
@@ -68,6 +121,7 @@ module.exports.login = expressAsyncHandler(async (req, res) => {
           message: "incorrect password",
         });
       }
+
       const infoObject = {
         id: userFound._id,
         name: userFound.firstname,
@@ -97,10 +151,6 @@ module.exports.login = expressAsyncHandler(async (req, res) => {
       err: err,
     });
   }
-
-  const userFound = await users.findOne({ email: email });
-
-  // res.status(201).json({ message: "User login successfully", user });
 });
 
 module.exports.getCurrentUser = expressAsyncHandler(async (req, res) => {
@@ -114,25 +164,56 @@ module.exports.getCurrentUser = expressAsyncHandler(async (req, res) => {
   }
 });
 
-module.exports.addVisitor = async (req, res) => {
-  console.log("adding visitor");
-
-  try {
-    res.json(req.body);
-  } catch (err) {
-    res.json(err);
-  }
-};
-
 module.exports.getUsers = async (req, res) => {
   console.log("getting all users");
   try {
-    const allUsers = await users.find({});
+    const allUsers = await User.find({});
     res.json({
       allusers: [...allUsers],
     });
   } catch (err) {
     console.log("error");
     res.json(err);
+  }
+};
+
+module.exports.addVisitor = async (req, res) => {
+  console.log("adding visitor");
+
+  try {
+    const { firstname, lastname, phone, documentType, companion } = req.body;
+
+    const visitorFound = await visitor.findOne({ phone: phone });
+
+    if (visitorFound) {
+      console.log("visitor found");
+      return res.json({
+        visitor: visitorFound,
+      });
+    }
+
+    if (req.file) {
+      console.log("File uploaded to:", req.file.path);
+      const visitorToBeAdded = new visitor({
+        firstname,
+        lastname,
+        phone,
+        documentType,
+        document: req.file.path,
+        companion,
+      });
+
+      console.log(visitorToBeAdded);
+
+      await visitorToBeAdded.save();
+      console.log("visitor added");
+      res.status(201).json({ message: "visitor added" });
+    } else {
+      console.log("error uploading file");
+      res.status(400).send("Error uploading file");
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Internal server error" });
   }
 };

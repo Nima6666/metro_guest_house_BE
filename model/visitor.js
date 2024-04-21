@@ -7,7 +7,7 @@ const visitorSchema = mongoose.Schema({
   documentType: {
     type: String,
     default: "citizenship",
-    enum: ["citizenhip", "drvliscence", "passport"],
+    enum: ["citizenship", "liscence", "passport"],
   },
   document: { type: String, required: true },
   companion: {
@@ -19,6 +19,8 @@ const visitorSchema = mongoose.Schema({
       message: (props) => `${props.path} exceeds the limit of 3`,
     },
   },
+  enteredBy: { type: mongoose.Types.ObjectId, ref: "Users" },
+  enteredAt: { type: Date, default: Date.now },
 });
 
 module.exports = mongoose.model("Visitor", visitorSchema);
