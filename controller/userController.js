@@ -41,7 +41,9 @@ module.exports.register = expressAsyncHandler(async (req, res) => {
 
       await user.save();
       console.log("user created successfully");
-      res.status(201).json({ message: "User registered successfully", user });
+      res
+        .status(201)
+        .json({ success: true, message: "User registered successfully", user });
     } else {
       console.log("error uploading file");
       res.status(400).send("Error uploading file");
@@ -51,58 +53,6 @@ module.exports.register = expressAsyncHandler(async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 });
-
-// module.exports.login = expressAsyncHandler(async (req, res) => {
-//   const { email, password } = req.body;
-
-//   try {
-//     const userFound = await users.findOne({ email: email });
-
-//     if (userFound) {
-//       const isValidPassword = await bcrypt.compare(
-//         password,
-//         userFound.password
-//       );
-
-//       if (!isValidPassword) {
-//         return res.json({
-//           message: "incorrect password",
-//         });
-//       }
-//       const infoObject = {
-//         id: userFound._id,
-//         name: userFound.firstname,
-//         image: userFound.image,
-//       };
-//       const expiryInfo = {
-//         expiresIn: "1h",
-//       };
-
-//       const token = jwt.sign(infoObject, process.env.SECRET, expiryInfo);
-
-//       return res.json({
-//         success: true,
-//         message: "loggedIn successfully",
-//         token,
-//         user: userFound,
-//       });
-//     } else {
-//       return res.json({
-//         message: "incorrect username or password",
-//       });
-//     }
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json({
-//       message: "Something went wrong",
-//       err: err,
-//     });
-//   }
-
-//   const userFound = await users.findOne({ email: email });
-
-//   // res.status(201).json({ message: "User login successfully", user });
-// });
 
 module.exports.login = expressAsyncHandler(async (req, res) => {
   const { email, password } = req.body;
@@ -179,6 +129,7 @@ module.exports.getUsers = async (req, res) => {
 
 module.exports.addVisitor = async (req, res) => {
   console.log("adding visitor");
+  console.log(req.headers.authData);
 
   try {
     const { firstname, lastname, phone, documentType, companion } = req.body;
@@ -201,13 +152,14 @@ module.exports.addVisitor = async (req, res) => {
         documentType,
         document: req.file.path,
         companion,
+        enteredBy: req.headers.authData.id,
       });
 
       console.log(visitorToBeAdded);
 
       await visitorToBeAdded.save();
       console.log("visitor added");
-      res.status(201).json({ message: "visitor added" });
+      res.status(201).json({ success: true, message: "visitor added" });
     } else {
       console.log("error uploading file");
       res.status(400).send("Error uploading file");

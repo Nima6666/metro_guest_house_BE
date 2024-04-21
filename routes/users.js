@@ -51,6 +51,7 @@ router.get("/getCurrentUser", isAuthenticated, userController.getCurrentUser);
 
 router.post(
   "/visitor",
+  isAuthenticated,
   uploadDocument.single("image"),
   userController.addVisitor
 );
