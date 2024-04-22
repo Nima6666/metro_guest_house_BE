@@ -29,7 +29,10 @@ module.exports.register = expressAsyncHandler(async (req, res) => {
         email,
         password: hashedPassword,
         phone,
-        imageURL: req.file.path,
+        imageURL: `${process.env.SELFORIGIN}/${req.file.path.replace(
+          /\\/g,
+          "/"
+        )}`,
       });
 
       const existingUsers = await User.find({});

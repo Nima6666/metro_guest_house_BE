@@ -9,6 +9,7 @@ const usersRouter = require("./routes/users");
 const errorHandler = require("./utils/errorHandler");
 
 const cors = require("cors");
+const { isAuthenticated } = require("./middleware/userAuth");
 
 const app = express();
 
@@ -20,7 +21,11 @@ require("./db/databaseConnection");
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-app.use("/uploads", express.static("images"));
+app.use(
+  "/uploads",
+  // isAuthenticated,
+  express.static("uploads/")
+);
 
 app.use(logger("dev"));
 app.use(express.json());
