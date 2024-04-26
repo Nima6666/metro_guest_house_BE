@@ -36,4 +36,7 @@ router.post(
 
 router.get("/", isAuthenticated, visitorController.getVisitors);
 
+router.get("/:id", isAuthenticated, visitorController.getVisitor);
+
+
 module.exports = router;

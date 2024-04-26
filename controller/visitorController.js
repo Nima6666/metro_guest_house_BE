@@ -24,7 +24,10 @@ module.exports.addVisitor = async (req, res) => {
                 lastname,
                 phone,
                 documentType,
-                document: req.file.path,
+                document: `${process.env.SELFORIGIN}/${req.file.path.replace(
+                    /\\/g,
+                    "/"
+                )}`,
                 companion,
                 enteredBy: req.headers.authData.id,
             });
@@ -60,3 +63,21 @@ module.exports.getVisitors = async (req, res) => {
         });
     }
 };
+
+module.exports.getVisitor = async (req,res) => {
+    console.log("getting selected visitor")
+    try {
+        const id = req.params.id
+
+        const selectedVisitor = await visitor.findById(id);
+
+        console.log(selectedVisitor)
+
+        res.json({
+            success: true,
+            selectedVisitor
+        })
+    } catch (err) {
+        res.json({err})
+    }
+}
