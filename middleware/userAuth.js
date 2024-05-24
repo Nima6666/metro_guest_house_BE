@@ -15,7 +15,7 @@ module.exports.isAuthenticated = (req, res, next) => {
         req.headers.authData = authData;
         setTimeout(() => {
           next();
-        }, 2000);
+        }, 0);
       }
     });
   } else {
