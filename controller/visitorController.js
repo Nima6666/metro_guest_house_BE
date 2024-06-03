@@ -81,6 +81,7 @@ module.exports.getVisitor = async (req, res) => {
 
     const selectedVisitor = await visitor.findById(id);
     await selectedVisitor.populate("enteredBy");
+    await selectedVisitor.populate("entries.by");
 
     // if (selectedVisitor.entries.length > 0) {
     //   await selectedVisitor.populate("entries.by").execPopulate();
@@ -128,15 +129,67 @@ module.exports.addEntry = async (req, res) => {
   try {
     console.log(id, " getting user");
     const visitorToAddEntryTo = await visitor.findById(id);
-    console.log(req.headers.authData);
+    console.log(req.body);
     visitorToAddEntryTo.entries.push({
       time: Date.now(),
       by: req.headers.authData.id,
-      companion: req.body.companion ? [...req.body.companion] : [""],
+      companion: req.body ? [...req.body] : [],
     });
 
     await visitorToAddEntryTo.save();
+
     res.json({ visitorToAddEntryTo });
+  } catch (err) {
+    console.log(err);
+    res.json(err);
+  }
+};
+
+module.exports.entriesToday = async (req, res) => {
+  console.log("getting entries today");
+  try {
+    const startOfToday = new Date();
+    startOfToday.setHours(0, 0, 0, 0);
+
+    const now = new Date();
+    const visitorsToday = await visitor.find({
+      entries: {
+        $elemMatch: {
+          time: { $gte: startOfToday, $lt: now },
+        },
+      },
+    });
+
+    await Promise.all(
+      visitorsToday.map(async (visitorT) => {
+        await visitorT.populate("enteredBy");
+        await visitorT.populate("entries.by");
+      })
+    );
+
+    visitorsToday.sort((a, b) => {
+      const timeA = a.entries[a.entries.length - 1].time;
+      const timeB = b.entries[b.entries.length - 1].time;
+      return new Date(timeA) - new Date(timeB);
+    });
+
+    const transformedData = visitorsToday.map((visitor) => {
+      const lastEntryTime = visitor.entries[visitor.entries.length - 1].time;
+      const enteredByAtLast = visitor.entries[visitor.entries.length - 1].by;
+      const visitorObj = visitor.toObject(); // Convert Mongoose document to plain JavaScript object
+      return {
+        ...visitorObj,
+        enteredAt: lastEntryTime,
+        enteredBy: enteredByAtLast,
+      };
+    });
+
+    console.log("Transformed Data", transformedData);
+
+    return res.json({
+      success: true,
+      visitorsToday: transformedData,
+    });
   } catch (err) {
     console.log(err);
     res.json(err);
