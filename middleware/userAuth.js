@@ -25,3 +25,21 @@ module.exports.isAuthenticated = (req, res, next) => {
     });
   }
 };
+
+module.exports.isAdmin = async (req, res, next) => {
+  try {
+    if (req.headera.authData.role == "admin") {
+      next();
+    } else {
+      res.json({
+        success: false,
+        message: "access denied",
+      });
+    }
+  } catch (err) {
+    console.log("admin check failed");
+    res.sendStatus(403).json({
+      message: "something went wrong",
+    });
+  }
+};

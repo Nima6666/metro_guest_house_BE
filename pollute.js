@@ -20,7 +20,14 @@ mongoose
         enteredBy: dat.enteredBy,
         enteredAt: dat.enteredAt,
         documentType: dat.documentType,
+        address: dat.address,
+        age: dat.age,
+        occupation: dat.occupation,
+        gender: dat.gender,
+        documentId: dat.documentId,
       });
+
+      // visitorToBeAdded.populate("enteredBy");
 
       await visitorToBeAdded.save();
       console.log("visitor added");

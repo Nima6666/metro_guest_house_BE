@@ -132,8 +132,14 @@ module.exports.addEntry = async (req, res) => {
     console.log(req.body);
     visitorToAddEntryTo.entries.push({
       time: Date.now(),
+      room: req.body.room,
       by: req.headers.authData.id,
-      companion: req.body ? [...req.body] : [],
+      companion: req.body.companions,
+      lastVisitedAddress: req.body.lastVisitedAddress,
+      nextDestination: req.body.nextDestination,
+      purposeOfVisit: req.body.purpose,
+      vechileNumber: req.body.vechileNumber,
+      remarks: req.body.remarks,
     });
 
     await visitorToAddEntryTo.save();
