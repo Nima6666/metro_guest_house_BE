@@ -129,18 +129,20 @@ module.exports.addEntry = async (req, res) => {
   try {
     console.log(id, " getting user");
     const visitorToAddEntryTo = await visitor.findById(id);
-    console.log(req.body);
+    console.log("body ", req.body);
     visitorToAddEntryTo.entries.push({
       time: Date.now(),
       room: req.body.room,
       by: req.headers.authData.id,
-      companion: req.body.companions,
+      companion: [...req.body.companions],
       lastVisitedAddress: req.body.lastVisitedAddress,
       nextDestination: req.body.nextDestination,
       purposeOfVisit: req.body.purpose,
       vechileNumber: req.body.vechileNumber,
       remarks: req.body.remarks,
     });
+
+    console.log(visitorToAddEntryTo);
 
     await visitorToAddEntryTo.save();
 

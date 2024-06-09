@@ -30,6 +30,7 @@ const visitorSchema = mongoose.Schema({
         {
           fullname: { type: String, required: true },
           relation: { type: String, required: true },
+          phone: { type: Number, required: true },
           age: { type: Number, required: true },
         },
       ],
