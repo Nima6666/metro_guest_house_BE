@@ -203,3 +203,24 @@ module.exports.entriesToday = async (req, res) => {
     res.json(err);
   }
 };
+
+module.exports.removeEntry = async (req, res) => {
+  try {
+    console.log(req.params);
+    const { id, entryId } = req.params;
+    console.log(id, entryId);
+    const foundVisitor = await visitor.findById(id);
+    foundVisitor.entries = foundVisitor.entries.filter(
+      (entry) => entry._id.toString() !== entryId
+    );
+
+    await foundVisitor.save();
+    console.log(foundVisitor);
+    res.json({
+      success: true,
+      message: "Deleted Entry",
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};

@@ -4,7 +4,7 @@ const multer = require("multer");
 
 const path = require("path");
 
-const { isAuthenticated } = require("../middleware/userAuth");
+const { isAuthenticated, isAdmin } = require("../middleware/userAuth");
 
 const visitorController = require("../controller/visitorController");
 
@@ -39,5 +39,12 @@ router.get("/:id", isAuthenticated, visitorController.getVisitor);
 router.post("/numberSearch", isAuthenticated, visitorController.numberSearch);
 
 router.post("/:id/addEntry", isAuthenticated, visitorController.addEntry);
+
+router.delete(
+  "/:id/:entryId",
+  isAuthenticated,
+  isAdmin,
+  visitorController.removeEntry
+);
 
 module.exports = router;

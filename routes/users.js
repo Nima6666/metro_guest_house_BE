@@ -4,7 +4,7 @@ const userController = require("../controller/userController");
 
 const path = require("path");
 const multer = require("multer");
-const { isAuthenticated } = require("../middleware/userAuth");
+const { isAuthenticated, isAdmin } = require("../middleware/userAuth");
 
 const storage = multer.diskStorage({
   destination: function (req, image, cb) {
@@ -34,6 +34,6 @@ router.post("/login", userController.login);
 
 router.get("/getCurrentUser", isAuthenticated, userController.getCurrentUser);
 
-router.get("/:id", isAuthenticated, userController.getUser);
+router.get("/:id", isAuthenticated, isAdmin, userController.getUser);
 
 module.exports = router;
