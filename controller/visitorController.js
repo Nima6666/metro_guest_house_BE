@@ -218,7 +218,7 @@ module.exports.removeEntry = async (req, res) => {
     console.log(foundVisitor);
     res.json({
       success: true,
-      message: "Deleted Entry",
+      message: "Deleted Entry Successfully",
     });
   } catch (err) {
     console.log(err);
