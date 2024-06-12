@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const visitorSchema = mongoose.Schema({
   firstname: { type: String, required: true },
   lastname: { type: String, required: true },
+  email: { type: String, required: true, default: "some1@earth.com" },
   phone: { type: String, required: true },
   enteredBy: { type: mongoose.Types.ObjectId, ref: "User" },
   enteredAt: { type: Date, default: Date.now },
