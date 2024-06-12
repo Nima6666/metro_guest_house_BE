@@ -18,9 +18,9 @@ const visitorSchema = mongoose.Schema({
   documentId: { type: String, required: true },
   entries: [
     {
-      time: { type: Date },
+      time: { type: Date, required: true },
       checkoutTime: { type: Date, default: null },
-      by: { type: mongoose.Types.ObjectId, ref: "User" },
+      by: { type: mongoose.Types.ObjectId, ref: "User", required: true },
       room: { type: Number, required: true },
       lastVisitedAddress: { type: String },
       nextDestination: { type: String },
@@ -35,6 +35,8 @@ const visitorSchema = mongoose.Schema({
         },
       ],
       remarks: { type: String },
+      edited: { type: Boolean, default: false },
+      editedTimeStamp: { type: Date },
     },
   ],
 });

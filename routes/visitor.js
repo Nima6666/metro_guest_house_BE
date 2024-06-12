@@ -47,4 +47,11 @@ router.delete(
   visitorController.removeEntry
 );
 
+router.patch(
+  "/:id/:entryId",
+  isAuthenticated,
+  isAdmin,
+  visitorController.editEntry
+);
+
 module.exports = router;
