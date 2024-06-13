@@ -36,6 +36,13 @@ router.get("/entriesToday", isAuthenticated, visitorController.entriesToday);
 
 router.get("/:id", isAuthenticated, visitorController.getVisitor);
 
+router.delete(
+  "/:id",
+  isAuthenticated,
+  isAdmin,
+  visitorController.deleteVisitor
+);
+
 router.post("/numberSearch", isAuthenticated, visitorController.numberSearch);
 
 router.post("/:id/addEntry", isAuthenticated, visitorController.addEntry);

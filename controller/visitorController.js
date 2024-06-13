@@ -5,29 +5,49 @@ module.exports.addVisitor = async (req, res) => {
   console.log(req.headers.authData);
 
   try {
-    const { firstname, lastname, phone, documentType, companion } = req.body;
+    const {
+      firstname,
+      lastname,
+      email,
+      phone,
+      address,
+      documentType,
+      gender,
+      age,
+      documentId,
+      occupation,
+    } = req.body;
+
+    console.log(req.body);
+
+    // res.json(req.body);
 
     const visitorFound = await visitor.findOne({ phone: phone });
 
-    if (visitorFound) {
-      console.log("visitor found");
-      return res.json({
-        visitor: visitorFound,
-      });
-    }
+    // if (visitorFound) {
+    //   console.log("visitor found");
+    //   return res.json({
+    //     visitor: visitorFound,
+    //   });
+    // }
 
     if (req.file) {
-      console.log("File uploaded to:", req.file.path);
+      // console.log("File uploaded to:", req.file.path);
       const visitorToBeAdded = new visitor({
         firstname,
         lastname,
+        email,
         phone,
+        address,
         documentType,
-        document: `${process.env.SELFORIGIN}/${req.file.path.replace(
+        documentId,
+        gender,
+        age,
+        occupation,
+        documentLocation: `${process.env.SELFORIGIN}/${req.file.path.replace(
           /\\/g,
           "/"
         )}`,
-        companion,
         enteredBy: req.headers.authData.id,
       });
 
@@ -35,13 +55,13 @@ module.exports.addVisitor = async (req, res) => {
 
       await visitorToBeAdded.save();
 
-      const savedVisitor = await visitor
-        .findById(visitorToBeAdded._id)
-        .populate("enteredBy")
-        .exec();
-
-      console.log("visitor added", savedVisitor);
-      res.status(201).json({ success: true, message: "visitor added" });
+      visitorToBeAdded.populate("enteredBy");
+      console.log("visitor added", visitorToBeAdded);
+      res.status(201).json({
+        success: true,
+        message: "visitor added",
+        visitorAdded: visitorToBeAdded,
+      });
     } else {
       console.log("error uploading file");
       res.status(400).send("Error uploading file");
@@ -262,5 +282,25 @@ module.exports.editEntry = async (req, res) => {
     });
   } catch (err) {
     console.log(err);
+  }
+};
+
+module.exports.deleteVisitor = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deletedVisitor = await visitor.findByIdAndDelete(id);
+
+    console.log(deletedVisitor);
+
+    if (deletedVisitor) {
+      res.json({ success: true, message: "Visitor deleted successfully." });
+    } else {
+      res.status(404).json({ success: false, message: "Visitor not found." });
+    }
+  } catch (err) {
+    console.log(err);
+    res
+      .status(500)
+      .json({ message: "An error occurred while deleting the visitor." });
   }
 };
