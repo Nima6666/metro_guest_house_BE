@@ -212,8 +212,6 @@ module.exports.entriesToday = async (req, res) => {
       };
     });
 
-    console.log("Transformed Data", transformedData);
-
     return res.json({
       success: true,
       visitorsToday: transformedData,
@@ -245,41 +243,43 @@ module.exports.removeEntry = async (req, res) => {
 
 module.exports.editEntry = async (req, res) => {
   try {
-    const { id, entryId } = req.params;
-    const foundVisitor = await visitor.findById(id);
-    const entryToEdit = foundVisitor.entries.find(
-      (entry) => entry._id.toString() === entryId
-    );
-    const index = foundVisitor.entries.findIndex(
-      (entry) => entry._id.toString() === entryId
-    );
+    // const { id, entryId } = req.params;
+    // const foundVisitor = await visitor.findById(id);
+    // const entryToEdit = foundVisitor.entries.find(
+    //   (entry) => entry._id.toString() === entryId
+    // );
+    // const index = foundVisitor.entries.findIndex(
+    //   (entry) => entry._id.toString() === entryId
+    // );
 
-    const existingEntry = foundVisitor.entries[index].toObject();
+    // const existingEntry = foundVisitor.entries[index].toObject();
 
-    console.log(existingEntry);
-    foundVisitor.entries[index] = {
-      ...existingEntry,
-      room: req.body.room,
-      companion: [...req.body.companions],
-      lastVisitedAddress: req.body.lastVisitedAddress,
-      nextDestination: req.body.nextDestination,
-      purposeOfVisit: req.body.purpose,
-      vechileNumber: req.body.vechileNumber,
-      remarks: req.body.remarks,
-      edited: true,
-      editedTimeStamp: Date.now(),
-    };
+    // console.log(existingEntry);
+    // foundVisitor.entries[index] = {
+    //   ...existingEntry,
+    //   room: req.body.room,
+    //   companion: [...req.body.companions],
+    //   lastVisitedAddress: req.body.lastVisitedAddress,
+    //   nextDestination: req.body.nextDestination,
+    //   purposeOfVisit: req.body.purpose,
+    //   vechileNumber: req.body.vechileNumber,
+    //   remarks: req.body.remarks,
+    //   edited: true,
+    //   editedTimeStamp: Date.now(),
+    // };
 
-    console.log(foundVisitor.entries[index]);
+    // console.log(foundVisitor.entries[index]);
 
-    await foundVisitor.save();
-    await foundVisitor.populate("entries.by");
+    // await foundVisitor.save();
+    // await foundVisitor.populate("entries.by");
 
-    res.json({
-      success: true,
-      editedEntry: foundVisitor.entries[index],
-      message: "Edited Entry Successfully",
-    });
+    // res.json({
+    //   success: true,
+    //   editedEntry: foundVisitor.entries[index],
+    //   message: "Edited Entry Successfully",
+    // });
+    console.log("editedDetails ", req.body);
+    res.json(req.body);
   } catch (err) {
     console.log(err);
   }

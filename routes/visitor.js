@@ -43,6 +43,8 @@ router.delete(
   visitorController.deleteVisitor
 );
 
+router.patch("/:id", isAuthenticated, isAdmin, visitorController.editEntry);
+
 router.post("/numberSearch", isAuthenticated, visitorController.numberSearch);
 
 router.post("/:id/addEntry", isAuthenticated, visitorController.addEntry);

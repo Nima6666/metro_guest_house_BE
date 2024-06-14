@@ -81,7 +81,7 @@ module.exports.login = expressAsyncHandler(async (req, res) => {
         id: userFound._id,
         name: userFound.firstname,
         role: userFound.role,
-        image: userFound.image,
+        image: userFound.imageURL,
       };
       const expiryInfo = {
         expiresIn: "1h",
