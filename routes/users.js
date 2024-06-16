@@ -22,12 +22,21 @@ const uploadProfile = multer({
   storage: storage,
 });
 
+router.get("/serverStat", userController.getStat);
 router.get("/", isAuthenticated, userController.getUsers);
 
 router.post(
   "/register",
+  isAuthenticated,
+  isAdmin,
   uploadProfile.single("image"),
   userController.register
+);
+
+router.post(
+  "/admin",
+  uploadProfile.single("image"),
+  userController.adminRegister
 );
 
 router.post("/login", userController.login);
@@ -35,5 +44,6 @@ router.post("/login", userController.login);
 router.get("/getCurrentUser", isAuthenticated, userController.getCurrentUser);
 
 router.get("/:id", isAuthenticated, isAdmin, userController.getUser);
+router.delete("/:id", isAuthenticated, isAdmin, userController.deleteUser);
 
 module.exports = router;

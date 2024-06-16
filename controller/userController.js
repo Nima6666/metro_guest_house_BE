@@ -4,6 +4,57 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const visitor = require("../model/visitor");
 
+module.exports.adminRegister = async (req, res) => {
+  console.log("registering");
+  try {
+    const { firstname, lastname, email, password, phone } = req.body;
+
+    const users = await User.find({});
+    if (users.length) {
+      return res.json({
+        success: false,
+        message: "Admin for this server is already registered",
+      });
+    }
+
+    if (req.file) {
+      console.log("File uploaded to:", req.file.path);
+
+      const hashedPassword = await bcrypt.hash(password, 10);
+      const admin = new User({
+        firstname,
+        lastname,
+        email,
+        password: hashedPassword,
+        phone,
+        imageURL: `${process.env.SELFORIGIN}/${req.file.path.replace(
+          /\\/g,
+          "/"
+        )}`,
+        role: "admin",
+      });
+
+      // const existingUsers = await User.find({});
+      // if (existingUsers.length === 0) {
+      //   user.role = "admin";
+      // }
+
+      await admin.save();
+      res.status(201).json({
+        success: true,
+        message: "Admin registered successfully for this server.",
+        admin,
+      });
+    } else {
+      console.log("error uploading file");
+      res.status(400).send("Error uploading file");
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
 module.exports.register = expressAsyncHandler(async (req, res) => {
   console.log("registering");
   try {
@@ -15,6 +66,7 @@ module.exports.register = expressAsyncHandler(async (req, res) => {
       console.log("already registered");
       delete req.file;
       return res.json({
+        success: false,
         message: "email already registered",
       });
     }
@@ -35,10 +87,10 @@ module.exports.register = expressAsyncHandler(async (req, res) => {
         )}`,
       });
 
-      const existingUsers = await User.find({});
-      if (existingUsers.length === 0) {
-        user.role = "admin";
-      }
+      // const existingUsers = await User.find({});
+      // if (existingUsers.length === 0) {
+      //   user.role = "admin";
+      // }
 
       console.log(user);
 
@@ -134,48 +186,66 @@ module.exports.getUsers = async (req, res) => {
   }
 };
 
-module.exports.addVisitor = async (req, res) => {
-  console.log("adding visitor");
-  console.log(req.headers.authData);
-
+module.exports.deleteUser = async (req, res) => {
   try {
-    const { firstname, lastname, phone, documentType, companion } = req.body;
+    const { id } = req.params;
+    const deletedVisitor = await User.findByIdAndDelete(id);
 
-    const visitorFound = await visitor.findOne({ phone: phone });
-
-    if (visitorFound) {
-      console.log("visitor found");
-      return res.json({
-        visitor: visitorFound,
-      });
-    }
-
-    if (req.file) {
-      console.log("File uploaded to:", req.file.path);
-      const visitorToBeAdded = new visitor({
-        firstname,
-        lastname,
-        phone,
-        documentType,
-        document: req.file.path,
-        companion,
-        enteredBy: req.headers.authData.id,
-      });
-
-      console.log(visitorToBeAdded);
-
-      await visitorToBeAdded.save();
-      console.log("visitor added");
-      res.status(201).json({ success: true, message: "visitor added" });
+    if (deletedVisitor) {
+      res.json({ success: true, message: "User deleted successfully." });
     } else {
-      console.log("error uploading file");
-      res.status(400).send("Error uploading file");
+      res.status(404).json({ success: false, message: "User not found." });
     }
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ message: "Internal server error" });
+  } catch (err) {
+    console.log(err);
+    res
+      .status(500)
+      .json({ message: "An error occurred while deleting the visitor." });
   }
 };
+
+// module.exports.addVisitor = async (req, res) => {
+//   console.log("adding visitor");
+//   console.log(req.headers.authData);
+
+//   try {
+//     const { firstname, lastname, phone, documentType, companion } = req.body;
+
+//     const visitorFound = await visitor.findOne({ phone: phone });
+
+//     if (visitorFound) {
+//       console.log("visitor found");
+//       return res.json({
+//         visitor: visitorFound,
+//       });
+//     }
+
+//     if (req.file) {
+//       console.log("File uploaded to:", req.file.path);
+//       const visitorToBeAdded = new visitor({
+//         firstname,
+//         lastname,
+//         phone,
+//         documentType,
+//         document: req.file.path,
+//         companion,
+//         enteredBy: req.headers.authData.id,
+//       });
+
+//       console.log(visitorToBeAdded);
+
+//       await visitorToBeAdded.save();
+//       console.log("visitor added");
+//       res.status(201).json({ success: true, message: "visitor added" });
+//     } else {
+//       console.log("error uploading file");
+//       res.status(400).send("Error uploading file");
+//     }
+//   } catch (error) {
+//     console.log(error);
+//     res.status(500).json({ message: "Internal server error" });
+//   }
+// };
 
 module.exports.getUser = async (req, res) => {
   console.log("getting selected user");
@@ -198,6 +268,17 @@ module.exports.getUser = async (req, res) => {
   } catch {
     res.json({
       success: false,
+      message: "something went wrong",
+    });
+  }
+};
+
+module.exports.getStat = async (req, res) => {
+  try {
+    const users = await User.find({});
+    res.json({ success: true, stat: users.length ? true : false });
+  } catch (err) {
+    res.json({
       message: "something went wrong",
     });
   }

@@ -243,44 +243,45 @@ module.exports.removeEntry = async (req, res) => {
 
 module.exports.editEntry = async (req, res) => {
   try {
-    // const { id, entryId } = req.params;
-    // const foundVisitor = await visitor.findById(id);
-    // const entryToEdit = foundVisitor.entries.find(
-    //   (entry) => entry._id.toString() === entryId
-    // );
-    // const index = foundVisitor.entries.findIndex(
-    //   (entry) => entry._id.toString() === entryId
-    // );
+    const { id } = req.params;
+    const foundVisitor = await visitor.findById(id);
 
-    // const existingEntry = foundVisitor.entries[index].toObject();
+    const existingData = foundVisitor.toObject();
 
-    // console.log(existingEntry);
-    // foundVisitor.entries[index] = {
-    //   ...existingEntry,
-    //   room: req.body.room,
-    //   companion: [...req.body.companions],
-    //   lastVisitedAddress: req.body.lastVisitedAddress,
-    //   nextDestination: req.body.nextDestination,
-    //   purposeOfVisit: req.body.purpose,
-    //   vechileNumber: req.body.vechileNumber,
-    //   remarks: req.body.remarks,
-    //   edited: true,
-    //   editedTimeStamp: Date.now(),
-    // };
+    console.log(existingData);
 
-    // console.log(foundVisitor.entries[index]);
+    const editedVisitor = {
+      ...existingData,
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      email: req.body.email,
+      phone: req.body.phone,
+      address: req.body.address,
+      gender: req.body.gender,
+      age: req.body.age,
+      occupation: req.body.occupation,
+      // edited: true,
+      // editedTimeStamp: Date.now(),
+    };
 
-    // await foundVisitor.save();
-    // await foundVisitor.populate("entries.by");
+    console.log(editedVisitor);
 
-    // res.json({
-    //   success: true,
-    //   editedEntry: foundVisitor.entries[index],
-    //   message: "Edited Entry Successfully",
-    // });
-    console.log("editedDetails ", req.body);
-    res.json(req.body);
+    Object.assign(foundVisitor, editedVisitor);
+
+    await foundVisitor.save();
+    await foundVisitor.populate("enteredBy");
+    await foundVisitor.populate("entries.by");
+
+    res.json({
+      success: true,
+      editedVisitor: foundVisitor,
+      message: "Edited Visitor Successfully",
+    });
   } catch (err) {
+    res.json({
+      success: false,
+      message: "Something went wrong editing",
+    });
     console.log(err);
   }
 };
