@@ -273,6 +273,43 @@ module.exports.getUser = async (req, res) => {
   }
 };
 
+module.exports.editUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const foundUser = await User.findById(id);
+
+    const editedUser = {
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      email: req.body.email,
+      phone: req.body.phone,
+      // address: req.body.address,
+      // gender: req.body.gender,
+      // age: req.body.age,
+      // edited: true,
+      // editedTimeStamp: Date.now(),
+    };
+
+    console.log(editedUser);
+
+    Object.assign(foundUser, editedUser);
+
+    await foundUser.save();
+
+    res.json({
+      success: true,
+      editedUser: foundUser,
+      message: "Edited User Successfully",
+    });
+  } catch (err) {
+    res.json({
+      success: false,
+      message: "Something went wrong editing",
+    });
+    console.log(err);
+  }
+};
+
 module.exports.getStat = async (req, res) => {
   try {
     const users = await User.find({});
