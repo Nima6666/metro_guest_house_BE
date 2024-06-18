@@ -459,7 +459,22 @@ module.exports.reuploadProfile = async (req, res) => {
 module.exports.resetUsersPassword = async (req, res) => {
   try {
     console.log(req.body);
+    const { id } = req.params;
+    const user = await User.findById(id);
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+
+    user.password = hashedPassword;
+
+    await user.save();
+
+    res.json({
+      success: true,
+      message: "Password Changed",
+    });
   } catch (err) {
     console.log(err);
+    res.json({
+      message: "something went wrong",
+    });
   }
 };

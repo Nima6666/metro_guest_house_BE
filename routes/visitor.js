@@ -62,6 +62,7 @@ router.patch(
   isAdmin,
   visitorController.editEntry
 );
+router.put("/:id/:entryId", isAuthenticated, visitorController.checkout);
 router.put(
   "/:id",
   isAuthenticated,

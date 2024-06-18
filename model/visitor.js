@@ -21,8 +21,12 @@ const visitorSchema = mongoose.Schema({
     {
       time: { type: Date, required: true },
       checkoutTime: { type: Date, default: null },
+      checkoutBy: {
+        type: mongoose.Types.ObjectId,
+        ref: "User",
+      },
       by: { type: mongoose.Types.ObjectId, ref: "User", required: true },
-      room: { type: Number, required: true },
+      room: { type: String, required: true },
       lastVisitedAddress: { type: String },
       nextDestination: { type: String },
       purposeOfVisit: { type: String },

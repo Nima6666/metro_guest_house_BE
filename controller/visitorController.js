@@ -245,45 +245,42 @@ module.exports.removeEntry = async (req, res) => {
 
 module.exports.editEntry = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { id, entryId } = req.params;
     const foundVisitor = await visitor.findById(id);
+    const entryToEdit = foundVisitor.entries.find(
+      (entry) => entry._id.toString() === entryId
+    );
+    const index = foundVisitor.entries.findIndex(
+      (entry) => entry._id.toString() === entryId
+    );
 
-    const existingData = foundVisitor.toObject();
+    const existingEntry = foundVisitor.entries[index].toObject();
 
-    console.log(existingData);
-
-    const editedVisitor = {
-      ...existingData,
-      firstname: req.body.firstname,
-      lastname: req.body.lastname,
-      email: req.body.email,
-      phone: req.body.phone,
-      address: req.body.address,
-      gender: req.body.gender,
-      age: req.body.age,
-      occupation: req.body.occupation,
-      // edited: true,
-      // editedTimeStamp: Date.now(),
+    console.log(existingEntry);
+    foundVisitor.entries[index] = {
+      ...existingEntry,
+      room: req.body.room,
+      companion: [...req.body.companions],
+      lastVisitedAddress: req.body.lastVisitedAddress,
+      nextDestination: req.body.nextDestination,
+      purposeOfVisit: req.body.purpose,
+      vechileNumber: req.body.vechileNumber,
+      remarks: req.body.remarks,
+      edited: true,
+      editedTimeStamp: Date.now(),
     };
 
-    console.log(editedVisitor);
-
-    Object.assign(foundVisitor, editedVisitor);
+    console.log(foundVisitor.entries[index]);
 
     await foundVisitor.save();
-    await foundVisitor.populate("enteredBy");
     await foundVisitor.populate("entries.by");
 
     res.json({
       success: true,
-      editedVisitor: foundVisitor,
-      message: "Edited Visitor Successfully",
+      editedEntry: foundVisitor.entries[index],
+      message: "Edited Entry Successfully",
     });
   } catch (err) {
-    res.json({
-      success: false,
-      message: "Something went wrong editing",
-    });
     console.log(err);
   }
 };
@@ -380,5 +377,40 @@ module.exports.reuploadDocument = async (req, res) => {
     res
       .status(500)
       .json({ message: "Something went wrong", error: err.message });
+  }
+};
+
+module.exports.checkout = async (req, res) => {
+  try {
+    const { id, entryId } = req.params;
+    const foundVisitor = await visitor.findById(id);
+    const entryToEdit = foundVisitor.entries.find(
+      (entry) => entry._id.toString() === entryId
+    );
+    const index = foundVisitor.entries.findIndex(
+      (entry) => entry._id.toString() === entryId
+    );
+
+    const existingEntry = foundVisitor.entries[index].toObject();
+
+    console.log(existingEntry);
+    foundVisitor.entries[index] = {
+      ...existingEntry,
+      checkoutTime: Date.now(),
+      checkoutBy: req.headers.authData.id,
+    };
+
+    console.log(foundVisitor.entries[index]);
+
+    await foundVisitor.save();
+    await foundVisitor.populate("entries.by");
+
+    res.json({
+      success: true,
+      editedEntry: foundVisitor.entries[index],
+      message: "Edited Entry Successfully",
+    });
+  } catch (err) {
+    console.log(err);
   }
 };
