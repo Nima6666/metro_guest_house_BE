@@ -1,4 +1,6 @@
 const visitor = require("../model/visitor");
+const fs = require("fs");
+const path = require("path");
 
 module.exports.addVisitor = async (req, res) => {
   console.log("adding visitor");
@@ -308,14 +310,75 @@ module.exports.deleteVisitor = async (req, res) => {
 
 module.exports.reuploadDocument = async (req, res) => {
   try {
-    const { id } = req.params;
-    const visitorFound = await visitor.findById(id);
     if (req.file) {
+      console.log(req.file);
+
+      const { id } = req.params;
       console.log("File uploaded to:", req.file.path, id);
+
+      const visitorFound = await visitor.findById(id);
+
+      if (!visitorFound) {
+        return res.status(404).json({ message: "Visitor not found" });
+      }
+
+      console.log(req.body);
+
+      const fileUrl = visitorFound.documentLocation;
+      const urlParts = fileUrl.split("/");
+      const relativePath = urlParts.slice(3).join("/"); // Adjust this based on your URL structure
+      const filePath = path.join(__dirname, "..", relativePath);
+      const normalizedPath = path.normalize(filePath);
+
+      console.log(`Deleting file at path: ${normalizedPath}`);
+
+      if (fs.existsSync(normalizedPath)) {
+        fs.unlink(normalizedPath, async (err) => {
+          if (err) {
+            console.error(`Error deleting file: ${err.message}`);
+            return res
+              .status(500)
+              .json({ message: "Error deleting file", error: err.message });
+          }
+          console.log("File deleted successfully");
+
+          visitorFound.documentLocation = `${
+            process.env.SELFORIGIN
+          }/${req.file.path.replace(/\\/g, "/")}`;
+
+          visitorFound.documentId = req.body.documentId;
+          visitorFound.documentType = req.body.documentType;
+
+          await visitorFound.save();
+
+          res.json({
+            success: true,
+            updatedUser: visitorFound,
+            message: "Document updated successfully",
+          });
+        });
+      } else {
+        console.log("File not found");
+
+        visitorFound.documentLocation = `${
+          process.env.SELFORIGIN
+        }/${req.file.path.replace(/\\/g, "/")}`;
+
+        await visitorFound.save();
+
+        res.json({
+          success: true,
+          updatedUser: visitorFound,
+          message: "File not found, but user image updated successfully",
+        });
+      }
+    } else {
+      res.status(400).json({ message: "No file uploaded" });
     }
   } catch (err) {
-    res.json({
-      message: "something went wrong",
-    });
+    console.log(err);
+    res
+      .status(500)
+      .json({ message: "Something went wrong", error: err.message });
   }
 };

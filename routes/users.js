@@ -45,6 +45,12 @@ router.get("/getCurrentUser", isAuthenticated, userController.getCurrentUser);
 
 router.get("/:id", isAuthenticated, isAdmin, userController.getUser);
 router.patch("/:id", isAuthenticated, isAdmin, userController.editUser);
+router.post(
+  "/:id/resetPassword",
+  isAuthenticated,
+  isAdmin,
+  userController.resetUsersPassword
+);
 router.put(
   "/:id",
   isAuthenticated,

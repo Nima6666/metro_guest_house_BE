@@ -455,3 +455,11 @@ module.exports.reuploadProfile = async (req, res) => {
       .json({ message: "Something went wrong", error: err.message });
   }
 };
+
+module.exports.resetUsersPassword = async (req, res) => {
+  try {
+    console.log(req.body);
+  } catch (err) {
+    console.log(err);
+  }
+};
