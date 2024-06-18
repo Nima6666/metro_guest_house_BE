@@ -62,5 +62,12 @@ router.patch(
   isAdmin,
   visitorController.editEntry
 );
+router.put(
+  "/:id",
+  isAuthenticated,
+  isAdmin,
+  uploadDocument.single("image"),
+  visitorController.reuploadDocument
+);
 
 module.exports = router;

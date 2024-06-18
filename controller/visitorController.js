@@ -305,3 +305,17 @@ module.exports.deleteVisitor = async (req, res) => {
       .json({ message: "An error occurred while deleting the visitor." });
   }
 };
+
+module.exports.reuploadDocument = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const visitorFound = await visitor.findById(id);
+    if (req.file) {
+      console.log("File uploaded to:", req.file.path, id);
+    }
+  } catch (err) {
+    res.json({
+      message: "something went wrong",
+    });
+  }
+};

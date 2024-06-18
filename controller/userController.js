@@ -3,6 +3,8 @@ const User = require("../model/users");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const visitor = require("../model/visitor");
+const path = require("path");
+const fs = require("fs");
 
 module.exports.adminRegister = async (req, res) => {
   console.log("registering");
@@ -318,5 +320,138 @@ module.exports.getStat = async (req, res) => {
     res.json({
       message: "something went wrong",
     });
+  }
+};
+
+// module.exports.reuploadProfile = async (req, res) => {
+//   try {
+//     if (req.file) {
+//       console.log(req.file);
+
+//       const { id } = req.params;
+//       console.log("File uploaded to:", req.file.path, id);
+
+//       const user = await User.findById(id);
+
+//       console.log(user.imageURL);
+
+//       const fileUrl = user.imageURL;
+
+//       const urlParts = fileUrl.split("/");
+//       const relativePath = urlParts.slice(3).join("/");
+//       const filePath = path.join(__dirname, relativePath)
+//       const normalizedPath = path.normalize(filePath);
+
+//       console.log(`Deleting file at path: ${normalizedPath}`);
+
+//       if (fs.existsSync(normalizedPath)) {
+//         fs.unlink(normalizedPath, (err) => {
+//           if (err) {
+//             console.error(`Error deleting file: ${err.message}`);
+//             return res
+//               .status(500)
+//               .json({ message: "Error deleting file", error: err.message });
+//           }
+//           console.log("file deleted successfully")
+//           user.imageURL = `${process.env.SELFORIGIN}/${req.file.path.replace(
+//             /\\/g,
+//             "/"
+//           )}`;
+
+//           await user.save();
+
+//           res.json({
+//             success: true,
+//             updatedUser: user,
+//             message: "Image updated successfully",
+//           });
+//         });
+//       } else {
+//         console.log("file not found");
+//         res.json({
+//           success: true,
+//           message: "file not found",
+//         });
+//       }
+//     }
+//   } catch (err) {
+//     console.log(err);
+//     res.json({
+//       message: "something went wrong",
+//     });
+//   }
+// };
+
+module.exports.reuploadProfile = async (req, res) => {
+  try {
+    if (req.file) {
+      console.log(req.file);
+
+      const { id } = req.params;
+      console.log("File uploaded to:", req.file.path, id);
+
+      const user = await User.findById(id);
+
+      if (!user) {
+        return res.status(404).json({ message: "User not found" });
+      }
+
+      console.log(user.imageURL);
+
+      const fileUrl = user.imageURL;
+      const urlParts = fileUrl.split("/");
+      const relativePath = urlParts.slice(3).join("/"); // Adjust this based on your URL structure
+      const filePath = path.join(__dirname, "..", relativePath);
+      const normalizedPath = path.normalize(filePath);
+
+      console.log(`Deleting file at path: ${normalizedPath}`);
+
+      if (fs.existsSync(normalizedPath)) {
+        fs.unlink(normalizedPath, async (err) => {
+          if (err) {
+            console.error(`Error deleting file: ${err.message}`);
+            return res
+              .status(500)
+              .json({ message: "Error deleting file", error: err.message });
+          }
+          console.log("File deleted successfully");
+
+          user.imageURL = `${process.env.SELFORIGIN}/${req.file.path.replace(
+            /\\/g,
+            "/"
+          )}`;
+
+          await user.save();
+
+          res.json({
+            success: true,
+            updatedUser: user,
+            message: "Image updated successfully",
+          });
+        });
+      } else {
+        console.log("File not found");
+
+        user.imageURL = `${process.env.SELFORIGIN}/${req.file.path.replace(
+          /\\/g,
+          "/"
+        )}`;
+
+        await user.save();
+
+        res.json({
+          success: true,
+          updatedUser: user,
+          message: "File not found, but user image updated successfully",
+        });
+      }
+    } else {
+      res.status(400).json({ message: "No file uploaded" });
+    }
+  } catch (err) {
+    console.log(err);
+    res
+      .status(500)
+      .json({ message: "Something went wrong", error: err.message });
   }
 };

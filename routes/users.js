@@ -45,6 +45,13 @@ router.get("/getCurrentUser", isAuthenticated, userController.getCurrentUser);
 
 router.get("/:id", isAuthenticated, isAdmin, userController.getUser);
 router.patch("/:id", isAuthenticated, isAdmin, userController.editUser);
+router.put(
+  "/:id",
+  isAuthenticated,
+  isAdmin,
+  uploadProfile.single("image"),
+  userController.reuploadProfile
+);
 router.delete("/:id", isAuthenticated, isAdmin, userController.deleteUser);
 
 module.exports = router;
