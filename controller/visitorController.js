@@ -104,6 +104,7 @@ module.exports.getVisitor = async (req, res) => {
     const selectedVisitor = await visitor.findById(id);
     await selectedVisitor.populate("enteredBy");
     await selectedVisitor.populate("entries.by");
+    await selectedVisitor.populate("entries.checkoutBy");
 
     // if (selectedVisitor.entries.length > 0) {
     //   await selectedVisitor.populate("entries.by").execPopulate();
@@ -394,22 +395,29 @@ module.exports.checkout = async (req, res) => {
     const existingEntry = foundVisitor.entries[index].toObject();
 
     console.log(existingEntry);
-    foundVisitor.entries[index] = {
-      ...existingEntry,
-      checkoutTime: Date.now(),
-      checkoutBy: req.headers.authData.id,
-    };
 
-    console.log(foundVisitor.entries[index]);
+    if (foundVisitor.entries[index].checkoutTime) {
+      res.json({
+        success: false,
+        message: "Visitor Already Checked Out",
+      });
+    } else {
+      foundVisitor.entries[index] = {
+        ...existingEntry,
+        checkoutTime: Date.now(),
+        checkoutBy: req.headers.authData.id,
+      };
 
-    await foundVisitor.save();
-    await foundVisitor.populate("entries.by");
+      await foundVisitor.populate("entries.by");
+      await foundVisitor.populate("entries.checkoutBy");
+      await foundVisitor.save();
 
-    res.json({
-      success: true,
-      editedEntry: foundVisitor.entries[index],
-      message: "Edited Entry Successfully",
-    });
+      res.json({
+        success: true,
+        editedEntry: foundVisitor.entries,
+        message: "Checked Out",
+      });
+    }
   } catch (err) {
     console.log(err);
   }
