@@ -186,38 +186,63 @@ module.exports.entriesToday = async (req, res) => {
     const visitorsToday = await visitor.find({
       entries: {
         $elemMatch: {
-          time: { $gte: startOfToday, $lt: now },
+          $or: [
+            { time: { $gte: startOfToday, $lt: now } },
+            { checkoutTime: { $gte: startOfToday, $lt: now } },
+          ],
         },
       },
     });
 
-    await Promise.all(
-      visitorsToday.map(async (visitorT) => {
-        await visitorT.populate("enteredBy");
-        await visitorT.populate("entries.by");
+    // await visitorsToday.populate("by");
+
+    const populatedData = await Promise.all(
+      visitorsToday.map(async (visitorDoc) => {
+        await visitorDoc.populate("entries.by");
+        await visitorDoc.populate("entries.checkoutBy");
       })
     );
 
-    visitorsToday.sort((a, b) => {
-      const timeA = a.entries[a.entries.length - 1].time;
-      const timeB = b.entries[b.entries.length - 1].time;
+    const flattenedData = populatedData.flatMap((person) =>
+      person.entries.map((entry) => ({
+        firstname: person.firstname,
+        lastname: person.lastname,
+        phone: person.phone,
+        room: entry.room,
+        time: entry.time,
+        enteredBy: entry.by,
+        visitorId: person._id,
+        entryId: entry._id,
+        with: entry.companion.length,
+        checkout: entry.checkoutTime,
+        checkoutBy: entry.checkoutBy,
+        // otherField: entry.otherField,
+      }))
+    );
+
+    // await flattenedData.populate("visitorId");
+    // await flattenedData.populate("checkoutBy");
+
+    flattenedData.sort((a, b) => {
+      const timeA = a.time;
+      const timeB = b.time;
       return new Date(timeA) - new Date(timeB);
     });
 
-    const transformedData = visitorsToday.map((visitor) => {
-      const lastEntryTime = visitor.entries[visitor.entries.length - 1].time;
-      const enteredByAtLast = visitor.entries[visitor.entries.length - 1].by;
-      const visitorObj = visitor.toObject(); // Convert Mongoose document to plain JavaScript object
-      return {
-        ...visitorObj,
-        enteredAt: lastEntryTime,
-        enteredBy: enteredByAtLast,
-      };
-    });
+    // const transformedData = visitorsToday.map((visitor) => {
+    //   const lastEntryTime = visitor.entries[visitor.entries.length - 1].time;
+    //   const enteredByAtLast = visitor.entries[visitor.entries.length - 1].by;
+    //   const visitorObj = visitor.toObject(); // Convert Mongoose document to plain JavaScript object
+    //   return {
+    //     ...visitorObj,
+    //     enteredAt: lastEntryTime,
+    //     enteredBy: enteredByAtLast,
+    //   };
+    // });
 
     return res.json({
       success: true,
-      visitorsToday: transformedData,
+      visitorsToday: flattenedData,
     });
   } catch (err) {
     console.log(err);
@@ -420,5 +445,56 @@ module.exports.checkout = async (req, res) => {
     }
   } catch (err) {
     console.log(err);
+  }
+};
+
+module.exports.getCurrentVisitors = async (req, res) => {
+  try {
+    console.log("getting current visitors");
+    const currentVisitors = await visitor.aggregate([
+      {
+        $match: {
+          "entries.checkoutTime": null,
+        },
+      },
+      {
+        $project: {
+          firstname: 1,
+          lastname: 1,
+          phone: 1,
+          entries: {
+            $filter: {
+              input: "$entries",
+              as: "entry",
+              cond: { $eq: ["$$entry.checkoutTime", null] },
+            },
+          },
+        },
+      },
+    ]);
+
+    const flattenedData = currentVisitors.flatMap((person) =>
+      person.entries.map((entry) => ({
+        firstname: person.firstname,
+        lastname: person.lastname,
+        phone: person.phone,
+        room: entry.room,
+        time: entry.time,
+        visitorId: person._id,
+        entryId: entry._id,
+        with: entry.companion.length,
+        // otherField: entry.otherField,
+      }))
+    );
+
+    console.log(flattenedData);
+
+    res.json({ success: true, currentVisitors: flattenedData });
+  } catch (err) {
+    console.log(err);
+    res.json({
+      success: false,
+      message: "something went wrong",
+    });
   }
 };

@@ -31,8 +31,19 @@ router.post(
   visitorController.addVisitor
 );
 
+router.get(
+  "/currentVisitors",
+  isAuthenticated,
+  isAdmin,
+  visitorController.getCurrentVisitors
+);
+
 router.get("/", isAuthenticated, visitorController.getVisitors);
-router.get("/entriesToday", isAuthenticated, visitorController.entriesToday);
+router.get(
+  "/entriesToday",
+  //  isAuthenticated,
+  visitorController.entriesToday
+);
 
 router.get("/:id", isAuthenticated, visitorController.getVisitor);
 
