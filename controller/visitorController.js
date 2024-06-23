@@ -183,16 +183,46 @@ module.exports.entriesToday = async (req, res) => {
     startOfToday.setHours(0, 0, 0, 0);
 
     const now = new Date();
-    const visitorsToday = await visitor.find({
-      entries: {
-        $elemMatch: {
-          $or: [
-            { time: { $gte: startOfToday, $lt: now } },
-            { checkoutTime: { $gte: startOfToday, $lt: now } },
-          ],
+    const visitorsToday = await visitor.aggregate([
+      {
+        $match: {
+          entries: {
+            $elemMatch: {
+              $or: [
+                { time: { $gte: startOfToday, $lt: now } },
+                { checkoutTime: { $gte: startOfToday, $lt: now } },
+              ],
+            },
+          },
         },
       },
-    });
+      {
+        $addFields: {
+          entries: {
+            $filter: {
+              input: "$entries",
+              as: "entry",
+              cond: {
+                $or: [
+                  {
+                    $and: [
+                      { $gte: ["$$entry.time", startOfToday] },
+                      { $lt: ["$$entry.time", now] },
+                    ],
+                  },
+                  {
+                    $and: [
+                      { $gte: ["$$entry.checkoutTime", startOfToday] },
+                      { $lt: ["$$entry.checkoutTime", now] },
+                    ],
+                  },
+                ],
+              },
+            },
+          },
+        },
+      },
+    ]);
 
     console.log(visitorsToday);
 
@@ -428,6 +458,41 @@ module.exports.checkout = async (req, res) => {
         message: "Checked Out",
       });
     }
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+module.exports.notCheckout = async (req, res) => {
+  try {
+    const { id, entryId } = req.params;
+    const foundVisitor = await visitor.findById(id);
+    const entryToEdit = foundVisitor.entries.find(
+      (entry) => entry._id.toString() === entryId
+    );
+    const index = foundVisitor.entries.findIndex(
+      (entry) => entry._id.toString() === entryId
+    );
+
+    const existingEntry = foundVisitor.entries[index].toObject();
+
+    console.log(existingEntry);
+
+    foundVisitor.entries[index] = {
+      ...existingEntry,
+      checkoutTime: null,
+      checkoutBy: req.headers.authData.id,
+    };
+
+    await foundVisitor.populate("entries.by");
+    await foundVisitor.populate("entries.checkoutBy");
+    await foundVisitor.save();
+
+    res.json({
+      success: true,
+      editedEntry: foundVisitor.entries,
+      message: "operation completed successfully",
+    });
   } catch (err) {
     console.log(err);
   }

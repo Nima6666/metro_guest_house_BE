@@ -74,6 +74,12 @@ router.patch(
 );
 router.put("/:id/:entryId", isAuthenticated, visitorController.checkout);
 router.put(
+  "/:id/:entryId/notCheckout",
+  isAuthenticated,
+  isAdmin,
+  visitorController.notCheckout
+);
+router.put(
   "/:id",
   isAuthenticated,
   isAdmin,
