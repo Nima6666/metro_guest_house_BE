@@ -34,7 +34,6 @@ router.post(
 router.get(
   "/currentVisitors",
   isAuthenticated,
-  isAdmin,
   visitorController.getCurrentVisitors
 );
 

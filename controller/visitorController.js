@@ -75,7 +75,7 @@ module.exports.addVisitor = async (req, res) => {
 };
 
 module.exports.getVisitors = async (req, res) => {
-  console.log("getting all visitors");
+  // console.log("getting all visitors");
   try {
     const allVisitors = await visitor.find({});
 
@@ -194,16 +194,9 @@ module.exports.entriesToday = async (req, res) => {
       },
     });
 
-    // await visitorsToday.populate("by");
+    console.log(visitorsToday);
 
-    const populatedData = await Promise.all(
-      visitorsToday.map(async (visitorDoc) => {
-        await visitorDoc.populate("entries.by");
-        await visitorDoc.populate("entries.checkoutBy");
-      })
-    );
-
-    const flattenedData = populatedData.flatMap((person) =>
+    const flattenedData = visitorsToday.flatMap((person) =>
       person.entries.map((entry) => ({
         firstname: person.firstname,
         lastname: person.lastname,
@@ -220,8 +213,8 @@ module.exports.entriesToday = async (req, res) => {
       }))
     );
 
-    // await flattenedData.populate("visitorId");
-    // await flattenedData.populate("checkoutBy");
+    console.log(visitorsToday.length);
+    console.log(flattenedData.length);
 
     flattenedData.sort((a, b) => {
       const timeA = a.time;
@@ -229,16 +222,8 @@ module.exports.entriesToday = async (req, res) => {
       return new Date(timeA) - new Date(timeB);
     });
 
-    // const transformedData = visitorsToday.map((visitor) => {
-    //   const lastEntryTime = visitor.entries[visitor.entries.length - 1].time;
-    //   const enteredByAtLast = visitor.entries[visitor.entries.length - 1].by;
-    //   const visitorObj = visitor.toObject(); // Convert Mongoose document to plain JavaScript object
-    //   return {
-    //     ...visitorObj,
-    //     enteredAt: lastEntryTime,
-    //     enteredBy: enteredByAtLast,
-    //   };
-    // });
+    // console.log("populated Data");
+    // console.log(flattenedData);
 
     return res.json({
       success: true,
