@@ -66,6 +66,8 @@ router.delete(
   visitorController.removeEntry
 );
 
+router.get("/:id/:entryId", isAuthenticated, visitorController.getEntry);
+
 router.patch(
   "/:id/:entryId",
   isAuthenticated,

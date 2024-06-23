@@ -176,6 +176,30 @@ module.exports.addEntry = async (req, res) => {
   }
 };
 
+module.exports.getEntry = async (req, res) => {
+  try {
+    const { id, entryId } = req.params;
+    const foundVisitor = await visitor.findById(id);
+
+    await foundVisitor.populate("entries.by");
+    await foundVisitor.populate("entries.checkoutBy");
+
+    const entry = foundVisitor.entries.find(
+      (entry) => entry._id.toString() === entryId
+    );
+
+    res.json({
+      success: true,
+      selectedEntry: entry,
+    });
+
+    console.log(entry);
+  } catch (err) {
+    console.log(err);
+    res.json({ success: false, message: "something went wrong" });
+  }
+};
+
 module.exports.entriesToday = async (req, res) => {
   console.log("getting entries today");
   try {
@@ -224,8 +248,6 @@ module.exports.entriesToday = async (req, res) => {
       },
     ]);
 
-    console.log(visitorsToday);
-
     const flattenedData = visitorsToday.flatMap((person) =>
       person.entries.map((entry) => ({
         firstname: person.firstname,
@@ -243,17 +265,11 @@ module.exports.entriesToday = async (req, res) => {
       }))
     );
 
-    console.log(visitorsToday.length);
-    console.log(flattenedData.length);
-
     flattenedData.sort((a, b) => {
       const timeA = a.time;
       const timeB = b.time;
       return new Date(timeA) - new Date(timeB);
     });
-
-    // console.log("populated Data");
-    // console.log(flattenedData);
 
     return res.json({
       success: true,
@@ -537,7 +553,13 @@ module.exports.getCurrentVisitors = async (req, res) => {
       }))
     );
 
-    console.log(flattenedData);
+    flattenedData.sort((a, b) => {
+      const timeA = a.time;
+      const timeB = b.time;
+      return new Date(timeA) - new Date(timeB);
+    });
+
+    // console.log(flattenedData);
 
     res.json({ success: true, currentVisitors: flattenedData });
   } catch (err) {

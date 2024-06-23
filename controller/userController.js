@@ -167,7 +167,7 @@ module.exports.getCurrentUser = expressAsyncHandler(async (req, res) => {
   console.log("getting current user");
   try {
     res.json(req.headers.authData);
-    console.log(req.headers.authData, "Auth data");
+    // console.log(req.headers.authData, "Auth data");
   } catch (err) {
     res.status(500).json({
       err,
