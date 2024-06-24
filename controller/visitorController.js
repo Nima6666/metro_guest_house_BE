@@ -281,6 +281,145 @@ module.exports.entriesToday = async (req, res) => {
   }
 };
 
+module.exports.checkoutsToday = async (req, res) => {
+  console.log("getting entries today");
+  try {
+    const startOfToday = new Date();
+    startOfToday.setHours(0, 0, 0, 0);
+
+    const now = new Date();
+
+    const visitorsToday = await visitor.aggregate([
+      {
+        $match: {
+          entries: {
+            $elemMatch: {
+              checkoutTime: { $gte: startOfToday, $lt: now, $ne: null },
+            },
+          },
+        },
+      },
+      {
+        $addFields: {
+          entries: {
+            $filter: {
+              input: "$entries",
+              as: "entry",
+              cond: {
+                $and: [
+                  { $gte: ["$$entry.checkoutTime", startOfToday] },
+                  { $lt: ["$$entry.checkoutTime", now] },
+                  { $ne: ["$$entry.checkoutTime", null] },
+                ],
+              },
+            },
+          },
+        },
+      },
+    ]);
+
+    const flattenedData = visitorsToday.flatMap((person) =>
+      person.entries.map((entry) => ({
+        firstname: person.firstname,
+        lastname: person.lastname,
+        phone: person.phone,
+        room: entry.room,
+        time: entry.time,
+        enteredBy: entry.by,
+        visitorId: person._id,
+        entryId: entry._id,
+        with: entry.companion.length,
+        checkout: entry.checkoutTime,
+        checkoutBy: entry.checkoutBy,
+        // otherField: entry.otherField,
+      }))
+    );
+
+    flattenedData.sort((a, b) => {
+      const timeA = a.time;
+      const timeB = b.time;
+      return new Date(timeA) - new Date(timeB);
+    });
+
+    return res.json({
+      success: true,
+      checkoutsToday: flattenedData,
+    });
+  } catch (err) {
+    console.log(err);
+    res.json(err);
+  }
+};
+
+module.exports.checkInsToday = async (req, res) => {
+  try {
+    const startOfToday = new Date();
+    startOfToday.setHours(0, 0, 0, 0);
+
+    const now = new Date();
+
+    const visitorsToday = await visitor.aggregate([
+      {
+        $match: {
+          entries: {
+            $elemMatch: {
+              time: { $gte: startOfToday, $lt: now, $ne: null },
+            },
+          },
+        },
+      },
+      {
+        $addFields: {
+          entries: {
+            $filter: {
+              input: "$entries",
+              as: "entry",
+              cond: {
+                $and: [
+                  { $gte: ["$$entry.time", startOfToday] },
+                  { $lt: ["$$entry.time", now] },
+                  { $ne: ["$$entry.time", null] },
+                ],
+              },
+            },
+          },
+        },
+      },
+    ]);
+
+    const flattenedData = visitorsToday.flatMap((person) =>
+      person.entries.map((entry) => ({
+        firstname: person.firstname,
+        lastname: person.lastname,
+        phone: person.phone,
+        room: entry.room,
+        time: entry.time,
+        enteredBy: entry.by,
+        visitorId: person._id,
+        entryId: entry._id,
+        with: entry.companion.length,
+        checkout: entry.checkoutTime,
+        checkoutBy: entry.checkoutBy,
+        // otherField: entry.otherField,
+      }))
+    );
+
+    flattenedData.sort((a, b) => {
+      const timeA = a.time;
+      const timeB = b.time;
+      return new Date(timeA) - new Date(timeB);
+    });
+
+    return res.json({
+      success: true,
+      checkInsToday: flattenedData,
+    });
+  } catch (err) {
+    console.log(err);
+    res.json(err);
+  }
+};
+
 module.exports.removeEntry = async (req, res) => {
   try {
     const { id, entryId } = req.params;
@@ -468,9 +607,52 @@ module.exports.checkout = async (req, res) => {
       await foundVisitor.populate("entries.checkoutBy");
       await foundVisitor.save();
 
+      const currentVisitors = await visitor.aggregate([
+        {
+          $match: {
+            "entries.checkoutTime": null,
+          },
+        },
+        {
+          $project: {
+            firstname: 1,
+            lastname: 1,
+            phone: 1,
+            entries: {
+              $filter: {
+                input: "$entries",
+                as: "entry",
+                cond: { $eq: ["$$entry.checkoutTime", null] },
+              },
+            },
+          },
+        },
+      ]);
+
+      const flattenedData = currentVisitors.flatMap((person) =>
+        person.entries.map((entry) => ({
+          firstname: person.firstname,
+          lastname: person.lastname,
+          phone: person.phone,
+          room: entry.room,
+          time: entry.time,
+          visitorId: person._id,
+          entryId: entry._id,
+          with: entry.companion.length,
+          // otherField: entry.otherField,
+        }))
+      );
+
+      flattenedData.sort((a, b) => {
+        const timeA = a.time;
+        const timeB = b.time;
+        return new Date(timeA) - new Date(timeB);
+      });
+
       res.json({
         success: true,
         editedEntry: foundVisitor.entries,
+        currentVisitors: flattenedData,
         message: "Checked Out",
       });
     }

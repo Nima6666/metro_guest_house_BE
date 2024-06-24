@@ -39,6 +39,12 @@ router.get(
 
 router.get("/", isAuthenticated, visitorController.getVisitors);
 router.get("/entriesToday", isAuthenticated, visitorController.entriesToday);
+router.get(
+  "/checkoutsToday",
+  isAuthenticated,
+  visitorController.checkoutsToday
+);
+router.get("/checkInsToday", isAuthenticated, visitorController.checkInsToday);
 
 router.get("/:id", isAuthenticated, visitorController.getVisitor);
 

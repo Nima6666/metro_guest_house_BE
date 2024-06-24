@@ -438,3 +438,19 @@ module.exports.resetUsersPassword = async (req, res) => {
     });
   }
 };
+
+module.exports.myProfile = async (req, res) => {
+  try {
+    console.log(req.headers.authData);
+    const profile = await User.findById(req.headers.authData.id).select(
+      "-password"
+    );
+    res.json({
+      success: true,
+      profile,
+    });
+  } catch (err) {
+    console.log(err);
+    res.json("something went wrong getting my profile");
+  }
+};
