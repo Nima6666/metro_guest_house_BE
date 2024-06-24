@@ -38,11 +38,7 @@ router.get(
 );
 
 router.get("/", isAuthenticated, visitorController.getVisitors);
-router.get(
-  "/entriesToday",
-  //  isAuthenticated,
-  visitorController.entriesToday
-);
+router.get("/entriesToday", isAuthenticated, visitorController.entriesToday);
 
 router.get("/:id", isAuthenticated, visitorController.getVisitor);
 
@@ -53,7 +49,7 @@ router.delete(
   visitorController.deleteVisitor
 );
 
-router.patch("/:id", isAuthenticated, isAdmin, visitorController.editEntry);
+router.patch("/:id", isAuthenticated, isAdmin, visitorController.editVisitor);
 
 router.post("/numberSearch", isAuthenticated, visitorController.numberSearch);
 

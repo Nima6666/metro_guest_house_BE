@@ -179,11 +179,16 @@ module.exports.getUsers = async (req, res) => {
   console.log("getting all users");
   try {
     const allUsers = await User.find({});
+    const staffs = allUsers.filter(
+      (user) => user._id.toString() !== req.headers.authData.id
+    );
+    console.log("staffs, ", staffs);
     res.json({
-      allusers: [...allUsers],
+      success: "true",
+      allusers: [...staffs],
     });
   } catch (err) {
-    console.log("error");
+    console.log(err);
     res.json(err);
   }
 };
@@ -205,49 +210,6 @@ module.exports.deleteUser = async (req, res) => {
       .json({ message: "An error occurred while deleting the visitor." });
   }
 };
-
-// module.exports.addVisitor = async (req, res) => {
-//   console.log("adding visitor");
-//   console.log(req.headers.authData);
-
-//   try {
-//     const { firstname, lastname, phone, documentType, companion } = req.body;
-
-//     const visitorFound = await visitor.findOne({ phone: phone });
-
-//     if (visitorFound) {
-//       console.log("visitor found");
-//       return res.json({
-//         visitor: visitorFound,
-//       });
-//     }
-
-//     if (req.file) {
-//       console.log("File uploaded to:", req.file.path);
-//       const visitorToBeAdded = new visitor({
-//         firstname,
-//         lastname,
-//         phone,
-//         documentType,
-//         document: req.file.path,
-//         companion,
-//         enteredBy: req.headers.authData.id,
-//       });
-
-//       console.log(visitorToBeAdded);
-
-//       await visitorToBeAdded.save();
-//       console.log("visitor added");
-//       res.status(201).json({ success: true, message: "visitor added" });
-//     } else {
-//       console.log("error uploading file");
-//       res.status(400).send("Error uploading file");
-//     }
-//   } catch (error) {
-//     console.log(error);
-//     res.status(500).json({ message: "Internal server error" });
-//   }
-// };
 
 module.exports.getUser = async (req, res) => {
   console.log("getting selected user");
@@ -322,8 +284,6 @@ module.exports.getStat = async (req, res) => {
     });
   }
 };
-
-// module.exports.reuploadProfile = async (req, res) => {
 //   try {
 //     if (req.file) {
 //       console.log(req.file);

@@ -570,3 +570,43 @@ module.exports.getCurrentVisitors = async (req, res) => {
     });
   }
 };
+
+module.exports.editVisitor = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const foundVisitor = await visitor.findById(id);
+
+    const existingDatas = foundVisitor.toObject();
+
+    const editedVisitor = {
+      ...existingDatas,
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      email: req.body.email,
+      phone: req.body.phone,
+      address: req.body.address,
+      gender: req.body.gender,
+      age: req.body.age,
+      edited: true,
+      editedTimeStamp: Date.now(),
+    };
+
+    // console.log(editedVisitor);
+
+    Object.assign(foundVisitor, editedVisitor);
+
+    await foundVisitor.save();
+
+    res.json({
+      success: true,
+      editedVisitor: foundVisitor,
+      message: "Edited Visitor Successfully",
+    });
+  } catch (err) {
+    res.json({
+      success: false,
+      message: "Something went wrong editing",
+    });
+    console.log(err);
+  }
+};
