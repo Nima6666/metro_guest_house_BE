@@ -39,6 +39,7 @@ router.get(
 
 router.get("/", isAuthenticated, visitorController.getVisitors);
 router.get("/entriesToday", isAuthenticated, visitorController.entriesToday);
+router.get("/allEntries", isAuthenticated, visitorController.getAllEntries);
 router.get(
   "/checkoutsToday",
   isAuthenticated,

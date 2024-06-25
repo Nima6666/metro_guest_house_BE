@@ -792,3 +792,84 @@ module.exports.editVisitor = async (req, res) => {
     console.log(err);
   }
 };
+
+module.exports.getAllEntries = async (req, res) => {
+  console.log("getting all entries ", req.query.date);
+  try {
+    let visitors = null;
+    const { date } = req.query;
+    if (date) {
+      const selectedDate = new Date(date);
+      const startOfDay = new Date(selectedDate.setHours(0, 0, 0, 0));
+      const endOfDay = new Date(selectedDate.setHours(23, 59, 59, 999));
+
+      visitors = await visitor.aggregate([
+        {
+          $addFields: {
+            entries: {
+              $filter: {
+                input: "$entries",
+                as: "entry",
+                cond: {
+                  $or: [
+                    {
+                      $and: [
+                        { $gte: ["$$entry.time", startOfDay] },
+                        { $lt: ["$$entry.time", endOfDay] },
+                      ],
+                    },
+                    {
+                      $and: [
+                        { $gte: ["$$entry.checkoutTime", startOfDay] },
+                        { $lt: ["$$entry.checkoutTime", endOfDay] },
+                      ],
+                    },
+                  ],
+                },
+              },
+            },
+          },
+        },
+        {
+          $match: {
+            "entries.0": { $exists: true },
+          },
+        },
+      ]);
+    } else {
+      visitors = await visitor.aggregate([
+        {
+          $addFields: {
+            entries: "$entries",
+          },
+        },
+      ]);
+    }
+
+    const flattenedData = visitors.flatMap((person) =>
+      person.entries.map((entry) => ({
+        firstname: person.firstname,
+        lastname: person.lastname,
+        phone: person.phone,
+        room: entry.room,
+        time: entry.time,
+        enteredBy: entry.enteredBy,
+        visitorId: person._id,
+        entryId: entry._id,
+        with: entry.companion.length,
+        checkout: entry.checkoutTime,
+        checkoutBy: entry.checkoutBy,
+      }))
+    );
+
+    flattenedData.sort((a, b) => new Date(b.time) - new Date(a.time));
+
+    return res.json({
+      success: true,
+      allEntries: flattenedData,
+    });
+  } catch (err) {
+    console.log(err);
+    res.json(err);
+  }
+};
