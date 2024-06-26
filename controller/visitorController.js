@@ -75,19 +75,57 @@ module.exports.addVisitor = async (req, res) => {
 };
 
 module.exports.getVisitors = async (req, res) => {
-  // console.log("getting all visitors");
+  const highlightMatchedWords = (text = "", searchString = "") => {
+    if (!searchString) return text;
+    const regex = new RegExp(`(${searchString})`, "gi");
+    return text.replace(regex, "$1");
+  };
+
   try {
-    console.log(req.query);
+    console.log("query ", req.query);
 
-    const allVisitors = await visitor.find({});
+    let allVisitors = [];
 
+    const { firstname, lastname, number, documentId } = req.query;
+
+    const query = {};
+
+    if (firstname && firstname.trim() !== "") {
+      query.firstname = { $regex: firstname, $options: "i" }; // case-insensitive regex search
+    }
+    if (lastname && lastname.trim() !== "") {
+      query.lastname = { $regex: lastname, $options: "i" };
+    }
+    if (number && number.trim() !== "") {
+      query.phone = { $regex: number, $options: "i" };
+    }
+    if (documentId && documentId.trim() !== "") {
+      query.documentId = { $regex: documentId, $options: "i" };
+    }
+
+    // If query is empty, find all visitors
+    if (Object.keys(query).length === 0) {
+      allVisitors = await visitor.find({});
+    } else {
+      allVisitors = await visitor.find(query);
+    }
     await Promise.all(
       allVisitors.map((visitor) => visitor.populate("enteredBy"))
     );
 
+    const highlightedVisitors = allVisitors.map((visitor) => {
+      return {
+        ...visitor.toObject(),
+        firstname: highlightMatchedWords(visitor.firstname, firstname),
+        lastname: highlightMatchedWords(visitor.lastname, lastname),
+        number: highlightMatchedWords(visitor.number, number),
+        documentId: highlightMatchedWords(visitor.documentId, documentId),
+      };
+    });
+
     res.json({
       success: true,
-      visitors: [...allVisitors],
+      visitors: highlightedVisitors,
     });
   } catch (err) {
     console.log(err);
