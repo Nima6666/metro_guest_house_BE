@@ -77,6 +77,8 @@ module.exports.addVisitor = async (req, res) => {
 module.exports.getVisitors = async (req, res) => {
   // console.log("getting all visitors");
   try {
+    console.log(req.query);
+
     const allVisitors = await visitor.find({});
 
     await Promise.all(
