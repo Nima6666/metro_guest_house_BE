@@ -27,9 +27,9 @@ const visitorSchema = mongoose.Schema({
       },
       by: { type: mongoose.Types.ObjectId, ref: "User", required: true },
       room: { type: String, required: true },
-      lastVisitedAddress: { type: String },
-      nextDestination: { type: String },
-      purposeOfVisit: { type: String },
+      lastVisitedAddress: { type: String, required: true },
+      nextDestination: { type: String, required: true },
+      purposeOfVisit: { type: String, required: true },
       vechileNumber: { type: String },
       companion: [
         {

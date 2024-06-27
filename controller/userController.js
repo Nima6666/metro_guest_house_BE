@@ -182,7 +182,6 @@ module.exports.getUsers = async (req, res) => {
     const staffs = allUsers.filter(
       (user) => user._id.toString() !== req.headers.authData.id
     );
-    console.log("staffs, ", staffs);
     res.json({
       success: "true",
       allusers: [...staffs],

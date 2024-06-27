@@ -150,6 +150,12 @@ module.exports.getVisitor = async (req, res) => {
     //   await selectedVisitor.populate("entries.by").execPopulate();
     // }
 
+    selectedVisitor.entries.sort((a, b) => {
+      const timeA = a.time;
+      const timeB = b.time;
+      return new Date(timeB) - new Date(timeA);
+    });
+
     res.json({
       success: true,
       selectedVisitor,
