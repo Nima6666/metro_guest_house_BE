@@ -18,9 +18,15 @@ module.exports.addVisitor = async (req, res) => {
       age,
       documentId,
       occupation,
+      remarks,
+      vechileNumber,
+      religion,
+      lastVisited,
+      nextDestination,
+      room,
+      companions,
+      purpose,
     } = req.body;
-
-    console.log(req.body);
 
     // res.json(req.body);
 
@@ -51,9 +57,22 @@ module.exports.addVisitor = async (req, res) => {
           "/"
         )}`,
         enteredBy: req.headers.authData.id,
+        religion,
       });
 
-      console.log(visitorToBeAdded);
+      // console.log(visitorToBeAdded);
+
+      visitorToBeAdded.entries.push({
+        time: Date.now(),
+        room: room,
+        by: req.headers.authData.id,
+        companion: [...JSON.parse(req.body.companions)],
+        lastVisitedAddress: lastVisited,
+        nextDestination: nextDestination,
+        purposeOfVisit: purpose,
+        vechileNumber: vechileNumber,
+        remarks: remarks,
+      });
 
       await visitorToBeAdded.save();
 
