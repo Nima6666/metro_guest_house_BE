@@ -6,10 +6,20 @@ const visitor = require("../model/visitor");
 const path = require("path");
 const fs = require("fs");
 
+const containsWhitespace = (str) => /\s/.test(str);
+
 module.exports.adminRegister = async (req, res) => {
   console.log("registering");
   try {
-    const { firstname, lastname, email, password, phone } = req.body;
+    const { firstname, lastname, email, password, phone, username } = req.body;
+
+    if (containsWhitespace(username)) {
+      delete req.file;
+      return res.json({
+        success: false,
+        message: "username should not contain whitespace",
+      });
+    }
 
     const users = await User.find({});
     if (users.length) {
@@ -26,6 +36,7 @@ module.exports.adminRegister = async (req, res) => {
       const admin = new User({
         firstname,
         lastname,
+        username,
         email,
         password: hashedPassword,
         phone,
@@ -62,6 +73,14 @@ module.exports.register = expressAsyncHandler(async (req, res) => {
   try {
     const { firstname, lastname, email, password, phone, username } = req.body;
 
+    if (containsWhitespace(username)) {
+      delete req.file;
+      return res.json({
+        success: false,
+        message: "username should not contain whitespace",
+      });
+    }
+
     const UsernameAlreadyReistered = await User.findOne({ username: username });
 
     if (UsernameAlreadyReistered) {
@@ -69,7 +88,7 @@ module.exports.register = expressAsyncHandler(async (req, res) => {
       delete req.file;
       return res.json({
         success: false,
-        message: "username not avilable",
+        message: "username already taken",
       });
     }
 
@@ -117,7 +136,7 @@ module.exports.register = expressAsyncHandler(async (req, res) => {
       });
     } else {
       console.log("error uploading file");
-      res.status(400).send("Error uploading file");
+      res.json({ success: false, message: "no image selected" });
     }
   } catch (error) {
     console.log(error);
@@ -145,7 +164,7 @@ module.exports.login = expressAsyncHandler(async (req, res) => {
 
       const infoObject = {
         id: userFound._id,
-        username: userFound.firstname,
+        username: userFound.username,
         role: userFound.role,
         image: userFound.imageURL,
       };
@@ -178,8 +197,22 @@ module.exports.login = expressAsyncHandler(async (req, res) => {
 module.exports.getCurrentUser = expressAsyncHandler(async (req, res) => {
   console.log("getting current user");
   try {
-    res.json(req.headers.authData);
+    const loggedInUser = await User.findById(req.headers.authData.id).select(
+      "-password"
+    );
     // console.log(req.headers.authData, "Auth data");
+
+    if (!loggedInUser) {
+      return res.json({
+        success: false,
+        message: "User not found",
+      });
+    } else {
+      res.json({
+        success: true,
+        loggedInUser,
+      });
+    }
   } catch (err) {
     res.status(500).json({
       err,

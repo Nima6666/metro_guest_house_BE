@@ -41,9 +41,9 @@ router.post(
 
 router.post("/login", userController.login);
 
-router.get("/myProfile", isAuthenticated, userController.myProfile);
+// router.get("/myProfile", isAuthenticated, userController.myProfile);
 
-router.get("/getCurrentUser", isAuthenticated, userController.getCurrentUser);
+router.get("/getCurrentUser", isAuthenticated, userController.myProfile);
 
 router.get("/:id", isAuthenticated, isAdmin, userController.getUser);
 router.patch("/:id", isAuthenticated, isAdmin, userController.editUser);
