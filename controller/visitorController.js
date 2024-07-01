@@ -834,6 +834,7 @@ module.exports.editVisitor = async (req, res) => {
       address: req.body.address,
       gender: req.body.gender,
       age: req.body.age,
+      religion: req.body.religion,
       edited: true,
       editedTimeStamp: Date.now(),
     };

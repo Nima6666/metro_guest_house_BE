@@ -60,11 +60,22 @@ module.exports.adminRegister = async (req, res) => {
 module.exports.register = expressAsyncHandler(async (req, res) => {
   console.log("registering");
   try {
-    const { firstname, lastname, email, password, phone } = req.body;
+    const { firstname, lastname, email, password, phone, username } = req.body;
 
-    const alreadyReistered = await User.findOne({ email: email });
+    const UsernameAlreadyReistered = await User.findOne({ username: username });
 
-    if (alreadyReistered) {
+    if (UsernameAlreadyReistered) {
+      console.log("already registered");
+      delete req.file;
+      return res.json({
+        success: false,
+        message: "username not avilable",
+      });
+    }
+
+    const EmailAlreadyReistered = await User.findOne({ email: email });
+
+    if (email && email.trim() !== "" && EmailAlreadyReistered) {
       console.log("already registered");
       delete req.file;
       return res.json({
@@ -80,6 +91,7 @@ module.exports.register = expressAsyncHandler(async (req, res) => {
       const user = new User({
         firstname,
         lastname,
+        username,
         email,
         password: hashedPassword,
         phone,
@@ -114,10 +126,10 @@ module.exports.register = expressAsyncHandler(async (req, res) => {
 });
 
 module.exports.login = expressAsyncHandler(async (req, res) => {
-  const { email, password } = req.body;
+  const { username, password } = req.body;
 
   try {
-    const userFound = await User.findOne({ email: email });
+    const userFound = await User.findOne({ username });
 
     if (userFound) {
       const isValidPassword = await bcrypt.compare(
@@ -133,7 +145,7 @@ module.exports.login = expressAsyncHandler(async (req, res) => {
 
       const infoObject = {
         id: userFound._id,
-        name: userFound.firstname,
+        username: userFound.firstname,
         role: userFound.role,
         image: userFound.imageURL,
       };
@@ -283,63 +295,6 @@ module.exports.getStat = async (req, res) => {
     });
   }
 };
-//   try {
-//     if (req.file) {
-//       console.log(req.file);
-
-//       const { id } = req.params;
-//       console.log("File uploaded to:", req.file.path, id);
-
-//       const user = await User.findById(id);
-
-//       console.log(user.imageURL);
-
-//       const fileUrl = user.imageURL;
-
-//       const urlParts = fileUrl.split("/");
-//       const relativePath = urlParts.slice(3).join("/");
-//       const filePath = path.join(__dirname, relativePath)
-//       const normalizedPath = path.normalize(filePath);
-
-//       console.log(`Deleting file at path: ${normalizedPath}`);
-
-//       if (fs.existsSync(normalizedPath)) {
-//         fs.unlink(normalizedPath, (err) => {
-//           if (err) {
-//             console.error(`Error deleting file: ${err.message}`);
-//             return res
-//               .status(500)
-//               .json({ message: "Error deleting file", error: err.message });
-//           }
-//           console.log("file deleted successfully")
-//           user.imageURL = `${process.env.SELFORIGIN}/${req.file.path.replace(
-//             /\\/g,
-//             "/"
-//           )}`;
-
-//           await user.save();
-
-//           res.json({
-//             success: true,
-//             updatedUser: user,
-//             message: "Image updated successfully",
-//           });
-//         });
-//       } else {
-//         console.log("file not found");
-//         res.json({
-//           success: true,
-//           message: "file not found",
-//         });
-//       }
-//     }
-//   } catch (err) {
-//     console.log(err);
-//     res.json({
-//       message: "something went wrong",
-//     });
-//   }
-// };
 
 module.exports.reuploadProfile = async (req, res) => {
   try {
