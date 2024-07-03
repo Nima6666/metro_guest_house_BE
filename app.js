@@ -41,9 +41,9 @@ const clientCors = {
   origin: "http://localhost:5173",
 };
 
-app.use("/v1/api", cors(clientCors), indexRouter);
-app.use("/v1/users", cors(clientCors), usersRouter);
-app.use("/v1/visitor", cors(clientCors), visitorRouter);
+app.use("/v1/api", cors(), indexRouter);
+app.use("/v1/users", cors(), usersRouter);
+app.use("/v1/visitor", cors(), visitorRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
