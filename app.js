@@ -41,6 +41,12 @@ const clientCors = {
   origin: "http://localhost:5173",
 };
 
+app.get("/", (req, res) => {
+  res.json({
+    message: "Welcome to MetroGuestHouse API",
+  });
+});
+
 app.use("/v1/api", cors(), indexRouter);
 app.use("/v1/users", cors(), usersRouter);
 app.use("/v1/visitor", cors(), visitorRouter);
