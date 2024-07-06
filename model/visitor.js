@@ -14,7 +14,7 @@ const visitorSchema = mongoose.Schema({
   gender: { type: String, required: true },
   documentType: {
     type: String,
-    enum: ["citizenship", "liscence", "passport"],
+    required: true,
   },
   documentLocation: { type: String },
   documentId: { type: String, required: true },

@@ -240,10 +240,33 @@ module.exports.getUsers = async (req, res) => {
 module.exports.deleteUser = async (req, res) => {
   try {
     const { id } = req.params;
-    const deletedVisitor = await User.findByIdAndDelete(id);
+    const deletedUser = await User.findByIdAndDelete(id);
 
-    if (deletedVisitor) {
-      res.json({ success: true, message: "User deleted successfully." });
+    if (deletedUser) {
+      const fileUrl = deletedUser.imageURL;
+      const urlParts = fileUrl.split("/");
+      const relativePath = urlParts.slice(3).join("/");
+      const filePath = path.join(__dirname, "..", relativePath);
+      const normalizedPath = path.normalize(filePath);
+
+      console.log(`Deleting file at path: ${normalizedPath}`);
+
+      if (fs.existsSync(normalizedPath)) {
+        fs.unlink(normalizedPath, async (err) => {
+          if (err) {
+            console.error(`Error deleting file: ${err.message}`);
+            return res
+              .status(500)
+              .json({ message: "Error deleting file", error: err.message });
+          }
+          res.json({ success: true, message: "User deleted successfully." });
+        });
+      } else {
+        res.json({
+          status: true,
+          message: "Profile Img not found but deleted user",
+        });
+      }
     } else {
       res.status(404).json({ success: false, message: "User not found." });
     }
