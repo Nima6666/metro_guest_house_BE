@@ -105,7 +105,7 @@ module.exports.getVisitors = async (req, res) => {
 
     let allVisitors = [];
 
-    const { firstname, lastname, number, documentId } = req.query;
+    const { firstname, lastname, number, documentId, entry } = req.query;
 
     const query = {};
 
@@ -132,20 +132,23 @@ module.exports.getVisitors = async (req, res) => {
       allVisitors.map((visitor) => visitor.populate("enteredBy"))
     );
 
-    const highlightedVisitors = allVisitors.map((visitor) => {
-      return {
-        ...visitor.toObject(),
-        firstname: highlightMatchedWords(visitor.firstname, firstname),
-        lastname: highlightMatchedWords(visitor.lastname, lastname),
-        number: highlightMatchedWords(visitor.number, number),
-        documentId: highlightMatchedWords(visitor.documentId, documentId),
-      };
-    });
+    // const highlightedVisitors = allVisitors.map((visitor) => {
+    //   return {
+    //     ...visitor.toObject(),
+    //     firstname: highlightMatchedWords(visitor.firstname, firstname),
+    //     lastname: highlightMatchedWords(visitor.lastname, lastname),
+    //     number: highlightMatchedWords(visitor.number, number),
+    //     documentId: highlightMatchedWords(visitor.documentId, documentId),
+    //   };
+    // });
 
-    res.json({
-      success: true,
-      visitors: highlightedVisitors,
-    });
+    if (entry) {
+    } else {
+      res.json({
+        success: true,
+        visitors: allVisitors,
+      });
+    }
   } catch (err) {
     console.log(err);
     res.json({
@@ -253,10 +256,12 @@ module.exports.getEntry = async (req, res) => {
       (entry) => entry._id.toString() === entryId
     );
 
-    res.json({
-      success: true,
-      selectedEntry: entry,
-    });
+    setTimeout(() => {
+      res.json({
+        success: true,
+        selectedEntry: entry,
+      });
+    }, 2000);
 
     console.log(entry);
   } catch (err) {
@@ -582,52 +587,68 @@ module.exports.reuploadDocument = async (req, res) => {
 
       console.log(req.body);
 
-      const fileUrl = visitorFound.documentLocation;
-      const urlParts = fileUrl.split("/");
-      const relativePath = urlParts.slice(3).join("/"); // Adjust this based on your URL structure
-      const filePath = path.join(__dirname, "..", relativePath);
-      const normalizedPath = path.normalize(filePath);
+      if (visitorFound.documentLocation) {
+        const fileUrl = visitorFound.documentLocation;
+        const urlParts = fileUrl.split("/");
+        const relativePath = urlParts.slice(3).join("/"); // Adjust this based on your URL structure
+        const filePath = path.join(__dirname, "..", relativePath);
+        const normalizedPath = path.normalize(filePath);
 
-      console.log(`Deleting file at path: ${normalizedPath}`);
+        console.log(`Deleting file at path: ${normalizedPath}`);
 
-      if (fs.existsSync(normalizedPath)) {
-        fs.unlink(normalizedPath, async (err) => {
-          if (err) {
-            console.error(`Error deleting file: ${err.message}`);
-            return res
-              .status(500)
-              .json({ message: "Error deleting file", error: err.message });
-          }
-          console.log("File deleted successfully");
+        if (fs.existsSync(normalizedPath)) {
+          fs.unlink(normalizedPath, async (err) => {
+            if (err) {
+              console.error(`Error deleting file: ${err.message}`);
+              return res
+                .status(500)
+                .json({ message: "Error deleting file", error: err.message });
+            }
+            console.log("File deleted successfully");
+
+            visitorFound.documentLocation = `${
+              process.env.SELFORIGIN
+            }/${req.file.path.replace(/\\/g, "/")}`;
+
+            visitorFound.documentId = req.body.documentId;
+            visitorFound.documentType = req.body.documentType;
+
+            await visitorFound.save();
+
+            res.json({
+              success: true,
+              updatedUser: visitorFound,
+              message: "Document updated successfully",
+            });
+          });
+        } else {
+          console.log("File not found");
 
           visitorFound.documentLocation = `${
             process.env.SELFORIGIN
           }/${req.file.path.replace(/\\/g, "/")}`;
-
-          visitorFound.documentId = req.body.documentId;
-          visitorFound.documentType = req.body.documentType;
 
           await visitorFound.save();
 
           res.json({
             success: true,
             updatedUser: visitorFound,
-            message: "Document updated successfully",
+            message: "File not found, but user image updated successfully",
           });
-        });
+        }
       } else {
-        console.log("File not found");
-
         visitorFound.documentLocation = `${
           process.env.SELFORIGIN
         }/${req.file.path.replace(/\\/g, "/")}`;
 
-        await visitorFound.save();
+        visitorFound.documentId = req.body.documentId;
+        visitorFound.documentType = req.body.documentType;
 
+        await visitorFound.save();
         res.json({
           success: true,
           updatedUser: visitorFound,
-          message: "File not found, but user image updated successfully",
+          message: "image updated successfully",
         });
       }
     } else {

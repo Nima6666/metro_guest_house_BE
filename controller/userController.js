@@ -309,6 +309,15 @@ module.exports.editUser = async (req, res) => {
     const { id } = req.params;
     const foundUser = await User.findById(id);
 
+    if (
+      req.body.firstname.trim() === "" ||
+      req.body.lastname.trim() === "" ||
+      req.body.email.trim() === "" ||
+      req.body.phone.trim === ""
+    ) {
+      return res.json({ success: false, message: "all fields are required" });
+    }
+
     const editedUser = {
       firstname: req.body.firstname,
       lastname: req.body.lastname,
@@ -429,6 +438,14 @@ module.exports.reuploadProfile = async (req, res) => {
 module.exports.resetUsersPassword = async (req, res) => {
   try {
     console.log(req.body);
+
+    if (req.body.password.trim() === "") {
+      return res.json({
+        success: false,
+        message: "Please fill up the form",
+      });
+    }
+
     const { id } = req.params;
     const user = await User.findById(id);
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
