@@ -143,6 +143,36 @@ module.exports.getVisitors = async (req, res) => {
     // });
 
     if (entry) {
+      console.log("entry Search");
+
+      const filtered = allVisitors.filter((visitor) => {
+        return visitor.entries.length > 0;
+      });
+
+      const flattenedData = filtered.flatMap((person) =>
+        person.entries.map((entry) => ({
+          firstname: person.firstname,
+          lastname: person.lastname,
+          phone: person.phone,
+          room: entry.room,
+          time: entry.time,
+          enteredBy: entry.enteredBy,
+          visitorId: person._id,
+          entryId: entry._id,
+          with: entry.companion.length,
+          checkout: entry.checkoutTime,
+          checkoutBy: entry.checkoutBy,
+        }))
+      );
+
+      flattenedData.sort((a, b) => new Date(b.time) - new Date(a.time));
+
+      console.log(flattenedData);
+
+      res.json({
+        success: true,
+        visitor: flattenedData,
+      });
     } else {
       res.json({
         success: true,
