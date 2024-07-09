@@ -171,7 +171,7 @@ module.exports.getVisitors = async (req, res) => {
 
       res.json({
         success: true,
-        visitor: flattenedData,
+        visitors: flattenedData,
       });
     } else {
       res.json({
