@@ -84,8 +84,45 @@ module.exports.addVisitor = async (req, res) => {
         visitorAdded: visitorToBeAdded,
       });
     } else {
-      console.log("error uploading file");
-      res.status(400).send("Error uploading file");
+      // console.log("error uploading file");
+      // res.status(400).send("Error uploading file");
+
+      const visitorToBeAdded = new visitor({
+        firstname,
+        lastname,
+        email,
+        phone,
+        address,
+        gender,
+        age,
+        occupation,
+        enteredBy: req.headers.authData.id,
+        religion,
+      });
+
+      // console.log(visitorToBeAdded);
+
+      visitorToBeAdded.entries.push({
+        time: Date.now(),
+        room: room,
+        by: req.headers.authData.id,
+        companion: [...JSON.parse(req.body.companions)],
+        lastVisitedAddress: lastVisited,
+        nextDestination: nextDestination,
+        purposeOfVisit: purpose,
+        vechileNumber: vechileNumber,
+        remarks: remarks,
+      });
+
+      await visitorToBeAdded.save();
+
+      visitorToBeAdded.populate("enteredBy");
+      console.log("visitor added", visitorToBeAdded);
+      res.status(201).json({
+        success: true,
+        message: "visitor added without document",
+        visitorAdded: visitorToBeAdded,
+      });
     }
   } catch (error) {
     console.log(error);

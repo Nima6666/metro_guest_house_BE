@@ -14,10 +14,20 @@ const visitorSchema = mongoose.Schema({
   gender: { type: String, required: true },
   documentType: {
     type: String,
-    required: true,
+    // required: true,
   },
-  documentLocation: { type: String },
-  documentId: { type: String, required: true },
+  documentLocation: {
+    type: String,
+    required: function () {
+      return !!this.documentType;
+    },
+  },
+  documentId: {
+    type: String,
+    required: function () {
+      return !!this.documentType;
+    },
+  },
   entries: [
     {
       time: { type: Date, required: true },
