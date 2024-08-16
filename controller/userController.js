@@ -312,7 +312,6 @@ module.exports.editUser = async (req, res) => {
     if (
       req.body.firstname.trim() === "" ||
       req.body.lastname.trim() === "" ||
-      req.body.email.trim() === "" ||
       req.body.phone.trim === ""
     ) {
       return res.json({ success: false, message: "all fields are required" });
@@ -401,7 +400,6 @@ module.exports.reuploadProfile = async (req, res) => {
           )}`;
 
           await user.save();
-
           res.json({
             success: true,
             updatedUser: user,
