@@ -22,24 +22,19 @@ require("./db/databaseConnection");
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
+const clientCors = {
+  origin: process.env.CLIENTORIGIN,
+};
 app.use(
   "/uploads",
-  // isAuthenticated,
+  cors(clientCors),
+  isAuthenticated,
   express.static("uploads/")
 );
 
 app.use(logger("dev"));
 app.use(express.json());
 app.use(cookieParser());
-app.use(
-  "/static",
-  isAuthenticated,
-  express.static(path.join(__dirname, "public"))
-);
-
-const clientCors = {
-  origin: "http://localhost:5173",
-};
 
 app.get("/", (req, res) => {
   res.json({
@@ -47,9 +42,9 @@ app.get("/", (req, res) => {
   });
 });
 
-app.use("/v1/api", cors(), indexRouter);
-app.use("/v1/users", cors(), usersRouter);
-app.use("/v1/visitor", cors(), visitorRouter);
+app.use("/v1/api", cors(clientCors), indexRouter);
+app.use("/v1/users", cors(clientCors), usersRouter);
+app.use("/v1/visitor", cors(clientCors), visitorRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -68,7 +68,7 @@ module.exports.adminRegister = async (req, res) => {
   }
 };
 
-module.exports.register = expressAsyncHandler(async (req, res) => {
+module.exports.register = async (req, res) => {
   console.log("registering");
   try {
     const { firstname, lastname, email, password, phone, username } = req.body;
@@ -114,10 +114,7 @@ module.exports.register = expressAsyncHandler(async (req, res) => {
         email,
         password: hashedPassword,
         phone,
-        imageURL: `${process.env.SELFORIGIN}/${req.file.path.replace(
-          /\\/g,
-          "/"
-        )}`,
+        imageURL: req.file.path,
       });
 
       // const existingUsers = await User.find({});
@@ -142,17 +139,17 @@ module.exports.register = expressAsyncHandler(async (req, res) => {
     console.log(error);
     res.status(500).json({ message: "Internal server error" });
   }
-});
+};
 
 module.exports.login = expressAsyncHandler(async (req, res) => {
-  const { username, password } = req.body;
-
+  const username = req.body.username;
+  const passwordBody = req.body.password;
   try {
     const userFound = await User.findOne({ username });
 
     if (userFound) {
       const isValidPassword = await bcrypt.compare(
-        password,
+        passwordBody,
         userFound.password
       );
 
@@ -174,11 +171,13 @@ module.exports.login = expressAsyncHandler(async (req, res) => {
 
       const token = jwt.sign(infoObject, process.env.SECRET, expiryInfo);
 
+      const { password, ...userWithoutPassword } = userFound;
+
       return res.json({
         success: true,
         message: "loggedIn successfully",
         token,
-        user: userFound,
+        user: userWithoutPassword,
       });
     } else {
       return res.json({
@@ -284,7 +283,7 @@ module.exports.getUser = async (req, res) => {
   const id = req.params.id;
 
   try {
-    const selectedUser = await User.findById(id);
+    const selectedUser = await User.findById(id).select("-password");
     if (!selectedUser) {
       return res.json({
         success: false,
@@ -394,10 +393,7 @@ module.exports.reuploadProfile = async (req, res) => {
           }
           console.log("File deleted successfully");
 
-          user.imageURL = `${process.env.SELFORIGIN}/${req.file.path.replace(
-            /\\/g,
-            "/"
-          )}`;
+          user.imageURL = req.file.path;
 
           await user.save();
           res.json({

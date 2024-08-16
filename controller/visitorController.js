@@ -52,10 +52,7 @@ module.exports.addVisitor = async (req, res) => {
         gender,
         age,
         occupation,
-        documentLocation: `${process.env.SELFORIGIN}/${req.file.path.replace(
-          /\\/g,
-          "/"
-        )}`,
+        documentLocation: req.file.path,
         enteredBy: req.headers.authData.id,
         religion,
       });
@@ -118,11 +115,13 @@ module.exports.addVisitor = async (req, res) => {
 
       visitorToBeAdded.populate("enteredBy");
       console.log("visitor added", visitorToBeAdded);
-      res.status(201).json({
-        success: true,
-        message: "visitor added without document",
-        visitorAdded: visitorToBeAdded,
-      });
+      setTimeout(() => {
+        res.status(201).json({
+          success: true,
+          message: "visitor added without document",
+          visitorAdded: visitorToBeAdded,
+        });
+      }, 10000);
     }
   } catch (error) {
     console.log(error);
@@ -300,11 +299,16 @@ module.exports.addEntry = async (req, res) => {
       remarks: req.body.remarks,
     });
 
+    await visitorToAddEntryTo.save();
     console.log(visitorToAddEntryTo);
 
-    await visitorToAddEntryTo.save();
+    await visitorToAddEntryTo.populate("enteredBy");
+    await visitorToAddEntryTo.populate("entries.by");
+    await visitorToAddEntryTo.populate("entries.checkoutBy");
 
-    res.json({ visitorToAddEntryTo });
+    setTimeout(() => {
+      res.json({ success: true, visitorToAddEntryTo, message: "Entry Added" });
+    }, 10000);
   } catch (err) {
     console.log(err);
     res.json(err);
@@ -656,9 +660,7 @@ module.exports.reuploadDocument = async (req, res) => {
 
       if (visitorFound.documentLocation) {
         const fileUrl = visitorFound.documentLocation;
-        const urlParts = fileUrl.split("/");
-        const relativePath = urlParts.slice(3).join("/"); // Adjust this based on your URL structure
-        const filePath = path.join(__dirname, "..", relativePath);
+        const filePath = path.join(__dirname, "..", fileUrl);
         const normalizedPath = path.normalize(filePath);
 
         console.log(`Deleting file at path: ${normalizedPath}`);
@@ -673,9 +675,7 @@ module.exports.reuploadDocument = async (req, res) => {
             }
             console.log("File deleted successfully");
 
-            visitorFound.documentLocation = `${
-              process.env.SELFORIGIN
-            }/${req.file.path.replace(/\\/g, "/")}`;
+            visitorFound.documentLocation = req.file.path;
 
             visitorFound.documentId = req.body.documentId;
             visitorFound.documentType = req.body.documentType;
@@ -691,9 +691,9 @@ module.exports.reuploadDocument = async (req, res) => {
         } else {
           console.log("File not found");
 
-          visitorFound.documentLocation = `${
-            process.env.SELFORIGIN
-          }/${req.file.path.replace(/\\/g, "/")}`;
+          visitorFound.documentLocation = req.file.path;
+          visitorFound.documentId = req.body.documentId;
+          visitorFound.documentType = req.body.documentType;
 
           await visitorFound.save();
 
@@ -704,19 +704,19 @@ module.exports.reuploadDocument = async (req, res) => {
           });
         }
       } else {
-        visitorFound.documentLocation = `${
-          process.env.SELFORIGIN
-        }/${req.file.path.replace(/\\/g, "/")}`;
+        visitorFound.documentLocation = req.file.path;
 
         visitorFound.documentId = req.body.documentId;
         visitorFound.documentType = req.body.documentType;
 
         await visitorFound.save();
-        res.json({
-          success: true,
-          updatedUser: visitorFound,
-          message: "image updated successfully",
-        });
+        setTimeout(() => {
+          res.json({
+            success: true,
+            updatedUser: visitorFound,
+            message: "image updated successfully",
+          });
+        }, 10000);
       }
     } else {
       res.status(400).json({ message: "No file uploaded" });
@@ -933,11 +933,13 @@ module.exports.editVisitor = async (req, res) => {
 
     await foundVisitor.save();
 
-    res.json({
-      success: true,
-      editedVisitor: foundVisitor,
-      message: "Edited Visitor Successfully",
-    });
+    setTimeout(() => {
+      res.json({
+        success: true,
+        editedVisitor: foundVisitor,
+        message: "Edited Visitor Successfully",
+      });
+    }, 10000);
   } catch (err) {
     res.json({
       success: false,

@@ -18,9 +18,9 @@ const visitorSchema = mongoose.Schema({
   },
   documentLocation: {
     type: String,
-    required: function () {
-      return !!this.documentType;
-    },
+    // required: function () {
+    //   return !!this.documentType;
+    // },
   },
   documentId: {
     type: String,
@@ -36,7 +36,7 @@ const visitorSchema = mongoose.Schema({
         type: mongoose.Types.ObjectId,
         ref: "User",
       },
-      by: { type: mongoose.Types.ObjectId, ref: "User", required: true },
+      by: { type: mongoose.Types.ObjectId, ref: "User" },
       room: { type: String, required: true },
       lastVisitedAddress: { type: String, required: true },
       nextDestination: { type: String, required: true },
