@@ -40,10 +40,7 @@ module.exports.adminRegister = async (req, res) => {
         email,
         password: hashedPassword,
         phone,
-        imageURL: `${process.env.SELFORIGIN}/${req.file.path.replace(
-          /\\/g,
-          "/"
-        )}`,
+        imageURL: req.file.path,
         role: "admin",
       });
 
@@ -376,10 +373,7 @@ module.exports.reuploadProfile = async (req, res) => {
       console.log(user.imageURL);
 
       const fileUrl = user.imageURL;
-      const urlParts = fileUrl.split("/");
-      const relativePath = urlParts.slice(3).join("/"); // Adjust this based on your URL structure
-      const filePath = path.join(__dirname, "..", relativePath);
-      const normalizedPath = path.normalize(filePath);
+      const normalizedPath = path.normalize(fileUrl);
 
       console.log(`Deleting file at path: ${normalizedPath}`);
 
@@ -387,6 +381,7 @@ module.exports.reuploadProfile = async (req, res) => {
         fs.unlink(normalizedPath, async (err) => {
           if (err) {
             console.error(`Error deleting file: ${err.message}`);
+            delete req.file;
             return res
               .status(500)
               .json({ message: "Error deleting file", error: err.message });
@@ -405,10 +400,7 @@ module.exports.reuploadProfile = async (req, res) => {
       } else {
         console.log("File not found");
 
-        user.imageURL = `${process.env.SELFORIGIN}/${req.file.path.replace(
-          /\\/g,
-          "/"
-        )}`;
+        user.imageURL = req.file.path;
 
         await user.save();
 

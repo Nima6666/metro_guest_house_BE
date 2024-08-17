@@ -130,12 +130,6 @@ module.exports.addVisitor = async (req, res) => {
 };
 
 module.exports.getVisitors = async (req, res) => {
-  const highlightMatchedWords = (text = "", searchString = "") => {
-    if (!searchString) return text;
-    const regex = new RegExp(`(${searchString})`, "gi");
-    return text.replace(regex, "$1");
-  };
-
   try {
     console.log("query ", req.query);
 
@@ -167,16 +161,6 @@ module.exports.getVisitors = async (req, res) => {
     await Promise.all(
       allVisitors.map((visitor) => visitor.populate("enteredBy"))
     );
-
-    // const highlightedVisitors = allVisitors.map((visitor) => {
-    //   return {
-    //     ...visitor.toObject(),
-    //     firstname: highlightMatchedWords(visitor.firstname, firstname),
-    //     lastname: highlightMatchedWords(visitor.lastname, lastname),
-    //     number: highlightMatchedWords(visitor.number, number),
-    //     documentId: highlightMatchedWords(visitor.documentId, documentId),
-    //   };
-    // });
 
     if (entry) {
       console.log("entry Search");
