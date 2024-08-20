@@ -281,10 +281,18 @@ module.exports.getUser = async (req, res) => {
 
   try {
     const selectedUser = await User.findById(id).select("-password");
+
     if (!selectedUser) {
       return res.json({
         success: false,
         message: "user not found",
+      });
+    }
+
+    if (selectedUser.role === "admin") {
+      return res.json({
+        success: false,
+        message: "User not found",
       });
     }
 
