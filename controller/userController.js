@@ -240,10 +240,7 @@ module.exports.deleteUser = async (req, res) => {
 
     if (deletedUser) {
       const fileUrl = deletedUser.imageURL;
-      const urlParts = fileUrl.split("/");
-      const relativePath = urlParts.slice(3).join("/");
-      const filePath = path.join(__dirname, "..", relativePath);
-      const normalizedPath = path.normalize(filePath);
+      const normalizedPath = path.normalize(fileUrl);
 
       console.log(`Deleting file at path: ${normalizedPath}`);
 
@@ -255,9 +252,11 @@ module.exports.deleteUser = async (req, res) => {
               .status(500)
               .json({ message: "Error deleting file", error: err.message });
           }
+          console.log("deleted user");
           res.json({ success: true, message: "User deleted successfully." });
         });
       } else {
+        console.log("Profile Img not found but deleted user");
         res.json({
           status: true,
           message: "Profile Img not found but deleted user",
