@@ -8,6 +8,7 @@ const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const visitorRouter = require("./routes/visitor");
 const errorHandler = require("./utils/errorHandler");
+const customLogger = require("./middleware/responseLogger");
 
 const cors = require("cors");
 const { isAuthenticated } = require("./middleware/userAuth");
@@ -18,13 +19,11 @@ require("dotenv").config();
 
 require("./db/databaseConnection");
 
-// view engine setup
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "ejs");
-
 const clientCors = {
   origin: process.env.CLIENTORIGIN,
 };
+app.use(customLogger.responseLogger);
+app.use(customLogger.logApiUsage);
 app.use(
   "/uploads",
   cors(clientCors),

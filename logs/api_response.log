@@ -1,0 +1,1003 @@
+
+      Time: 2024-09-26T11:08:47.698Z
+      Request URL: /v1/users/serverStat
+      Method: GET
+      Response Data: {"success":true,"stat":true}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:08:47.717Z
+      Request URL: /v1/users/getCurrentUser
+      Method: GET
+      Response Data: {"success":true,"profile":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0}}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:08:47.752Z
+      Request URL: /v1/users/serverStat
+      Method: GET
+      Response Data: {"success":true,"stat":true}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:08:47.773Z
+      Request URL: /v1/users/getCurrentUser
+      Method: GET
+      Response Data: {"success":true,"profile":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0}}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:08:47.842Z
+      Request URL: /v1/visitor/currentVisitors
+      Method: GET
+      Response Data: {"success":true,"currentVisitors":[{"firstname":"visitor","lastname":"1","phone":"9823741079","room":"101","time":"2024-09-26T10:16:56.525Z","visitorId":"66f53498d8cc025d2f2de229","entryId":"66f53498d8cc025d2f2de22a","with":0},{"firstname":"visitor","lastname":"2","phone":"9823741080","room":"101","time":"2024-09-26T10:43:46.089Z","visitorId":"66f53ae26386866d19cdea6c","entryId":"66f53ae26386866d19cdea6d","with":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:08:47.896Z
+      Request URL: /v1/visitor
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:08:48.002Z
+      Request URL: /v1/visitor
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:08:48.121Z
+      Request URL: /v1/users
+      Method: GET
+      Response Data: {"success":"true","allusers":[{"_id":"66f52fbe2fd1c7b3f627e137","firstname":"staff","lastname":"1","username":"staff1","email":"staff1@metro","password":"$2a$10$xFw2uuiuK3/CpwQSPHEIVeetPNqGSVO/HRTEYnl7CEDT8i7QqKIR.","phone":"9823741079","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00018_.png-1727344574246.png","createdUserTimestamp":"2024-09-26T09:56:14.420Z","__v":0},{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff2@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:08:48.173Z
+      Request URL: /v1/users
+      Method: GET
+      Response Data: {"success":"true","allusers":[{"_id":"66f52fbe2fd1c7b3f627e137","firstname":"staff","lastname":"1","username":"staff1","email":"staff1@metro","password":"$2a$10$xFw2uuiuK3/CpwQSPHEIVeetPNqGSVO/HRTEYnl7CEDT8i7QqKIR.","phone":"9823741079","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00018_.png-1727344574246.png","createdUserTimestamp":"2024-09-26T09:56:14.420Z","__v":0},{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff2@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:08:48.178Z
+      Request URL: /v1/visitor/currentVisitors
+      Method: GET
+      Response Data: {"success":true,"currentVisitors":[{"firstname":"visitor","lastname":"1","phone":"9823741079","room":"101","time":"2024-09-26T10:16:56.525Z","visitorId":"66f53498d8cc025d2f2de229","entryId":"66f53498d8cc025d2f2de22a","with":0},{"firstname":"visitor","lastname":"2","phone":"9823741080","room":"101","time":"2024-09-26T10:43:46.089Z","visitorId":"66f53ae26386866d19cdea6c","entryId":"66f53ae26386866d19cdea6d","with":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:08:48.226Z
+      Request URL: /v1/users
+      Method: GET
+      Response Data: {"success":"true","allusers":[{"_id":"66f52fbe2fd1c7b3f627e137","firstname":"staff","lastname":"1","username":"staff1","email":"staff1@metro","password":"$2a$10$xFw2uuiuK3/CpwQSPHEIVeetPNqGSVO/HRTEYnl7CEDT8i7QqKIR.","phone":"9823741079","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00018_.png-1727344574246.png","createdUserTimestamp":"2024-09-26T09:56:14.420Z","__v":0},{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff2@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:08:48.232Z
+      Request URL: /v1/visitor
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:08:48.334Z
+      Request URL: /v1/visitor
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:08:48.436Z
+      Request URL: /v1/visitor
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:09:37.383Z
+      Request URL: /v1/visitor?firstname=&lastname=&number=&documentId=
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:09:37.487Z
+      Request URL: /v1/visitor?firstname=&lastname=&number=&documentId=
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:09:41.378Z
+      Request URL: /v1/visitor/entriesToday
+      Method: GET
+      Response Data: {"success":true,"visitorsToday":[{"firstname":"visitor","lastname":"1","phone":"9823741079","room":"101","time":"2024-09-26T10:16:56.525Z","enteredBy":"66f52d6e2fd1c7b3f627e119","visitorId":"66f53498d8cc025d2f2de229","entryId":"66f53498d8cc025d2f2de22a","with":0,"checkout":null},{"firstname":"visitor","lastname":"2","phone":"9823741080","room":"101","time":"2024-09-26T10:43:46.089Z","enteredBy":"66f52d6e2fd1c7b3f627e119","visitorId":"66f53ae26386866d19cdea6c","entryId":"66f53ae26386866d19cdea6d","with":0,"checkout":null}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:09:41.434Z
+      Request URL: /v1/visitor/entriesToday
+      Method: GET
+      Response Data: {"success":true,"visitorsToday":[{"firstname":"visitor","lastname":"1","phone":"9823741079","room":"101","time":"2024-09-26T10:16:56.525Z","enteredBy":"66f52d6e2fd1c7b3f627e119","visitorId":"66f53498d8cc025d2f2de229","entryId":"66f53498d8cc025d2f2de22a","with":0,"checkout":null},{"firstname":"visitor","lastname":"2","phone":"9823741080","room":"101","time":"2024-09-26T10:43:46.089Z","enteredBy":"66f52d6e2fd1c7b3f627e119","visitorId":"66f53ae26386866d19cdea6c","entryId":"66f53ae26386866d19cdea6d","with":0,"checkout":null}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:09:42.552Z
+      Request URL: /v1/visitor/66f53498d8cc025d2f2de229
+      Method: GET
+      Response Data: {"success":true,"selectedVisitor":{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0}}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:09:42.705Z
+      Request URL: /v1/visitor/66f53498d8cc025d2f2de229
+      Method: GET
+      Response Data: {"success":true,"selectedVisitor":{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0}}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:09:44.512Z
+      Request URL: /v1/visitor/66f53498d8cc025d2f2de229/66f53498d8cc025d2f2de22a
+      Method: GET
+      Response Data: {"success":true,"selectedEntry":{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:09:46.636Z
+      Request URL: /v1/visitor/66f53498d8cc025d2f2de229/66f53498d8cc025d2f2de22a
+      Method: GET
+      Response Data: {"success":true,"selectedEntry":{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:10:53.312Z
+      Request URL: /v1/users/serverStat
+      Method: GET
+      Response Data: {"success":true,"stat":true}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:10:53.319Z
+      Request URL: /v1/users/getCurrentUser
+      Method: GET
+      Response Data: {"success":true,"profile":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0}}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:10:53.373Z
+      Request URL: /v1/users/serverStat
+      Method: GET
+      Response Data: {"success":true,"stat":true}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:10:53.376Z
+      Request URL: /v1/users/getCurrentUser
+      Method: GET
+      Response Data: {"success":true,"profile":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0}}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:14:31.521Z
+      Request URL: /v1/users/serverStat
+      Method: GET
+      Response Data: {"success":true,"stat":true}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:14:31.525Z
+      Request URL: /v1/users/getCurrentUser
+      Method: GET
+      Response Data: {"success":true,"profile":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0}}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:14:31.575Z
+      Request URL: /v1/users/serverStat
+      Method: GET
+      Response Data: {"success":true,"stat":true}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:14:31.579Z
+      Request URL: /v1/users/getCurrentUser
+      Method: GET
+      Response Data: {"success":true,"profile":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0}}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:15:51.451Z
+      Request URL: /v1/users
+      Method: GET
+      Response Data: {"success":"true","allusers":[{"_id":"66f52fbe2fd1c7b3f627e137","firstname":"staff","lastname":"1","username":"staff1","email":"staff1@metro","password":"$2a$10$xFw2uuiuK3/CpwQSPHEIVeetPNqGSVO/HRTEYnl7CEDT8i7QqKIR.","phone":"9823741079","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00018_.png-1727344574246.png","createdUserTimestamp":"2024-09-26T09:56:14.420Z","__v":0},{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff2@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:15:51.457Z
+      Request URL: /v1/visitor/currentVisitors
+      Method: GET
+      Response Data: {"success":true,"currentVisitors":[{"firstname":"visitor","lastname":"1","phone":"9823741079","room":"101","time":"2024-09-26T10:16:56.525Z","visitorId":"66f53498d8cc025d2f2de229","entryId":"66f53498d8cc025d2f2de22a","with":0},{"firstname":"visitor","lastname":"2","phone":"9823741080","room":"101","time":"2024-09-26T10:43:46.089Z","visitorId":"66f53ae26386866d19cdea6c","entryId":"66f53ae26386866d19cdea6d","with":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:15:51.505Z
+      Request URL: /v1/users
+      Method: GET
+      Response Data: {"success":"true","allusers":[{"_id":"66f52fbe2fd1c7b3f627e137","firstname":"staff","lastname":"1","username":"staff1","email":"staff1@metro","password":"$2a$10$xFw2uuiuK3/CpwQSPHEIVeetPNqGSVO/HRTEYnl7CEDT8i7QqKIR.","phone":"9823741079","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00018_.png-1727344574246.png","createdUserTimestamp":"2024-09-26T09:56:14.420Z","__v":0},{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff2@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:15:51.511Z
+      Request URL: /v1/visitor/currentVisitors
+      Method: GET
+      Response Data: {"success":true,"currentVisitors":[{"firstname":"visitor","lastname":"1","phone":"9823741079","room":"101","time":"2024-09-26T10:16:56.525Z","visitorId":"66f53498d8cc025d2f2de229","entryId":"66f53498d8cc025d2f2de22a","with":0},{"firstname":"visitor","lastname":"2","phone":"9823741080","room":"101","time":"2024-09-26T10:43:46.089Z","visitorId":"66f53ae26386866d19cdea6c","entryId":"66f53ae26386866d19cdea6d","with":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:15:51.884Z
+      Request URL: /v1/visitor
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:15:51.987Z
+      Request URL: /v1/visitor
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:15:52.092Z
+      Request URL: /v1/visitor
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:15:52.196Z
+      Request URL: /v1/visitor
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:15:57.802Z
+      Request URL: /v1/visitor/66f53ae26386866d19cdea6c
+      Method: GET
+      Response Data: {"success":true,"selectedVisitor":{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":null,"by":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:15:57.958Z
+      Request URL: /v1/visitor/66f53ae26386866d19cdea6c
+      Method: GET
+      Response Data: {"success":true,"selectedVisitor":{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":null,"by":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:15:59.764Z
+      Request URL: /v1/visitor/66f53ae26386866d19cdea6c/66f53ae26386866d19cdea6d
+      Method: GET
+      Response Data: {"success":true,"selectedEntry":{"time":"2024-09-26T10:43:46.089Z","checkoutTime":null,"by":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:16:01.879Z
+      Request URL: /v1/visitor/66f53ae26386866d19cdea6c/66f53ae26386866d19cdea6d
+      Method: GET
+      Response Data: {"success":true,"selectedEntry":{"time":"2024-09-26T10:43:46.089Z","checkoutTime":null,"by":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:16:02.179Z
+      Request URL: /v1/visitor/66f53ae26386866d19cdea6c/66f53ae26386866d19cdea6d
+      Method: PUT
+      Response Data: {"success":true,"editedEntry":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":"2024-09-26T11:16:01.967Z","checkoutBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"by":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"currentVisitors":[{"firstname":"visitor","lastname":"1","phone":"9823741079","room":"101","time":"2024-09-26T10:16:56.525Z","visitorId":"66f53498d8cc025d2f2de229","entryId":"66f53498d8cc025d2f2de22a","with":0}],"message":"Checked Out"}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:18:42.669Z
+      Request URL: /v1/visitor/currentVisitors
+      Method: GET
+      Response Data: {"success":true,"currentVisitors":[{"firstname":"visitor","lastname":"1","phone":"9823741079","room":"101","time":"2024-09-26T10:16:56.525Z","visitorId":"66f53498d8cc025d2f2de229","entryId":"66f53498d8cc025d2f2de22a","with":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:18:42.674Z
+      Request URL: /v1/users
+      Method: GET
+      Response Data: {"success":"true","allusers":[{"_id":"66f52fbe2fd1c7b3f627e137","firstname":"staff","lastname":"1","username":"staff1","email":"staff1@metro","password":"$2a$10$xFw2uuiuK3/CpwQSPHEIVeetPNqGSVO/HRTEYnl7CEDT8i7QqKIR.","phone":"9823741079","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00018_.png-1727344574246.png","createdUserTimestamp":"2024-09-26T09:56:14.420Z","__v":0},{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff2@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:18:42.723Z
+      Request URL: /v1/visitor/currentVisitors
+      Method: GET
+      Response Data: {"success":true,"currentVisitors":[{"firstname":"visitor","lastname":"1","phone":"9823741079","room":"101","time":"2024-09-26T10:16:56.525Z","visitorId":"66f53498d8cc025d2f2de229","entryId":"66f53498d8cc025d2f2de22a","with":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:18:42.726Z
+      Request URL: /v1/visitor
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":"2024-09-26T11:16:01.967Z","checkoutBy":"66f52d6e2fd1c7b3f627e119","by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:18:42.833Z
+      Request URL: /v1/visitor
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":"2024-09-26T11:16:01.967Z","checkoutBy":"66f52d6e2fd1c7b3f627e119","by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:18:42.937Z
+      Request URL: /v1/visitor
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":"2024-09-26T11:16:01.967Z","checkoutBy":"66f52d6e2fd1c7b3f627e119","by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:18:43.153Z
+      Request URL: /v1/users
+      Method: GET
+      Response Data: {"success":"true","allusers":[{"_id":"66f52fbe2fd1c7b3f627e137","firstname":"staff","lastname":"1","username":"staff1","email":"staff1@metro","password":"$2a$10$xFw2uuiuK3/CpwQSPHEIVeetPNqGSVO/HRTEYnl7CEDT8i7QqKIR.","phone":"9823741079","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00018_.png-1727344574246.png","createdUserTimestamp":"2024-09-26T09:56:14.420Z","__v":0},{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff2@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:18:43.255Z
+      Request URL: /v1/visitor
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":"2024-09-26T11:16:01.967Z","checkoutBy":"66f52d6e2fd1c7b3f627e119","by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:18:43.947Z
+      Request URL: /v1/users
+      Method: GET
+      Response Data: {"success":"true","allusers":[{"_id":"66f52fbe2fd1c7b3f627e137","firstname":"staff","lastname":"1","username":"staff1","email":"staff1@metro","password":"$2a$10$xFw2uuiuK3/CpwQSPHEIVeetPNqGSVO/HRTEYnl7CEDT8i7QqKIR.","phone":"9823741079","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00018_.png-1727344574246.png","createdUserTimestamp":"2024-09-26T09:56:14.420Z","__v":0},{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff2@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:18:44.000Z
+      Request URL: /v1/users
+      Method: GET
+      Response Data: {"success":"true","allusers":[{"_id":"66f52fbe2fd1c7b3f627e137","firstname":"staff","lastname":"1","username":"staff1","email":"staff1@metro","password":"$2a$10$xFw2uuiuK3/CpwQSPHEIVeetPNqGSVO/HRTEYnl7CEDT8i7QqKIR.","phone":"9823741079","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00018_.png-1727344574246.png","createdUserTimestamp":"2024-09-26T09:56:14.420Z","__v":0},{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff2@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:18:44.055Z
+      Request URL: /v1/users
+      Method: GET
+      Response Data: {"success":"true","allusers":[{"_id":"66f52fbe2fd1c7b3f627e137","firstname":"staff","lastname":"1","username":"staff1","email":"staff1@metro","password":"$2a$10$xFw2uuiuK3/CpwQSPHEIVeetPNqGSVO/HRTEYnl7CEDT8i7QqKIR.","phone":"9823741079","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00018_.png-1727344574246.png","createdUserTimestamp":"2024-09-26T09:56:14.420Z","__v":0},{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff2@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:18:48.373Z
+      Request URL: /v1/users/66f5338de8c35e8affb22b85
+      Method: GET
+      Response Data: {"success":true,"user":{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff2@metro","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:18:49.432Z
+      Request URL: /v1/users/66f5338de8c35e8affb22b85
+      Method: GET
+      Response Data: {"success":true,"user":{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff2@metro","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:19:23.457Z
+      Request URL: /v1/users/66f5338de8c35e8affb22b85
+      Method: PATCH
+      Response Data: {"success":false,"message":"Something went wrong editing"}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:19:58.685Z
+      Request URL: /v1/users/66f5338de8c35e8affb22b85
+      Method: PATCH
+      Response Data: {"success":false,"message":"Something went wrong editing"}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:20:46.750Z
+      Request URL: /v1/users/66f5338de8c35e8affb22b85
+      Method: PATCH
+      Response Data: {"success":false,"message":"email in use"}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:20:48.291Z
+      Request URL: /v1/users/66f5338de8c35e8affb22b85
+      Method: PATCH
+      Response Data: {"success":false,"message":"email in use"}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:21:28.635Z
+      Request URL: /v1/users/66f5338de8c35e8affb22b85
+      Method: PATCH
+      Response Data: {"success":true,"editedUser":{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff2@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0},"message":"Edited User Successfully"}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:27:31.816Z
+      Request URL: /v1/users/66f5338de8c35e8affb22b85
+      Method: PATCH
+      Response Data: {"success":true,"editedUser":{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff2@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0},"message":"Edited User Successfully"}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:27:36.542Z
+      Request URL: /v1/users/66f5338de8c35e8affb22b85
+      Method: PATCH
+      Response Data: {"success":true,"editedUser":{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff1@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0},"message":"Edited User Successfully"}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:27:39.889Z
+      Request URL: /v1/users
+      Method: GET
+      Response Data: {"success":"true","allusers":[{"_id":"66f52fbe2fd1c7b3f627e137","firstname":"staff","lastname":"1","username":"staff1","email":"staff1@metro","password":"$2a$10$xFw2uuiuK3/CpwQSPHEIVeetPNqGSVO/HRTEYnl7CEDT8i7QqKIR.","phone":"9823741079","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00018_.png-1727344574246.png","createdUserTimestamp":"2024-09-26T09:56:14.420Z","__v":0},{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff1@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:27:39.934Z
+      Request URL: /v1/users
+      Method: GET
+      Response Data: {"success":"true","allusers":[{"_id":"66f52fbe2fd1c7b3f627e137","firstname":"staff","lastname":"1","username":"staff1","email":"staff1@metro","password":"$2a$10$xFw2uuiuK3/CpwQSPHEIVeetPNqGSVO/HRTEYnl7CEDT8i7QqKIR.","phone":"9823741079","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00018_.png-1727344574246.png","createdUserTimestamp":"2024-09-26T09:56:14.420Z","__v":0},{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff1@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:27:39.977Z
+      Request URL: /v1/users
+      Method: GET
+      Response Data: {"success":"true","allusers":[{"_id":"66f52fbe2fd1c7b3f627e137","firstname":"staff","lastname":"1","username":"staff1","email":"staff1@metro","password":"$2a$10$xFw2uuiuK3/CpwQSPHEIVeetPNqGSVO/HRTEYnl7CEDT8i7QqKIR.","phone":"9823741079","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00018_.png-1727344574246.png","createdUserTimestamp":"2024-09-26T09:56:14.420Z","__v":0},{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff1@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:27:42.490Z
+      Request URL: /v1/users/66f52fbe2fd1c7b3f627e137
+      Method: GET
+      Response Data: {"success":true,"user":{"_id":"66f52fbe2fd1c7b3f627e137","firstname":"staff","lastname":"1","username":"staff1","email":"staff1@metro","phone":"9823741079","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00018_.png-1727344574246.png","createdUserTimestamp":"2024-09-26T09:56:14.420Z","__v":0}}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:27:43.550Z
+      Request URL: /v1/users/66f52fbe2fd1c7b3f627e137
+      Method: GET
+      Response Data: {"success":true,"user":{"_id":"66f52fbe2fd1c7b3f627e137","firstname":"staff","lastname":"1","username":"staff1","email":"staff1@metro","phone":"9823741079","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00018_.png-1727344574246.png","createdUserTimestamp":"2024-09-26T09:56:14.420Z","__v":0}}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:27:45.350Z
+      Request URL: /v1/users
+      Method: GET
+      Response Data: {"success":"true","allusers":[{"_id":"66f52fbe2fd1c7b3f627e137","firstname":"staff","lastname":"1","username":"staff1","email":"staff1@metro","password":"$2a$10$xFw2uuiuK3/CpwQSPHEIVeetPNqGSVO/HRTEYnl7CEDT8i7QqKIR.","phone":"9823741079","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00018_.png-1727344574246.png","createdUserTimestamp":"2024-09-26T09:56:14.420Z","__v":0},{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff1@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:27:45.391Z
+      Request URL: /v1/users
+      Method: GET
+      Response Data: {"success":"true","allusers":[{"_id":"66f52fbe2fd1c7b3f627e137","firstname":"staff","lastname":"1","username":"staff1","email":"staff1@metro","password":"$2a$10$xFw2uuiuK3/CpwQSPHEIVeetPNqGSVO/HRTEYnl7CEDT8i7QqKIR.","phone":"9823741079","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00018_.png-1727344574246.png","createdUserTimestamp":"2024-09-26T09:56:14.420Z","__v":0},{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff1@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:27:45.433Z
+      Request URL: /v1/users
+      Method: GET
+      Response Data: {"success":"true","allusers":[{"_id":"66f52fbe2fd1c7b3f627e137","firstname":"staff","lastname":"1","username":"staff1","email":"staff1@metro","password":"$2a$10$xFw2uuiuK3/CpwQSPHEIVeetPNqGSVO/HRTEYnl7CEDT8i7QqKIR.","phone":"9823741079","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00018_.png-1727344574246.png","createdUserTimestamp":"2024-09-26T09:56:14.420Z","__v":0},{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff1@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:27:47.660Z
+      Request URL: /v1/users/66f5338de8c35e8affb22b85
+      Method: GET
+      Response Data: {"success":true,"user":{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff1@metro","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:27:48.719Z
+      Request URL: /v1/users/66f5338de8c35e8affb22b85
+      Method: GET
+      Response Data: {"success":true,"user":{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff1@metro","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:27:56.973Z
+      Request URL: /v1/users/66f5338de8c35e8affb22b85
+      Method: PATCH
+      Response Data: {"success":false,"message":"Something went wrong editing"}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:28:15.870Z
+      Request URL: /v1/users/66f5338de8c35e8affb22b85
+      Method: PATCH
+      Response Data: {"success":true,"editedUser":{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff2@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0},"message":"Edited User Successfully"}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:28:21.240Z
+      Request URL: /v1/users/66f5338de8c35e8affb22b85
+      Method: PATCH
+      Response Data: {"success":false,"message":"email in use"}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:28:22.661Z
+      Request URL: /v1/users/66f5338de8c35e8affb22b85
+      Method: PATCH
+      Response Data: {"success":false,"message":"email in use"}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:28:23.387Z
+      Request URL: /v1/users/66f5338de8c35e8affb22b85
+      Method: PATCH
+      Response Data: {"success":false,"message":"email in use"}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:28:24.060Z
+      Request URL: /v1/users/66f5338de8c35e8affb22b85
+      Method: PATCH
+      Response Data: {"success":false,"message":"email in use"}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:28:24.651Z
+      Request URL: /v1/users/66f5338de8c35e8affb22b85
+      Method: PATCH
+      Response Data: {"success":false,"message":"email in use"}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:30:44.632Z
+      Request URL: /v1/users/66f5338de8c35e8affb22b85
+      Method: PATCH
+      Response Data: {"success":false,"message":"email in use"}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:30:45.826Z
+      Request URL: /v1/users/66f5338de8c35e8affb22b85
+      Method: PATCH
+      Response Data: {"success":false,"message":"email in use"}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:30:49.224Z
+      Request URL: /v1/users/66f5338de8c35e8affb22b85
+      Method: PATCH
+      Response Data: {"success":false,"message":"phone number in use"}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:30:50.325Z
+      Request URL: /v1/users/66f5338de8c35e8affb22b85
+      Method: PATCH
+      Response Data: {"success":false,"message":"phone number in use"}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:30:52.168Z
+      Request URL: /v1/users/66f5338de8c35e8affb22b85
+      Method: PATCH
+      Response Data: {"success":false,"message":"phone number in use"}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:30:53.004Z
+      Request URL: /v1/users/66f5338de8c35e8affb22b85
+      Method: PATCH
+      Response Data: {"success":false,"message":"phone number in use"}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:30:58.801Z
+      Request URL: /v1/users/66f5338de8c35e8affb22b85
+      Method: PATCH
+      Response Data: {"success":false,"message":"email in use"}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:31:06.390Z
+      Request URL: /v1/users/66f5338de8c35e8affb22b85
+      Method: PATCH
+      Response Data: {"success":false,"message":"phone number in use"}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:31:12.452Z
+      Request URL: /v1/users/66f5338de8c35e8affb22b85
+      Method: PATCH
+      Response Data: {"success":false,"message":"phone number in use"}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:31:24.960Z
+      Request URL: /v1/users/66f5338de8c35e8affb22b85
+      Method: PATCH
+      Response Data: {"success":false,"message":"phone number in use"}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:31:29.089Z
+      Request URL: /v1/users/66f5338de8c35e8affb22b85
+      Method: PATCH
+      Response Data: {"success":true,"editedUser":{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff2@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0},"message":"Edited User Successfully"}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:31:48.911Z
+      Request URL: /v1/users
+      Method: GET
+      Response Data: {"success":"true","allusers":[{"_id":"66f52fbe2fd1c7b3f627e137","firstname":"staff","lastname":"1","username":"staff1","email":"staff1@metro","password":"$2a$10$xFw2uuiuK3/CpwQSPHEIVeetPNqGSVO/HRTEYnl7CEDT8i7QqKIR.","phone":"9823741079","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00018_.png-1727344574246.png","createdUserTimestamp":"2024-09-26T09:56:14.420Z","__v":0},{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff2@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:31:48.954Z
+      Request URL: /v1/users
+      Method: GET
+      Response Data: {"success":"true","allusers":[{"_id":"66f52fbe2fd1c7b3f627e137","firstname":"staff","lastname":"1","username":"staff1","email":"staff1@metro","password":"$2a$10$xFw2uuiuK3/CpwQSPHEIVeetPNqGSVO/HRTEYnl7CEDT8i7QqKIR.","phone":"9823741079","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00018_.png-1727344574246.png","createdUserTimestamp":"2024-09-26T09:56:14.420Z","__v":0},{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff2@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:31:48.995Z
+      Request URL: /v1/users
+      Method: GET
+      Response Data: {"success":"true","allusers":[{"_id":"66f52fbe2fd1c7b3f627e137","firstname":"staff","lastname":"1","username":"staff1","email":"staff1@metro","password":"$2a$10$xFw2uuiuK3/CpwQSPHEIVeetPNqGSVO/HRTEYnl7CEDT8i7QqKIR.","phone":"9823741079","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00018_.png-1727344574246.png","createdUserTimestamp":"2024-09-26T09:56:14.420Z","__v":0},{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff2@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:31:51.013Z
+      Request URL: /v1/users/66f5338de8c35e8affb22b85
+      Method: GET
+      Response Data: {"success":true,"user":{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff2@metro","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:31:52.073Z
+      Request URL: /v1/users/66f5338de8c35e8affb22b85
+      Method: GET
+      Response Data: {"success":true,"user":{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff2@metro","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:31:52.370Z
+      Request URL: /v1/users
+      Method: GET
+      Response Data: {"success":"true","allusers":[{"_id":"66f52fbe2fd1c7b3f627e137","firstname":"staff","lastname":"1","username":"staff1","email":"staff1@metro","password":"$2a$10$xFw2uuiuK3/CpwQSPHEIVeetPNqGSVO/HRTEYnl7CEDT8i7QqKIR.","phone":"9823741079","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00018_.png-1727344574246.png","createdUserTimestamp":"2024-09-26T09:56:14.420Z","__v":0},{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff2@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:31:52.416Z
+      Request URL: /v1/users
+      Method: GET
+      Response Data: {"success":"true","allusers":[{"_id":"66f52fbe2fd1c7b3f627e137","firstname":"staff","lastname":"1","username":"staff1","email":"staff1@metro","password":"$2a$10$xFw2uuiuK3/CpwQSPHEIVeetPNqGSVO/HRTEYnl7CEDT8i7QqKIR.","phone":"9823741079","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00018_.png-1727344574246.png","createdUserTimestamp":"2024-09-26T09:56:14.420Z","__v":0},{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff2@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:31:52.458Z
+      Request URL: /v1/users
+      Method: GET
+      Response Data: {"success":"true","allusers":[{"_id":"66f52fbe2fd1c7b3f627e137","firstname":"staff","lastname":"1","username":"staff1","email":"staff1@metro","password":"$2a$10$xFw2uuiuK3/CpwQSPHEIVeetPNqGSVO/HRTEYnl7CEDT8i7QqKIR.","phone":"9823741079","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00018_.png-1727344574246.png","createdUserTimestamp":"2024-09-26T09:56:14.420Z","__v":0},{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff2@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:31:54.267Z
+      Request URL: /v1/users/66f52fbe2fd1c7b3f627e137
+      Method: GET
+      Response Data: {"success":true,"user":{"_id":"66f52fbe2fd1c7b3f627e137","firstname":"staff","lastname":"1","username":"staff1","email":"staff1@metro","phone":"9823741079","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00018_.png-1727344574246.png","createdUserTimestamp":"2024-09-26T09:56:14.420Z","__v":0}}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:31:55.326Z
+      Request URL: /v1/users/66f52fbe2fd1c7b3f627e137
+      Method: GET
+      Response Data: {"success":true,"user":{"_id":"66f52fbe2fd1c7b3f627e137","firstname":"staff","lastname":"1","username":"staff1","email":"staff1@metro","phone":"9823741079","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00018_.png-1727344574246.png","createdUserTimestamp":"2024-09-26T09:56:14.420Z","__v":0}}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:32:34.283Z
+      Request URL: /v1/visitor/currentVisitors
+      Method: GET
+      Response Data: {"success":true,"currentVisitors":[{"firstname":"visitor","lastname":"1","phone":"9823741079","room":"101","time":"2024-09-26T10:16:56.525Z","visitorId":"66f53498d8cc025d2f2de229","entryId":"66f53498d8cc025d2f2de22a","with":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:32:34.287Z
+      Request URL: /v1/users
+      Method: GET
+      Response Data: {"success":"true","allusers":[{"_id":"66f52fbe2fd1c7b3f627e137","firstname":"staff","lastname":"1","username":"staff1","email":"staff1@metro","password":"$2a$10$xFw2uuiuK3/CpwQSPHEIVeetPNqGSVO/HRTEYnl7CEDT8i7QqKIR.","phone":"9823741079","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00018_.png-1727344574246.png","createdUserTimestamp":"2024-09-26T09:56:14.420Z","__v":0},{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff2@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:32:34.329Z
+      Request URL: /v1/visitor/currentVisitors
+      Method: GET
+      Response Data: {"success":true,"currentVisitors":[{"firstname":"visitor","lastname":"1","phone":"9823741079","room":"101","time":"2024-09-26T10:16:56.525Z","visitorId":"66f53498d8cc025d2f2de229","entryId":"66f53498d8cc025d2f2de22a","with":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:32:34.332Z
+      Request URL: /v1/users
+      Method: GET
+      Response Data: {"success":"true","allusers":[{"_id":"66f52fbe2fd1c7b3f627e137","firstname":"staff","lastname":"1","username":"staff1","email":"staff1@metro","password":"$2a$10$xFw2uuiuK3/CpwQSPHEIVeetPNqGSVO/HRTEYnl7CEDT8i7QqKIR.","phone":"9823741079","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00018_.png-1727344574246.png","createdUserTimestamp":"2024-09-26T09:56:14.420Z","__v":0},{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff2@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:32:34.640Z
+      Request URL: /v1/visitor
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":"2024-09-26T11:16:01.967Z","checkoutBy":"66f52d6e2fd1c7b3f627e119","by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:32:34.726Z
+      Request URL: /v1/visitor
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":"2024-09-26T11:16:01.967Z","checkoutBy":"66f52d6e2fd1c7b3f627e119","by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:32:34.814Z
+      Request URL: /v1/visitor
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":"2024-09-26T11:16:01.967Z","checkoutBy":"66f52d6e2fd1c7b3f627e119","by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:32:34.898Z
+      Request URL: /v1/visitor
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":"2024-09-26T11:16:01.967Z","checkoutBy":"66f52d6e2fd1c7b3f627e119","by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:32:35.408Z
+      Request URL: /v1/visitor?firstname=&lastname=&number=&documentId=
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":"2024-09-26T11:16:01.967Z","checkoutBy":"66f52d6e2fd1c7b3f627e119","by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:32:35.495Z
+      Request URL: /v1/visitor?firstname=&lastname=&number=&documentId=
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":"2024-09-26T11:16:01.967Z","checkoutBy":"66f52d6e2fd1c7b3f627e119","by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:32:36.859Z
+      Request URL: /v1/visitor/66f53498d8cc025d2f2de229
+      Method: GET
+      Response Data: {"success":true,"selectedVisitor":{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0}}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:32:36.986Z
+      Request URL: /v1/visitor/66f53498d8cc025d2f2de229
+      Method: GET
+      Response Data: {"success":true,"selectedVisitor":{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0}}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:32:40.658Z
+      Request URL: /v1/visitor/66f53498d8cc025d2f2de229
+      Method: GET
+      Response Data: {"success":true,"selectedVisitor":{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0}}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:32:40.781Z
+      Request URL: /v1/visitor/66f53498d8cc025d2f2de229
+      Method: GET
+      Response Data: {"success":true,"selectedVisitor":{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0}}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:32:42.047Z
+      Request URL: /v1/visitor/currentVisitors
+      Method: GET
+      Response Data: {"success":true,"currentVisitors":[{"firstname":"visitor","lastname":"1","phone":"9823741079","room":"101","time":"2024-09-26T10:16:56.525Z","visitorId":"66f53498d8cc025d2f2de229","entryId":"66f53498d8cc025d2f2de22a","with":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:32:42.050Z
+      Request URL: /v1/users
+      Method: GET
+      Response Data: {"success":"true","allusers":[{"_id":"66f52fbe2fd1c7b3f627e137","firstname":"staff","lastname":"1","username":"staff1","email":"staff1@metro","password":"$2a$10$xFw2uuiuK3/CpwQSPHEIVeetPNqGSVO/HRTEYnl7CEDT8i7QqKIR.","phone":"9823741079","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00018_.png-1727344574246.png","createdUserTimestamp":"2024-09-26T09:56:14.420Z","__v":0},{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff2@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:32:42.090Z
+      Request URL: /v1/visitor/currentVisitors
+      Method: GET
+      Response Data: {"success":true,"currentVisitors":[{"firstname":"visitor","lastname":"1","phone":"9823741079","room":"101","time":"2024-09-26T10:16:56.525Z","visitorId":"66f53498d8cc025d2f2de229","entryId":"66f53498d8cc025d2f2de22a","with":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:32:42.093Z
+      Request URL: /v1/users
+      Method: GET
+      Response Data: {"success":"true","allusers":[{"_id":"66f52fbe2fd1c7b3f627e137","firstname":"staff","lastname":"1","username":"staff1","email":"staff1@metro","password":"$2a$10$xFw2uuiuK3/CpwQSPHEIVeetPNqGSVO/HRTEYnl7CEDT8i7QqKIR.","phone":"9823741079","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00018_.png-1727344574246.png","createdUserTimestamp":"2024-09-26T09:56:14.420Z","__v":0},{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff2@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:32:42.336Z
+      Request URL: /v1/visitor
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":"2024-09-26T11:16:01.967Z","checkoutBy":"66f52d6e2fd1c7b3f627e119","by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:32:42.422Z
+      Request URL: /v1/visitor
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":"2024-09-26T11:16:01.967Z","checkoutBy":"66f52d6e2fd1c7b3f627e119","by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:32:42.508Z
+      Request URL: /v1/visitor
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":"2024-09-26T11:16:01.967Z","checkoutBy":"66f52d6e2fd1c7b3f627e119","by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:32:42.598Z
+      Request URL: /v1/visitor
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":"2024-09-26T11:16:01.967Z","checkoutBy":"66f52d6e2fd1c7b3f627e119","by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:32:44.050Z
+      Request URL: /v1/visitor?firstname=&lastname=&number=&documentId=
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":"2024-09-26T11:16:01.967Z","checkoutBy":"66f52d6e2fd1c7b3f627e119","by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:32:44.144Z
+      Request URL: /v1/visitor?firstname=&lastname=&number=&documentId=
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":"2024-09-26T11:16:01.967Z","checkoutBy":"66f52d6e2fd1c7b3f627e119","by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:33:03.497Z
+      Request URL: /v1/users
+      Method: GET
+      Response Data: {"success":"true","allusers":[{"_id":"66f52fbe2fd1c7b3f627e137","firstname":"staff","lastname":"1","username":"staff1","email":"staff1@metro","password":"$2a$10$xFw2uuiuK3/CpwQSPHEIVeetPNqGSVO/HRTEYnl7CEDT8i7QqKIR.","phone":"9823741079","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00018_.png-1727344574246.png","createdUserTimestamp":"2024-09-26T09:56:14.420Z","__v":0},{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff2@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:33:03.503Z
+      Request URL: /v1/visitor/currentVisitors
+      Method: GET
+      Response Data: {"success":true,"currentVisitors":[{"firstname":"visitor","lastname":"1","phone":"9823741079","room":"101","time":"2024-09-26T10:16:56.525Z","visitorId":"66f53498d8cc025d2f2de229","entryId":"66f53498d8cc025d2f2de22a","with":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:33:03.538Z
+      Request URL: /v1/users
+      Method: GET
+      Response Data: {"success":"true","allusers":[{"_id":"66f52fbe2fd1c7b3f627e137","firstname":"staff","lastname":"1","username":"staff1","email":"staff1@metro","password":"$2a$10$xFw2uuiuK3/CpwQSPHEIVeetPNqGSVO/HRTEYnl7CEDT8i7QqKIR.","phone":"9823741079","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00018_.png-1727344574246.png","createdUserTimestamp":"2024-09-26T09:56:14.420Z","__v":0},{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff2@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:33:03.540Z
+      Request URL: /v1/visitor
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":"2024-09-26T11:16:01.967Z","checkoutBy":"66f52d6e2fd1c7b3f627e119","by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:33:03.549Z
+      Request URL: /v1/visitor/currentVisitors
+      Method: GET
+      Response Data: {"success":true,"currentVisitors":[{"firstname":"visitor","lastname":"1","phone":"9823741079","room":"101","time":"2024-09-26T10:16:56.525Z","visitorId":"66f53498d8cc025d2f2de229","entryId":"66f53498d8cc025d2f2de22a","with":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:33:03.624Z
+      Request URL: /v1/visitor
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":"2024-09-26T11:16:01.967Z","checkoutBy":"66f52d6e2fd1c7b3f627e119","by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:33:03.712Z
+      Request URL: /v1/visitor
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":"2024-09-26T11:16:01.967Z","checkoutBy":"66f52d6e2fd1c7b3f627e119","by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:33:03.795Z
+      Request URL: /v1/visitor
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":"2024-09-26T11:16:01.967Z","checkoutBy":"66f52d6e2fd1c7b3f627e119","by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:54:56.621Z
+      Request URL: /v1/visitor/currentVisitors
+      Method: GET
+      Response Data: {"success":false,"message":"Access denied"}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:54:56.624Z
+      Request URL: /v1/users
+      Method: GET
+      Response Data: {"success":false,"message":"Access denied"}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:54:56.629Z
+      Request URL: /v1/visitor
+      Method: GET
+      Response Data: {"success":false,"message":"Access denied"}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:54:56.639Z
+      Request URL: /v1/users
+      Method: GET
+      Response Data: {"success":false,"message":"Access denied"}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:54:56.636Z
+      Request URL: /v1/visitor/currentVisitors
+      Method: GET
+      Response Data: {"success":false,"message":"Access denied"}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:54:56.644Z
+      Request URL: /v1/visitor
+      Method: GET
+      Response Data: {"success":false,"message":"Access denied"}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:54:56.654Z
+      Request URL: /v1/visitor
+      Method: GET
+      Response Data: {"success":false,"message":"Access denied"}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:54:57.215Z
+      Request URL: /v1/users/serverStat
+      Method: GET
+      Response Data: {"success":true,"stat":true}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:54:57.266Z
+      Request URL: /v1/users/serverStat
+      Method: GET
+      Response Data: {"success":true,"stat":true}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:56:07.720Z
+      Request URL: /v1/users/login
+      Method: POST
+      Response Data: {"success":true,"message":"loggedIn successfully","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZjUyZDZlMmZkMWM3YjNmNjI3ZTExOSIsInVzZXJuYW1lIjoiam9obmRhaSIsInJvbGUiOiJhZG1pbiIsImltYWdlIjoidXBsb2Fkc1xccHJvZmlsZVxcQ29tZnlVSV8wMDAyMV8ucG5nLTE3MjczNDM5ODIzODIucG5nIiwiaWF0IjoxNzI3MzUxNzY3LCJleHAiOjE3MjczNTUzNjd9.xMAkpCpCjVGuFgXFuBE5PfoIXL1BL2G4bgKlyx4O0U0","user":{"$__":{"activePaths":{"paths":{"createdUserTimestamp":"init","phone":"init","password":"init","username":"init","lastname":"init","firstname":"init","role":"init","_id":"init","email":"init","imageURL":"init","__v":"init"},"states":{"require":{},"default":{},"init":{"_id":true,"firstname":true,"lastname":true,"username":true,"email":true,"password":true,"phone":true,"role":true,"imageURL":true,"createdUserTimestamp":true,"__v":true}}},"skipId":true},"$isNew":false,"_doc":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0}}}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:56:08.334Z
+      Request URL: /v1/users/serverStat
+      Method: GET
+      Response Data: {"success":true,"stat":true}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:56:08.337Z
+      Request URL: /v1/users/getCurrentUser
+      Method: GET
+      Response Data: {"success":true,"profile":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0}}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:56:08.377Z
+      Request URL: /v1/users/serverStat
+      Method: GET
+      Response Data: {"success":true,"stat":true}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:56:08.381Z
+      Request URL: /v1/users/getCurrentUser
+      Method: GET
+      Response Data: {"success":true,"profile":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0}}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:56:08.405Z
+      Request URL: /v1/visitor/currentVisitors
+      Method: GET
+      Response Data: {"success":true,"currentVisitors":[{"firstname":"visitor","lastname":"1","phone":"9823741079","room":"101","time":"2024-09-26T10:16:56.525Z","visitorId":"66f53498d8cc025d2f2de229","entryId":"66f53498d8cc025d2f2de22a","with":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:56:08.446Z
+      Request URL: /v1/visitor
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":"2024-09-26T11:16:01.967Z","checkoutBy":"66f52d6e2fd1c7b3f627e119","by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:56:08.450Z
+      Request URL: /v1/visitor/currentVisitors
+      Method: GET
+      Response Data: {"success":true,"currentVisitors":[{"firstname":"visitor","lastname":"1","phone":"9823741079","room":"101","time":"2024-09-26T10:16:56.525Z","visitorId":"66f53498d8cc025d2f2de229","entryId":"66f53498d8cc025d2f2de22a","with":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:56:08.536Z
+      Request URL: /v1/visitor
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":"2024-09-26T11:16:01.967Z","checkoutBy":"66f52d6e2fd1c7b3f627e119","by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:56:08.789Z
+      Request URL: /v1/users
+      Method: GET
+      Response Data: {"success":"true","allusers":[{"_id":"66f52fbe2fd1c7b3f627e137","firstname":"staff","lastname":"1","username":"staff1","email":"staff1@metro","password":"$2a$10$xFw2uuiuK3/CpwQSPHEIVeetPNqGSVO/HRTEYnl7CEDT8i7QqKIR.","phone":"9823741079","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00018_.png-1727344574246.png","createdUserTimestamp":"2024-09-26T09:56:14.420Z","__v":0},{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff2@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:56:08.836Z
+      Request URL: /v1/users
+      Method: GET
+      Response Data: {"success":"true","allusers":[{"_id":"66f52fbe2fd1c7b3f627e137","firstname":"staff","lastname":"1","username":"staff1","email":"staff1@metro","password":"$2a$10$xFw2uuiuK3/CpwQSPHEIVeetPNqGSVO/HRTEYnl7CEDT8i7QqKIR.","phone":"9823741079","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00018_.png-1727344574246.png","createdUserTimestamp":"2024-09-26T09:56:14.420Z","__v":0},{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff2@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:56:08.880Z
+      Request URL: /v1/users
+      Method: GET
+      Response Data: {"success":"true","allusers":[{"_id":"66f52fbe2fd1c7b3f627e137","firstname":"staff","lastname":"1","username":"staff1","email":"staff1@metro","password":"$2a$10$xFw2uuiuK3/CpwQSPHEIVeetPNqGSVO/HRTEYnl7CEDT8i7QqKIR.","phone":"9823741079","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00018_.png-1727344574246.png","createdUserTimestamp":"2024-09-26T09:56:14.420Z","__v":0},{"_id":"66f5338de8c35e8affb22b85","firstname":"staff","lastname":"2","username":"staff2","email":"staff2@metro","password":"$2a$10$L4SWg8T8pdyzCtf66g6Z/eGHcVnVDfkIJTX/2TVLTg7QXqpy02uHG","phone":"9823741080","role":"staff","imageURL":"uploads\\profile\\ComfyUI_00008_.png-1727345549100.png","createdUserTimestamp":"2024-09-26T10:12:29.321Z","__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:56:08.883Z
+      Request URL: /v1/visitor
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":"2024-09-26T11:16:01.967Z","checkoutBy":"66f52d6e2fd1c7b3f627e119","by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:56:08.967Z
+      Request URL: /v1/visitor
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":"2024-09-26T11:16:01.967Z","checkoutBy":"66f52d6e2fd1c7b3f627e119","by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:56:09.053Z
+      Request URL: /v1/visitor
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":"2024-09-26T11:16:01.967Z","checkoutBy":"66f52d6e2fd1c7b3f627e119","by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:56:09.214Z
+      Request URL: /v1/visitor?firstname=&lastname=&number=&documentId=
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":"2024-09-26T11:16:01.967Z","checkoutBy":"66f52d6e2fd1c7b3f627e119","by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:56:09.296Z
+      Request URL: /v1/visitor?firstname=&lastname=&number=&documentId=
+      Method: GET
+      Response Data: {"success":true,"visitors":[{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0},{"_id":"66f53ae26386866d19cdea6c","firstname":"visitor","lastname":"2","email":"visitor@metro","phone":"9823741080","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":23,"occupation":"pilot","gender":"Male","enteredAt":"2024-09-26T10:43:46.089Z","entries":[{"time":"2024-09-26T10:43:46.089Z","checkoutTime":"2024-09-26T11:16:01.967Z","checkoutBy":"66f52d6e2fd1c7b3f627e119","by":"66f52d6e2fd1c7b3f627e119","room":"101","lastVisitedAddress":"ktm ","nextDestination":"brt","purposeOfVisit":"test","vechileNumber":"","companion":[],"remarks":"","edited":false,"_id":"66f53ae26386866d19cdea6d"}],"__v":0}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:56:11.095Z
+      Request URL: /v1/visitor/66f53498d8cc025d2f2de229
+      Method: GET
+      Response Data: {"success":true,"selectedVisitor":{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0}}
+      --------------------------------------------
+    
+      Time: 2024-09-26T11:56:11.220Z
+      Request URL: /v1/visitor/66f53498d8cc025d2f2de229
+      Method: GET
+      Response Data: {"success":true,"selectedVisitor":{"_id":"66f53498d8cc025d2f2de229","firstname":"visitor","lastname":"1","email":"visitor1@metro","phone":"9823741079","religion":"hindu","enteredBy":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"address":"ktm","age":22,"occupation":"test","gender":"Male","enteredAt":"2024-09-26T10:16:56.525Z","entries":[{"time":"2024-09-26T10:16:56.525Z","checkoutTime":null,"by":{"_id":"66f52d6e2fd1c7b3f627e119","firstname":"john","lastname":"dai","username":"johndai","email":"john@admin","password":"$2a$10$sDeDoUKb4ZUnHAnWM3jSLefxd58e43Z6CcvpvcL/7MZQhL8pY3F62","phone":"9869798946","role":"admin","imageURL":"uploads\\profile\\ComfyUI_00021_.png-1727343982382.png","createdUserTimestamp":"2024-09-26T09:46:22.528Z","__v":0},"room":"101","lastVisitedAddress":"ktm","nextDestination":"bkt","purposeOfVisit":"test","vechileNumber":"vechile101","companion":[],"remarks":"testing","edited":false,"_id":"66f53498d8cc025d2f2de22a"}],"__v":0}}
+      --------------------------------------------
+    
+      Time: 2024-09-26T12:00:17.756Z
+      Request URL: /v1/visitor/entriesToday
+      Method: GET
+      Response Data: {"success":true,"visitorsToday":[{"firstname":"visitor","lastname":"1","phone":"9823741079","room":"101","time":"2024-09-26T10:16:56.525Z","enteredBy":"66f52d6e2fd1c7b3f627e119","visitorId":"66f53498d8cc025d2f2de229","entryId":"66f53498d8cc025d2f2de22a","with":0,"checkout":null},{"firstname":"visitor","lastname":"2","phone":"9823741080","room":"101","time":"2024-09-26T10:43:46.089Z","enteredBy":"66f52d6e2fd1c7b3f627e119","visitorId":"66f53ae26386866d19cdea6c","entryId":"66f53ae26386866d19cdea6d","with":0,"checkout":"2024-09-26T11:16:01.967Z","checkoutBy":"66f52d6e2fd1c7b3f627e119"}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T12:00:17.804Z
+      Request URL: /v1/visitor/entriesToday
+      Method: GET
+      Response Data: {"success":true,"visitorsToday":[{"firstname":"visitor","lastname":"1","phone":"9823741079","room":"101","time":"2024-09-26T10:16:56.525Z","enteredBy":"66f52d6e2fd1c7b3f627e119","visitorId":"66f53498d8cc025d2f2de229","entryId":"66f53498d8cc025d2f2de22a","with":0,"checkout":null},{"firstname":"visitor","lastname":"2","phone":"9823741080","room":"101","time":"2024-09-26T10:43:46.089Z","enteredBy":"66f52d6e2fd1c7b3f627e119","visitorId":"66f53ae26386866d19cdea6c","entryId":"66f53ae26386866d19cdea6d","with":0,"checkout":"2024-09-26T11:16:01.967Z","checkoutBy":"66f52d6e2fd1c7b3f627e119"}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T12:00:20.613Z
+      Request URL: /v1/visitor/allEntries
+      Method: GET
+      Response Data: {"success":true,"allEntries":[{"firstname":"visitor","lastname":"2","phone":"9823741080","room":"101","time":"2024-09-26T10:43:46.089Z","visitorId":"66f53ae26386866d19cdea6c","entryId":"66f53ae26386866d19cdea6d","with":0,"checkout":"2024-09-26T11:16:01.967Z","checkoutBy":"66f52d6e2fd1c7b3f627e119"},{"firstname":"visitor","lastname":"1","phone":"9823741079","room":"101","time":"2024-09-26T10:16:56.525Z","visitorId":"66f53498d8cc025d2f2de229","entryId":"66f53498d8cc025d2f2de22a","with":0,"checkout":null}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T12:00:20.661Z
+      Request URL: /v1/visitor/allEntries
+      Method: GET
+      Response Data: {"success":true,"allEntries":[{"firstname":"visitor","lastname":"2","phone":"9823741080","room":"101","time":"2024-09-26T10:43:46.089Z","visitorId":"66f53ae26386866d19cdea6c","entryId":"66f53ae26386866d19cdea6d","with":0,"checkout":"2024-09-26T11:16:01.967Z","checkoutBy":"66f52d6e2fd1c7b3f627e119"},{"firstname":"visitor","lastname":"1","phone":"9823741079","room":"101","time":"2024-09-26T10:16:56.525Z","visitorId":"66f53498d8cc025d2f2de229","entryId":"66f53498d8cc025d2f2de22a","with":0,"checkout":null}]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T12:00:24.014Z
+      Request URL: /v1/visitor/allEntries?date=2024-09-24T18:15:00.000Z
+      Method: GET
+      Response Data: {"success":true,"allEntries":[]}
+      --------------------------------------------
+    
+      Time: 2024-09-26T12:00:25.724Z
+      Request URL: /v1/visitor/allEntries?date=2024-09-25T18:15:00.000Z
+      Method: GET
+      Response Data: {"success":true,"allEntries":[{"firstname":"visitor","lastname":"2","phone":"9823741080","room":"101","time":"2024-09-26T10:43:46.089Z","visitorId":"66f53ae26386866d19cdea6c","entryId":"66f53ae26386866d19cdea6d","with":0,"checkout":"2024-09-26T11:16:01.967Z","checkoutBy":"66f52d6e2fd1c7b3f627e119"},{"firstname":"visitor","lastname":"1","phone":"9823741079","room":"101","time":"2024-09-26T10:16:56.525Z","visitorId":"66f53498d8cc025d2f2de229","entryId":"66f53498d8cc025d2f2de22a","with":0,"checkout":null}]}
+      --------------------------------------------
+    

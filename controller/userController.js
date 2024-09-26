@@ -8,6 +8,14 @@ const fs = require("fs");
 
 const containsWhitespace = (str) => /\s/.test(str);
 
+const checkIfRegistered = async (field, value) => {
+  const alreadyRegistered = await User.findOne({ [field]: value });
+  if (alreadyRegistered) {
+    return true;
+  }
+  return false;
+};
+
 module.exports.adminRegister = async (req, res) => {
   console.log("registering");
   try {
@@ -70,34 +78,50 @@ module.exports.register = async (req, res) => {
   try {
     const { firstname, lastname, email, password, phone, username } = req.body;
 
+    if (!firstname || !lastname || !phone || !username) {
+      return res.json({
+        message: "form feilds missing",
+      });
+    }
+
     if (containsWhitespace(username)) {
       delete req.file;
       return res.json({
-        success: false,
         message: "username should not contain whitespace",
       });
     }
 
-    const UsernameAlreadyReistered = await User.findOne({ username: username });
+    const UsernameAlreadyReistered = await checkIfRegistered(
+      "username",
+      username
+    );
 
     if (UsernameAlreadyReistered) {
-      console.log("already registered");
       delete req.file;
       return res.json({
-        success: false,
         message: "username already taken",
       });
     }
 
-    const EmailAlreadyReistered = await User.findOne({ email: email });
+    const phoneAlreadyReistered = await checkIfRegistered("phone", phone);
 
-    if (email && email.trim() !== "" && EmailAlreadyReistered) {
-      console.log("already registered");
+    if (phoneAlreadyReistered) {
       delete req.file;
       return res.json({
-        success: false,
-        message: "email already registered",
+        message: "phone number in use",
       });
+    }
+
+    if (email) {
+      const EmailAlreadyReistered = await checkIfRegistered("email", email);
+
+      if (email && email.trim() !== "" && EmailAlreadyReistered) {
+        delete req.file;
+        return res.json({
+          success: false,
+          message: "email in use",
+        });
+      }
     }
 
     if (req.file) {
@@ -295,6 +319,8 @@ module.exports.getUser = async (req, res) => {
       });
     }
 
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
     return res.json({
       success: true,
       user: selectedUser,
@@ -312,24 +338,54 @@ module.exports.editUser = async (req, res) => {
     const { id } = req.params;
     const foundUser = await User.findById(id);
 
+    if (!foundUser) {
+      return res.status(404).json({
+        message: "user not found",
+      });
+    }
+
+    if (req.body.email) {
+      if (req.body.email !== foundUser.email) {
+        const EmailAlreadyReistered = await User.findOne({
+          email: req.body.email,
+        });
+
+        console.log(EmailAlreadyReistered);
+
+        if (EmailAlreadyReistered) {
+          return res.json({
+            success: false,
+            message: "email in use",
+          });
+        }
+      }
+    }
+
+    if (foundUser.phone !== req.body.phone) {
+      const phoneInUse = await User.findOne({
+        phone: req.body.phone,
+      });
+      if (phoneInUse) {
+        return res.json({
+          success: false,
+          message: "phone number in use",
+        });
+      }
+    }
+
     if (
       req.body.firstname.trim() === "" ||
       req.body.lastname.trim() === "" ||
-      req.body.phone.trim === ""
+      req.body.phone === ""
     ) {
-      return res.json({ success: false, message: "all fields are required" });
+      return res.json({ message: "all fields are required" });
     }
 
     const editedUser = {
       firstname: req.body.firstname,
       lastname: req.body.lastname,
-      email: req.body.email,
+      email: req.body.email ? req.body.email : null,
       phone: req.body.phone,
-      // address: req.body.address,
-      // gender: req.body.gender,
-      // age: req.body.age,
-      // edited: true,
-      // editedTimeStamp: Date.now(),
     };
 
     console.log(editedUser);

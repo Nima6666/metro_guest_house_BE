@@ -2,6 +2,14 @@ const visitor = require("../model/visitor");
 const fs = require("fs");
 const path = require("path");
 
+const checkDuplication = async (field, value) => {
+  const alreadyRegistered = await visitor.findOne({ [field]: value });
+  if (alreadyRegistered) {
+    return true;
+  }
+  return false;
+};
+
 module.exports.addVisitor = async (req, res) => {
   console.log("adding visitor");
   console.log(req.headers.authData);
@@ -24,20 +32,60 @@ module.exports.addVisitor = async (req, res) => {
       lastVisited,
       nextDestination,
       room,
-      companions,
       purpose,
     } = req.body;
 
-    // res.json(req.body);
+    if (
+      !lastname ||
+      !phone ||
+      !address ||
+      !gender ||
+      !age ||
+      !occupation ||
+      !lastVisited ||
+      !nextDestination ||
+      !room ||
+      !purpose
+    ) {
+      return res.json({
+        message: "form fields missing",
+      });
+    }
 
-    const visitorFound = await visitor.findOne({ phone: phone });
+    if (email) {
+      const foundVisitorUsingEmail = await checkDuplication("email", email);
+      if (req.file) {
+        delete req.file;
+      }
+      if (foundVisitorUsingEmail) {
+        return res.json({
+          message: "email in use",
+        });
+      }
+    }
 
-    // if (visitorFound) {
-    //   console.log("visitor found");
-    //   return res.json({
-    //     visitor: visitorFound,
-    //   });
-    // }
+    const phoneAlreadyReistered = await checkDuplication("phone", phone);
+
+    if (phoneAlreadyReistered) {
+      if (req.file) {
+        delete req.file;
+      }
+      return res.json({
+        message: "phone number in use",
+      });
+    }
+
+    if (documentType && documentId) {
+      const foundVisitorWithDoc = await visitor.findOne({
+        documentType,
+        documentId,
+      });
+      if (foundVisitorWithDoc) {
+        return res.json({
+          message: "found visitor with provided document",
+        });
+      }
+    }
 
     if (req.file) {
       // console.log("File uploaded to:", req.file.path);
