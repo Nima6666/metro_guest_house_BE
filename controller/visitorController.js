@@ -10,9 +10,23 @@ const checkDuplication = async (field, value) => {
   return false;
 };
 
+const deleteFile = (filePath) => {
+  try {
+    const normalizedPath = path.normalize(filePath); // Normalize the file path
+    console.log(`Deleting file at: ${normalizedPath}`);
+
+    fs.unlinkSync(normalizedPath); // Synchronously delete the file
+
+    console.log("File deleted successfully.");
+  } catch (error) {
+    console.error("Error deleting the file:", error);
+  }
+};
+
 module.exports.addVisitor = async (req, res) => {
   console.log("adding visitor");
-  console.log(req.headers.authData);
+
+  console.log("file uploaded at ", req.file);
 
   try {
     const {
@@ -54,10 +68,10 @@ module.exports.addVisitor = async (req, res) => {
 
     if (email) {
       const foundVisitorUsingEmail = await checkDuplication("email", email);
-      if (req.file) {
-        delete req.file;
-      }
       if (foundVisitorUsingEmail) {
+        if (req.file) {
+          deleteFile(req.file.path);
+        }
         return res.json({
           message: "email in use",
         });
@@ -68,7 +82,7 @@ module.exports.addVisitor = async (req, res) => {
 
     if (phoneAlreadyReistered) {
       if (req.file) {
-        delete req.file;
+        deleteFile(req.file.path);
       }
       return res.json({
         message: "phone number in use",
@@ -81,6 +95,9 @@ module.exports.addVisitor = async (req, res) => {
         documentId,
       });
       if (foundVisitorWithDoc) {
+        if (req.file) {
+          deleteFile(req.file.path);
+        }
         return res.json({
           message: "found visitor with provided document",
         });
@@ -88,7 +105,7 @@ module.exports.addVisitor = async (req, res) => {
     }
 
     if (req.file) {
-      // console.log("File uploaded to:", req.file.path);
+      console.log("visitor added with document");
       const visitorToBeAdded = new visitor({
         firstname,
         lastname,
@@ -690,6 +707,21 @@ module.exports.reuploadDocument = async (req, res) => {
 
       console.log(req.body);
 
+      if (
+        visitorFound.documentId !== req.body.documentId ||
+        visitorFound.documentType !== req.body.documentType
+      ) {
+        const visitorFoundUsingDoc = await visitor.findOne({
+          documentType: req.body.documentType,
+          documentId: req.body.documentId,
+        });
+
+        if (visitorFoundUsingDoc) {
+          return res.json({
+            message: "visitor found with provided document.",
+          });
+        }
+      }
       if (visitorFound.documentLocation) {
         const fileUrl = visitorFound.documentLocation;
         const filePath = path.join(__dirname, "..", fileUrl);
@@ -942,6 +974,23 @@ module.exports.editVisitor = async (req, res) => {
   try {
     const { id } = req.params;
     const foundVisitor = await visitor.findById(id);
+
+    const email = req.body.email;
+    const phone = req.body.phone;
+
+    if (email !== foundVisitor.email) {
+      const foundVisitorWithEmail = await visitor.findOne({ email: email });
+      if (foundVisitorWithEmail) {
+        return res.json({ message: "Email in use by another visitor" });
+      }
+    }
+
+    if (phone !== foundVisitor.phone) {
+      foundVisitorWithPhone = await visitor.findOne({ phone: phone });
+      if (foundVisitorWithPhone) {
+        return res.json({ message: "phone in use by another visitor" });
+      }
+    }
 
     const existingDatas = foundVisitor.toObject();
 

@@ -19,6 +19,16 @@ require("dotenv").config();
 
 require("./db/databaseConnection");
 
+// view engine setup
+// app.set("views", path.join(__dirname, "views"));
+// app.set("view engine", "ejs");
+
+// app.use(
+//   "/static",
+//   isAuthenticated,
+//   express.static(path.join(__dirname, "public"))
+// );
+
 const clientCors = {
   origin: process.env.CLIENTORIGIN,
 };

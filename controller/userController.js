@@ -16,6 +16,19 @@ const checkIfRegistered = async (field, value) => {
   return false;
 };
 
+const deleteFile = (filePath) => {
+  try {
+    const normalizedPath = path.normalize(filePath); // Normalize the file path
+    console.log(`Deleting file at: ${normalizedPath}`);
+
+    fs.unlinkSync(normalizedPath); // Synchronously delete the file
+
+    console.log("File deleted successfully.");
+  } catch (error) {
+    console.error("Error deleting the file:", error);
+  }
+};
+
 module.exports.adminRegister = async (req, res) => {
   console.log("registering");
   try {
@@ -79,13 +92,14 @@ module.exports.register = async (req, res) => {
     const { firstname, lastname, email, password, phone, username } = req.body;
 
     if (!firstname || !lastname || !phone || !username) {
+      deleteFile(req.file.path);
       return res.json({
         message: "form feilds missing",
       });
     }
 
     if (containsWhitespace(username)) {
-      delete req.file;
+      deleteFile(req.file.path);
       return res.json({
         message: "username should not contain whitespace",
       });
@@ -97,7 +111,7 @@ module.exports.register = async (req, res) => {
     );
 
     if (UsernameAlreadyReistered) {
-      delete req.file;
+      deleteFile(req.file.path);
       return res.json({
         message: "username already taken",
       });
@@ -106,7 +120,7 @@ module.exports.register = async (req, res) => {
     const phoneAlreadyReistered = await checkIfRegistered("phone", phone);
 
     if (phoneAlreadyReistered) {
-      delete req.file;
+      deleteFile(req.file.path);
       return res.json({
         message: "phone number in use",
       });
@@ -116,7 +130,7 @@ module.exports.register = async (req, res) => {
       const EmailAlreadyReistered = await checkIfRegistered("email", email);
 
       if (email && email.trim() !== "" && EmailAlreadyReistered) {
-        delete req.file;
+        deleteFile(req.file.path);
         return res.json({
           success: false,
           message: "email in use",
