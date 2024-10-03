@@ -17,7 +17,6 @@ module.exports.isAuthenticated = (req, res, next) => {
         }
       });
     } else {
-      console.log("Token not provided");
       return res.status(403).json({
         success: false,
         message: "Token not provided",
@@ -44,7 +43,6 @@ module.exports.isAdmin = async (req, res, next) => {
     }
   } catch (err) {
     console.log(err);
-    console.log("admin check failed");
     res.sendStatus(403).json({
       message: "something went wrong",
     });

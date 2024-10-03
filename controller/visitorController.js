@@ -13,21 +13,17 @@ const checkDuplication = async (field, value) => {
 const deleteFile = (filePath) => {
   try {
     const normalizedPath = path.normalize(filePath); // Normalize the file path
-    console.log(`Deleting file at: ${normalizedPath}`);
 
     fs.unlinkSync(normalizedPath); // Synchronously delete the file
-
-    console.log("File deleted successfully.");
-  } catch (error) {
-    console.error("Error deleting the file:", error);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      message: err.message,
+    });
   }
 };
 
 module.exports.addVisitor = async (req, res) => {
-  console.log("adding visitor");
-
-  console.log("file uploaded at ", req.file);
-
   try {
     const {
       firstname,
@@ -105,7 +101,6 @@ module.exports.addVisitor = async (req, res) => {
     }
 
     if (req.file) {
-      console.log("visitor added with document");
       const visitorToBeAdded = new visitor({
         firstname,
         lastname,
@@ -122,8 +117,6 @@ module.exports.addVisitor = async (req, res) => {
         religion,
       });
 
-      // console.log(visitorToBeAdded);
-
       visitorToBeAdded.entries.push({
         time: Date.now(),
         room: room,
@@ -139,16 +132,12 @@ module.exports.addVisitor = async (req, res) => {
       await visitorToBeAdded.save();
 
       visitorToBeAdded.populate("enteredBy");
-      console.log("visitor added", visitorToBeAdded);
       res.status(201).json({
         success: true,
         message: "visitor added",
         visitorAdded: visitorToBeAdded,
       });
     } else {
-      // console.log("error uploading file");
-      // res.status(400).send("Error uploading file");
-
       const visitorToBeAdded = new visitor({
         firstname,
         lastname,
@@ -162,8 +151,6 @@ module.exports.addVisitor = async (req, res) => {
         religion,
       });
 
-      // console.log(visitorToBeAdded);
-
       visitorToBeAdded.entries.push({
         time: Date.now(),
         room: room,
@@ -179,25 +166,22 @@ module.exports.addVisitor = async (req, res) => {
       await visitorToBeAdded.save();
 
       visitorToBeAdded.populate("enteredBy");
-      console.log("visitor added", visitorToBeAdded);
-      setTimeout(() => {
-        res.status(201).json({
-          success: true,
-          message: "visitor added without document",
-          visitorAdded: visitorToBeAdded,
-        });
-      }, 10000);
+      res.status(201).json({
+        success: true,
+        message: "visitor added without document",
+        visitorAdded: visitorToBeAdded,
+      });
     }
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ message: "Internal server error" });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      message: err.message,
+    });
   }
 };
 
 module.exports.getVisitors = async (req, res) => {
   try {
-    console.log("query ", req.query);
-
     let allVisitors = [];
 
     const { firstname, lastname, number, documentId, entry } = req.query;
@@ -228,8 +212,6 @@ module.exports.getVisitors = async (req, res) => {
     );
 
     if (entry) {
-      console.log("entry Search");
-
       const filtered = allVisitors.filter((visitor) => {
         return visitor.entries.length > 0;
       });
@@ -252,8 +234,6 @@ module.exports.getVisitors = async (req, res) => {
 
       flattenedData.sort((a, b) => new Date(b.time) - new Date(a.time));
 
-      console.log(flattenedData);
-
       res.json({
         success: true,
         visitors: flattenedData,
@@ -266,15 +246,13 @@ module.exports.getVisitors = async (req, res) => {
     }
   } catch (err) {
     console.log(err);
-    res.json({
-      success: false,
-      message: "something went wrong",
+    res.status(500).json({
+      message: err.message,
     });
   }
 };
 
 module.exports.getVisitor = async (req, res) => {
-  console.log("getting selected visitor");
   try {
     const id = req.params.id;
 
@@ -299,12 +277,13 @@ module.exports.getVisitor = async (req, res) => {
     });
   } catch (err) {
     console.log(err);
-    res.json({ err });
+    res.status(500).json({
+      message: err.message,
+    });
   }
 };
 
 module.exports.numberSearch = async (req, res) => {
-  console.log(req.body);
   try {
     const { number } = req.body;
 
@@ -322,20 +301,19 @@ module.exports.numberSearch = async (req, res) => {
       )
     );
 
-    console.log(foundUsersWithInitialOfProvidedNumber);
     res.json({ foundUsersWithInitialOfProvidedNumber });
   } catch (err) {
     console.log(err);
-    return res.json(err);
+    res.status(500).json({
+      message: err.message,
+    });
   }
 };
 
 module.exports.addEntry = async (req, res) => {
   const id = req.params.id;
   try {
-    console.log(id, " getting user");
     const visitorToAddEntryTo = await visitor.findById(id);
-    console.log("body ", req.body);
     visitorToAddEntryTo.entries.push({
       time: Date.now(),
       room: req.body.room,
@@ -349,18 +327,16 @@ module.exports.addEntry = async (req, res) => {
     });
 
     await visitorToAddEntryTo.save();
-    console.log(visitorToAddEntryTo);
 
     await visitorToAddEntryTo.populate("enteredBy");
     await visitorToAddEntryTo.populate("entries.by");
     await visitorToAddEntryTo.populate("entries.checkoutBy");
-
-    setTimeout(() => {
-      res.json({ success: true, visitorToAddEntryTo, message: "Entry Added" });
-    }, 10000);
+    res.json({ success: true, visitorToAddEntryTo, message: "Entry Added" });
   } catch (err) {
     console.log(err);
-    res.json(err);
+    res.status(500).json({
+      message: err.message,
+    });
   }
 };
 
@@ -375,23 +351,19 @@ module.exports.getEntry = async (req, res) => {
     const entry = foundVisitor.entries.find(
       (entry) => entry._id.toString() === entryId
     );
-
-    setTimeout(() => {
-      res.json({
-        success: true,
-        selectedEntry: entry,
-      });
-    }, 2000);
-
-    console.log(entry);
+    res.json({
+      success: true,
+      selectedEntry: entry,
+    });
   } catch (err) {
     console.log(err);
-    res.json({ success: false, message: "something went wrong" });
+    res.status(500).json({
+      message: err.message,
+    });
   }
 };
 
 module.exports.entriesToday = async (req, res) => {
-  console.log("getting entries today");
   try {
     const startOfToday = new Date();
     startOfToday.setHours(0, 0, 0, 0);
@@ -467,12 +439,13 @@ module.exports.entriesToday = async (req, res) => {
     });
   } catch (err) {
     console.log(err);
-    res.json(err);
+    res.status(500).json({
+      message: err.message,
+    });
   }
 };
 
 module.exports.checkoutsToday = async (req, res) => {
-  console.log("getting entries today");
   try {
     const startOfToday = new Date();
     startOfToday.setHours(0, 0, 0, 0);
@@ -537,7 +510,9 @@ module.exports.checkoutsToday = async (req, res) => {
     });
   } catch (err) {
     console.log(err);
-    res.json(err);
+    res.status(500).json({
+      message: err.message,
+    });
   }
 };
 
@@ -606,7 +581,9 @@ module.exports.checkInsToday = async (req, res) => {
     });
   } catch (err) {
     console.log(err);
-    res.json(err);
+    res.status(500).json({
+      message: err.message,
+    });
   }
 };
 
@@ -619,13 +596,15 @@ module.exports.removeEntry = async (req, res) => {
     );
 
     await foundVisitor.save();
-    console.log(foundVisitor);
     res.json({
       success: true,
       message: "Deleted Entry Successfully",
     });
   } catch (err) {
     console.log(err);
+    res.status(500).json({
+      message: err.message,
+    });
   }
 };
 
@@ -642,7 +621,6 @@ module.exports.editEntry = async (req, res) => {
 
     const existingEntry = foundVisitor.entries[index].toObject();
 
-    console.log(existingEntry);
     foundVisitor.entries[index] = {
       ...existingEntry,
       room: req.body.room,
@@ -656,8 +634,6 @@ module.exports.editEntry = async (req, res) => {
       editedTimeStamp: Date.now(),
     };
 
-    console.log(foundVisitor.entries[index]);
-
     await foundVisitor.save();
     await foundVisitor.populate("entries.by");
 
@@ -668,6 +644,9 @@ module.exports.editEntry = async (req, res) => {
     });
   } catch (err) {
     console.log(err);
+    res.status(500).json({
+      message: err.message,
+    });
   }
 };
 
@@ -676,8 +655,6 @@ module.exports.deleteVisitor = async (req, res) => {
     const { id } = req.params;
     const deletedVisitor = await visitor.findByIdAndDelete(id);
 
-    console.log(deletedVisitor);
-
     if (deletedVisitor) {
       res.json({ success: true, message: "Visitor deleted successfully." });
     } else {
@@ -685,27 +662,22 @@ module.exports.deleteVisitor = async (req, res) => {
     }
   } catch (err) {
     console.log(err);
-    res
-      .status(500)
-      .json({ message: "An error occurred while deleting the visitor." });
+    res.status(500).json({
+      message: err.message,
+    });
   }
 };
 
 module.exports.reuploadDocument = async (req, res) => {
   try {
     if (req.file) {
-      console.log(req.file);
-
       const { id } = req.params;
-      console.log("File uploaded to:", req.file.path, id);
 
       const visitorFound = await visitor.findById(id);
 
       if (!visitorFound) {
         return res.status(404).json({ message: "Visitor not found" });
       }
-
-      console.log(req.body);
 
       if (
         visitorFound.documentId !== req.body.documentId ||
@@ -727,8 +699,6 @@ module.exports.reuploadDocument = async (req, res) => {
         const filePath = path.join(__dirname, "..", fileUrl);
         const normalizedPath = path.normalize(filePath);
 
-        console.log(`Deleting file at path: ${normalizedPath}`);
-
         if (fs.existsSync(normalizedPath)) {
           fs.unlink(normalizedPath, async (err) => {
             if (err) {
@@ -737,7 +707,6 @@ module.exports.reuploadDocument = async (req, res) => {
                 .status(500)
                 .json({ message: "Error deleting file", error: err.message });
             }
-            console.log("File deleted successfully");
 
             visitorFound.documentLocation = req.file.path;
 
@@ -753,8 +722,6 @@ module.exports.reuploadDocument = async (req, res) => {
             });
           });
         } else {
-          console.log("File not found");
-
           visitorFound.documentLocation = req.file.path;
           visitorFound.documentId = req.body.documentId;
           visitorFound.documentType = req.body.documentType;
@@ -774,22 +741,20 @@ module.exports.reuploadDocument = async (req, res) => {
         visitorFound.documentType = req.body.documentType;
 
         await visitorFound.save();
-        setTimeout(() => {
-          res.json({
-            success: true,
-            updatedUser: visitorFound,
-            message: "image updated successfully",
-          });
-        }, 10000);
+        res.json({
+          success: true,
+          updatedUser: visitorFound,
+          message: "image updated successfully",
+        });
       }
     } else {
       res.status(400).json({ message: "No file uploaded" });
     }
   } catch (err) {
     console.log(err);
-    res
-      .status(500)
-      .json({ message: "Something went wrong", error: err.message });
+    res.status(500).json({
+      message: err.message,
+    });
   }
 };
 
@@ -805,8 +770,6 @@ module.exports.checkout = async (req, res) => {
     );
 
     const existingEntry = foundVisitor.entries[index].toObject();
-
-    console.log(existingEntry);
 
     if (foundVisitor.entries[index].checkoutTime) {
       res.json({
@@ -875,6 +838,9 @@ module.exports.checkout = async (req, res) => {
     }
   } catch (err) {
     console.log(err);
+    res.status(500).json({
+      message: err.message,
+    });
   }
 };
 
@@ -890,8 +856,6 @@ module.exports.notCheckout = async (req, res) => {
     );
 
     const existingEntry = foundVisitor.entries[index].toObject();
-
-    console.log(existingEntry);
 
     foundVisitor.entries[index] = {
       ...existingEntry,
@@ -910,12 +874,14 @@ module.exports.notCheckout = async (req, res) => {
     });
   } catch (err) {
     console.log(err);
+    res.status(500).json({
+      message: err.message,
+    });
   }
 };
 
 module.exports.getCurrentVisitors = async (req, res) => {
   try {
-    console.log("getting current visitors");
     const currentVisitors = await visitor.aggregate([
       {
         $match: {
@@ -948,7 +914,6 @@ module.exports.getCurrentVisitors = async (req, res) => {
         visitorId: person._id,
         entryId: entry._id,
         with: entry.companion.length,
-        // otherField: entry.otherField,
       }))
     );
 
@@ -958,14 +923,11 @@ module.exports.getCurrentVisitors = async (req, res) => {
       return new Date(timeA) - new Date(timeB);
     });
 
-    // console.log(flattenedData);
-
     res.json({ success: true, currentVisitors: flattenedData });
   } catch (err) {
     console.log(err);
-    res.json({
-      success: false,
-      message: "something went wrong",
+    res.status(500).json({
+      message: err.message,
     });
   }
 };
@@ -1008,30 +970,23 @@ module.exports.editVisitor = async (req, res) => {
       editedTimeStamp: Date.now(),
     };
 
-    // console.log(editedVisitor);
-
     Object.assign(foundVisitor, editedVisitor);
 
     await foundVisitor.save();
-
-    setTimeout(() => {
-      res.json({
-        success: true,
-        editedVisitor: foundVisitor,
-        message: "Edited Visitor Successfully",
-      });
-    }, 10000);
-  } catch (err) {
     res.json({
-      success: false,
-      message: "Something went wrong editing",
+      success: true,
+      editedVisitor: foundVisitor,
+      message: "Edited Visitor Successfully",
     });
+  } catch (err) {
     console.log(err);
+    res.status(500).json({
+      message: err.message,
+    });
   }
 };
 
 module.exports.getAllEntries = async (req, res) => {
-  console.log("getting all entries ", req.query.date);
   try {
     let visitors = null;
     const { date } = req.query;
@@ -1107,6 +1062,8 @@ module.exports.getAllEntries = async (req, res) => {
     });
   } catch (err) {
     console.log(err);
-    res.json(err);
+    res.status(500).json({
+      message: err.message,
+    });
   }
 };

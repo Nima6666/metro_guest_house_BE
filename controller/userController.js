@@ -18,19 +18,18 @@ const checkIfRegistered = async (field, value) => {
 
 const deleteFile = (filePath) => {
   try {
-    const normalizedPath = path.normalize(filePath); // Normalize the file path
-    console.log(`Deleting file at: ${normalizedPath}`);
+    const normalizedPath = path.normalize(filePath);
 
-    fs.unlinkSync(normalizedPath); // Synchronously delete the file
-
-    console.log("File deleted successfully.");
-  } catch (error) {
-    console.error("Error deleting the file:", error);
+    fs.unlinkSync(normalizedPath);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      message: err.message,
+    });
   }
 };
 
 module.exports.adminRegister = async (req, res) => {
-  console.log("registering");
   try {
     const { firstname, lastname, email, password, phone, username } = req.body;
 
@@ -51,8 +50,6 @@ module.exports.adminRegister = async (req, res) => {
     }
 
     if (req.file) {
-      console.log("File uploaded to:", req.file.path);
-
       const hashedPassword = await bcrypt.hash(password, 10);
       const admin = new User({
         firstname,
@@ -77,17 +74,17 @@ module.exports.adminRegister = async (req, res) => {
         admin,
       });
     } else {
-      console.log("error uploading file");
       res.status(400).send("Error uploading file");
     }
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ message: "Internal server error" });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      message: err.message,
+    });
   }
 };
 
 module.exports.register = async (req, res) => {
-  console.log("registering");
   try {
     const { firstname, lastname, email, password, phone, username } = req.body;
 
@@ -139,8 +136,6 @@ module.exports.register = async (req, res) => {
     }
 
     if (req.file) {
-      console.log("File uploaded to:", req.file.path);
-
       const hashedPassword = await bcrypt.hash(password, 10);
       const user = new User({
         firstname,
@@ -152,27 +147,20 @@ module.exports.register = async (req, res) => {
         imageURL: req.file.path,
       });
 
-      // const existingUsers = await User.find({});
-      // if (existingUsers.length === 0) {
-      //   user.role = "admin";
-      // }
-
-      console.log(user);
-
       await user.save();
-      console.log("user created successfully");
       res.status(201).json({
         success: true,
         message: "User registered successfully",
         user,
       });
     } else {
-      console.log("error uploading file");
       res.json({ success: false, message: "no image selected" });
     }
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ message: "Internal server error" });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      message: err.message,
+    });
   }
 };
 
@@ -222,19 +210,16 @@ module.exports.login = expressAsyncHandler(async (req, res) => {
   } catch (err) {
     console.log(err);
     res.status(500).json({
-      message: "Something went wrong",
-      err: err,
+      message: err.message,
     });
   }
 });
 
 module.exports.getCurrentUser = expressAsyncHandler(async (req, res) => {
-  console.log("getting current user");
   try {
     const loggedInUser = await User.findById(req.headers.authData.id).select(
       "-password"
     );
-    // console.log(req.headers.authData, "Auth data");
 
     if (!loggedInUser) {
       return res.json({
@@ -248,14 +233,14 @@ module.exports.getCurrentUser = expressAsyncHandler(async (req, res) => {
       });
     }
   } catch (err) {
+    console.log(err);
     res.status(500).json({
-      err,
+      message: err.message,
     });
   }
 });
 
 module.exports.getUsers = async (req, res) => {
-  console.log("getting all users");
   try {
     const allUsers = await User.find({});
     const staffs = allUsers.filter(
@@ -267,7 +252,9 @@ module.exports.getUsers = async (req, res) => {
     });
   } catch (err) {
     console.log(err);
-    res.json(err);
+    res.status(500).json({
+      message: err.message,
+    });
   }
 };
 
@@ -280,8 +267,6 @@ module.exports.deleteUser = async (req, res) => {
       const fileUrl = deletedUser.imageURL;
       const normalizedPath = path.normalize(fileUrl);
 
-      console.log(`Deleting file at path: ${normalizedPath}`);
-
       if (fs.existsSync(normalizedPath)) {
         fs.unlink(normalizedPath, async (err) => {
           if (err) {
@@ -290,11 +275,9 @@ module.exports.deleteUser = async (req, res) => {
               .status(500)
               .json({ message: "Error deleting file", error: err.message });
           }
-          console.log("deleted user");
           res.json({ success: true, message: "User deleted successfully." });
         });
       } else {
-        console.log("Profile Img not found but deleted user");
         res.json({
           status: true,
           message: "Profile Img not found but deleted user",
@@ -305,15 +288,13 @@ module.exports.deleteUser = async (req, res) => {
     }
   } catch (err) {
     console.log(err);
-    res
-      .status(500)
-      .json({ message: "An error occurred while deleting the visitor." });
+    res.status(500).json({
+      message: err.message,
+    });
   }
 };
 
 module.exports.getUser = async (req, res) => {
-  console.log("getting selected user");
-
   const id = req.params.id;
 
   try {
@@ -333,16 +314,14 @@ module.exports.getUser = async (req, res) => {
       });
     }
 
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
     return res.json({
       success: true,
       user: selectedUser,
     });
-  } catch {
-    res.json({
-      success: false,
-      message: "something went wrong",
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      message: err.message,
     });
   }
 };
@@ -363,8 +342,6 @@ module.exports.editUser = async (req, res) => {
         const EmailAlreadyReistered = await User.findOne({
           email: req.body.email,
         });
-
-        console.log(EmailAlreadyReistered);
 
         if (EmailAlreadyReistered) {
           return res.json({
@@ -402,8 +379,6 @@ module.exports.editUser = async (req, res) => {
       phone: req.body.phone,
     };
 
-    console.log(editedUser);
-
     Object.assign(foundUser, editedUser);
 
     await foundUser.save();
@@ -414,11 +389,10 @@ module.exports.editUser = async (req, res) => {
       message: "Edited User Successfully",
     });
   } catch (err) {
-    res.json({
-      success: false,
-      message: "Something went wrong editing",
-    });
     console.log(err);
+    res.status(500).json({
+      message: err.message,
+    });
   }
 };
 
@@ -427,8 +401,9 @@ module.exports.getStat = async (req, res) => {
     const users = await User.find({});
     res.json({ success: true, stat: users.length ? true : false });
   } catch (err) {
-    res.json({
-      message: "something went wrong",
+    console.log(err);
+    res.status(500).json({
+      message: err.message,
     });
   }
 };
@@ -436,10 +411,7 @@ module.exports.getStat = async (req, res) => {
 module.exports.reuploadProfile = async (req, res) => {
   try {
     if (req.file) {
-      console.log(req.file);
-
       const { id } = req.params;
-      console.log("File uploaded to:", req.file.path, id);
 
       const user = await User.findById(id);
 
@@ -447,12 +419,8 @@ module.exports.reuploadProfile = async (req, res) => {
         return res.status(404).json({ message: "User not found" });
       }
 
-      console.log(user.imageURL);
-
       const fileUrl = user.imageURL;
       const normalizedPath = path.normalize(fileUrl);
-
-      console.log(`Deleting file at path: ${normalizedPath}`);
 
       if (fs.existsSync(normalizedPath)) {
         fs.unlink(normalizedPath, async (err) => {
@@ -463,7 +431,6 @@ module.exports.reuploadProfile = async (req, res) => {
               .status(500)
               .json({ message: "Error deleting file", error: err.message });
           }
-          console.log("File deleted successfully");
 
           user.imageURL = req.file.path;
 
@@ -475,8 +442,6 @@ module.exports.reuploadProfile = async (req, res) => {
           });
         });
       } else {
-        console.log("File not found");
-
         user.imageURL = req.file.path;
 
         await user.save();
@@ -492,16 +457,14 @@ module.exports.reuploadProfile = async (req, res) => {
     }
   } catch (err) {
     console.log(err);
-    res
-      .status(500)
-      .json({ message: "Something went wrong", error: err.message });
+    res.status(500).json({
+      message: err.message,
+    });
   }
 };
 
 module.exports.resetUsersPassword = async (req, res) => {
   try {
-    console.log(req.body);
-
     if (req.body.password.trim() === "") {
       return res.json({
         success: false,
@@ -511,6 +474,11 @@ module.exports.resetUsersPassword = async (req, res) => {
 
     const { id } = req.params;
     const user = await User.findById(id);
+    if (user.role === "admin") {
+      return res.status(400).json({
+        message: "bad request",
+      });
+    }
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
     user.password = hashedPassword;
@@ -523,15 +491,14 @@ module.exports.resetUsersPassword = async (req, res) => {
     });
   } catch (err) {
     console.log(err);
-    res.json({
-      message: "something went wrong",
+    res.status(500).json({
+      message: err.message,
     });
   }
 };
 
 module.exports.myProfile = async (req, res) => {
   try {
-    console.log(req.headers.authData);
     const profile = await User.findById(req.headers.authData.id).select(
       "-password"
     );
@@ -541,6 +508,34 @@ module.exports.myProfile = async (req, res) => {
     });
   } catch (err) {
     console.log(err);
-    res.json("something went wrong getting my profile");
+    res.status(500).json({
+      message: err.message,
+    });
+  }
+};
+
+module.exports.resetAdminPassword = async (req, res) => {
+  try {
+    const { currentPassword, password } = req.body;
+    const profile = await User.findById(req.headers.authData.id);
+    const match = await bcrypt.compare(currentPassword, profile.password);
+    if (match) {
+      const hashedPassword = await bcrypt.hash(password, 10);
+      profile.password = hashedPassword;
+      await profile.save();
+      res.json({
+        success: true,
+        message: "password changed",
+      });
+    } else {
+      res.status(401).json({
+        message: "incorrect password",
+      });
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      message: err.message,
+    });
   }
 };

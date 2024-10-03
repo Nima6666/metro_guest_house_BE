@@ -53,6 +53,12 @@ router.post(
   isAdmin,
   userController.resetUsersPassword
 );
+router.post(
+  "/resetPasswordAdm",
+  isAuthenticated,
+  isAdmin,
+  userController.resetAdminPassword
+);
 router.put(
   "/:id",
   isAuthenticated,
