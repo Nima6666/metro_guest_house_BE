@@ -20,8 +20,8 @@ require("dotenv").config();
 require("./db/databaseConnection");
 
 // view engine setup
-// app.set("views", path.join(__dirname, "views"));
-// app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
 
 // app.use(
 //   "/static",
@@ -57,6 +57,7 @@ app.use("/v1/visitor", cors(clientCors), visitorRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
+  console.log(404);
   next(createError(404));
 });
 

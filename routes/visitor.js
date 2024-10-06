@@ -20,8 +20,25 @@ const storageDocument = multer.diskStorage({
   },
 });
 
+const imageFilter = function (req, file, cb) {
+  if (
+    file.mimetype === "image/jpeg" ||
+    file.mimetype === "image/jpg" ||
+    file.mimetype === "image/png" ||
+    file.mimetype === "image/webp"
+  ) {
+    cb(null, true); // Accept the file
+  } else {
+    cb(new Error("Only image files are allowed!"), false); // Reject the file
+  }
+};
+
 const uploadDocument = multer({
   storage: storageDocument,
+  fileFilter: imageFilter,
+  limits: {
+    fileSize: 3 * 1024 * 1024, // 1 MB size limit (in bytes)
+  },
 });
 
 router.post(
