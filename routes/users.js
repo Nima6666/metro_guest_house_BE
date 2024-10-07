@@ -56,6 +56,13 @@ router.post(
   userController.adminRegister
 );
 
+router.patch(
+  "/resetPasswordAdm",
+  isAuthenticated,
+  isAdmin,
+  userController.resetAdminPassword
+);
+
 router.post("/login", userController.login);
 
 // router.get("/myProfile", isAuthenticated, userController.myProfile);
@@ -69,12 +76,6 @@ router.post(
   isAuthenticated,
   isAdmin,
   userController.resetUsersPassword
-);
-router.post(
-  "/resetPasswordAdm",
-  isAuthenticated,
-  isAdmin,
-  userController.resetAdminPassword
 );
 router.put(
   "/:id",
