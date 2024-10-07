@@ -56,16 +56,7 @@ router.post(
   userController.adminRegister
 );
 
-router.patch(
-  "/resetPasswordAdm",
-  isAuthenticated,
-  isAdmin,
-  userController.resetAdminPassword
-);
-
 router.post("/login", userController.login);
-
-// router.get("/myProfile", isAuthenticated, userController.myProfile);
 
 router.get("/getCurrentUser", isAuthenticated, userController.myProfile);
 

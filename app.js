@@ -45,13 +45,13 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(cookieParser());
 
-app.get("/", (req, res) => {
-  res.json({
-    message: "Welcome to MetroGuestHouse API",
-  });
-});
+// app.get("/", (req, res) => {
+//   res.json({
+//     message: "Welcome to MetroGuestHouse API",
+//   });
+// });
 
-app.use("/v1/api", cors(clientCors), indexRouter);
+app.use("/", cors(clientCors), indexRouter);
 app.use("/v1/users", cors(clientCors), usersRouter);
 app.use("/v1/visitor", cors(clientCors), visitorRouter);
 
